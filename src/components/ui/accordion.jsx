@@ -1,4 +1,5 @@
 import React, { useState, createContext, useContext } from "react";
+import { ChevronDown } from "lucide-react";
 
 const AccordionContext = createContext(null);
 
@@ -46,7 +47,7 @@ export function AccordionTrigger({ value, children }) {
           open ? "rotate-180" : ""
         }`}
       >
-        ˅
+        <ChevronDown className="h-4 w-4" />
       </span>
     </button>
   );
