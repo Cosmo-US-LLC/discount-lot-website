@@ -1,21 +1,15 @@
 import React from "react";
-
-const imgVisa =
-  "https://www.figma.com/api/mcp/asset/1bd2df0d-97eb-4e27-a720-3da06e34621a";
-const imgMastercard =
-  "https://www.figma.com/api/mcp/asset/79105d64-4008-4152-95c9-55d71a801562";
-const imgDiscover =
-  "https://www.figma.com/api/mcp/asset/9357a068-4afa-46f8-891f-c98811047bd6";
-const imgAmex =
-  "https://www.figma.com/api/mcp/asset/fccf0da4-c7b0-4df7-a484-5c9891c6602d";
-const imgPaypal =
-  "https://www.figma.com/api/mcp/asset/de7aefbf-e0ff-4146-8543-b88c7ce9b3fb";
+import imgVisa from "../../../assets/images/home/Visa_Logo.svg";
+import imgMastercard from "../../../assets/images/home/Mastercard_Logo.svg";
+import imgDiscover from "../../../assets/images/home/Discover_Logo.svg";
+import imgAmex from "../../../assets/images/home/American_Express.svg";
+import imgPaypal from "../../../assets/images/home/PayPal_Logo.svg";
 
 function Footer() {
   return (
-    <footer className="border-t border-(--border-subtle) bg-white text-slate-700">
-      <div className="mx-auto max-w-7xl px-6 py-10">
-        <p className="mb-6 text-center text-sm text-slate-700">
+    <footer className="border-t border-[#f3f4f6] bg-white text-slate-700">
+      <div className="mx-auto flex max-w-5xl flex-col items-center px-6 py-12">
+        <p className="mb-6 text-center text-[18px] leading-7 text-[#161009]">
           Please read our policies regarding{" "}
           <a
             href="#payment-plans"
@@ -30,34 +24,34 @@ function Footer() {
           <img
             src={imgVisa}
             alt="Visa"
-            className="h-[31px] w-[52px] rounded-[2px] bg-[#f5f5f5] object-contain px-1"
+            className="h-[60px] w-[102px] rounded-[2px] bg-[#f5f5f5] object-contain px-1"
           />
           <img
             src={imgMastercard}
             alt="Mastercard"
-            className="h-[31px] w-[52px] rounded-[2px] bg-[#f5f5f5] object-contain px-1.5"
+            className="h-[60px] w-[102px] rounded-[2px] bg-[#f5f5f5] object-contain px-1.5"
           />
           <img
             src={imgDiscover}
             alt="Discover"
-            className="h-[31px] w-[52px] rounded-[2px] bg-[#f5f5f5] object-contain"
+            className="h-[60px] w-[102px] rounded-[2px] bg-[#f5f5f5] object-contain"
           />
           <img
             src={imgAmex}
             alt="American Express"
-            className="h-[31px] w-[52px] rounded-[2px] bg-[#f5f5f5] object-contain"
+            className="h-[60px] w-[102px] rounded-[2px] bg-[#f5f5f5] object-contain"
           />
           <img
             src={imgPaypal}
             alt="PayPal"
-            className="h-[31px] w-[52px] rounded-[2px] bg-[#f5f5f5] object-contain px-2"
+            className="h-[60px] w-[102px] rounded-[2px] bg-[#f5f5f5] object-contain px-2"
           />
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-slate-500">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-[14px] font-[400] leading-[24px] text-[#7d7d7d]">
           <span>Copyright Discount Lots © 2026. All rights reserved.</span>
-          <span className="hidden text-slate-300 md:inline">|</span>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <span className="text-[#d1d5db]">|</span>
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <a href="#privacy" className="hover:text-slate-700">
               Privacy Policy
             </a>

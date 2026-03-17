@@ -6,6 +6,7 @@ import HomeWhyBuyersChooseUs from "../components/pageComponents/home/HomeWhyBuye
 import HomeHowItWorks from "../components/pageComponents/home/HomeHowItWorks";
 import HomeComparison from "../components/pageComponents/home/HomeComparison";
 import HomeWhoAreWe from "../components/pageComponents/home/HomeWhoAreWe";
+import HomeOurPromise from "../components/pageComponents/home/HomeOurPromise";
 import HomeSafeAndSecure from "../components/pageComponents/home/HomeSafeAndSecure";
 import HomeFaq from "../components/pageComponents/home/HomeFaq";
 import HomeTestimonials from "../components/pageComponents/home/HomeTestimonials";
@@ -17,11 +18,12 @@ function Home() {
       <HomeHero />
       <HomeSocialProof />
       <HomeFeaturedProperties />
-      <HomeWhyBuyersChooseUs />
       <HomeHowItWorks />
-      <HomeComparison />
-      <HomeWhoAreWe />
+      <HomeWhyBuyersChooseUs />
       <HomeSafeAndSecure />
+      <HomeWhoAreWe />
+      <HomeOurPromise />
+      <HomeComparison />
       <HomeFaq />
       <HomeTestimonials />
       <HomeContactCta />
