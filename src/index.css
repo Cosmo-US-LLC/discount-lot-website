@@ -1,2 +1,299 @@
 @import "tailwindcss";
 
+/* Local Frank Ruhl Libre (all weights from /assets/fonts/Frank_Ruhl_Libre/static) */
+@font-face {
+  font-family: "Frank Ruhl Libre";
+  src: url("./assets/fonts/Frank_Ruhl_Libre/static/FrankRuhlLibre-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Frank Ruhl Libre";
+  src: url("./assets/fonts/Frank_Ruhl_Libre/static/FrankRuhlLibre-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Frank Ruhl Libre";
+  src: url("./assets/fonts/Frank_Ruhl_Libre/static/FrankRuhlLibre-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Frank Ruhl Libre";
+  src: url("./assets/fonts/Frank_Ruhl_Libre/static/FrankRuhlLibre-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Frank Ruhl Libre";
+  src: url("./assets/fonts/Frank_Ruhl_Libre/static/FrankRuhlLibre-ExtraBold.ttf")
+    format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Frank Ruhl Libre";
+  src: url("./assets/fonts/Frank_Ruhl_Libre/static/FrankRuhlLibre-Black.ttf")
+    format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Local Open Sans (weights from /assets/fonts/Open_Sans/static) */
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/fonts/Open_Sans/static/OpenSans-Thin.ttf")
+    format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/fonts/Open_Sans/static/OpenSans-ExtraLight.ttf")
+    format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/fonts/Open_Sans/static/OpenSans-Light.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/fonts/Open_Sans/static/OpenSans-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/fonts/Open_Sans/static/OpenSans-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/fonts/Open_Sans/static/OpenSans-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/fonts/Open_Sans/static/OpenSans-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/fonts/Open_Sans/static/OpenSans-ExtraBold.ttf")
+    format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/fonts/Open_Sans/static/OpenSans-Black.ttf")
+    format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-heading:
+    "Frank Ruhl Libre", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-body:
+    "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 72px;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -1.2px;
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+h6 {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.body-description {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+}
+.description {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.btn-primary {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  background: #114273;
+  border: 1px solid #114273;
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #fff;
+  color: #114273;
+  border: 1px solid #114273;
+}
+
+.btn-secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  background: #f76d2f;
+  backdrop-filter: blur(10px);
+  color: #fff;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  border: 2px solid #f76d2f;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+  background-color: #fff;
+  color: #f76d2f;
+  border: 2px solid #f76d2f;
+  box-shadow: none;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+    line-height: 45px;
+  }
+
+  h2 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  h3 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  h6 {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 1.2px;
+  }
+
+  .body-description {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .btn-primary,
+  .btn-secondary {
+    font-size: 14px;
+  }
+}

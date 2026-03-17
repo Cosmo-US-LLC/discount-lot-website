@@ -6,13 +6,13 @@ import "./layout.css";
 
 function Layout() {
   return (
-    <div className="dl-layout">
+    <>
       <Header />
-      <main className="dl-layout__main">
+      <div className="dl-layout__content">
         <Outlet />
-      </main>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

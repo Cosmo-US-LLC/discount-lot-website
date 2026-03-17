@@ -1,21 +1,30 @@
 import React from "react";
+import {
+  ResearchIcon,
+  DollarIcon,
+  ContractIcon,
+  OwnershipIcon,
+} from "@/components/common/IconsSvgs";
 
 const steps = [
   {
     number: 1,
     title: "Browse & Pick Your Lot",
+    icon: <ResearchIcon />,
     description:
       "Explore available properties and find one that fits your needs and budget.",
   },
   {
     number: 2,
     title: "Choose Your Payment Plan",
+    icon: <DollarIcon />,
     description:
       "Pay in full or select a flexible monthly plan designed to fit your budget. No credit check required.",
   },
   {
     number: 3,
     title: "Secure Your Lot with as Little as $500 Down",
+    icon: <ContractIcon />,
     description:
       "If you choose the flexible monthly plan, pay $197 to secure your lot, plus a one-time $300 documentation fee for your welcome packet, paperwork & escrow processing. From Month 2, monthly payments begin at $200/mo.",
     badge: "Monthly plan only",
@@ -23,12 +32,14 @@ const steps = [
   {
     number: 4,
     title: "Sign Your Contract",
+    icon: <ContractIcon />,
     description:
       "Your purchase agreement is emailed; sign promptly to secure your lot.",
   },
   {
     number: 5,
     title: "Deed Transfer & Ownership",
+    icon: <OwnershipIcon />,
     description:
       "After your final payment, the deed is officially transferred to your name. No balloon payments, no hidden fees.",
   },
@@ -36,72 +47,69 @@ const steps = [
 
 function HomeHowItWorks() {
   return (
-    <section className="bg-white px-4 pb-20 pt-16">
-      <div className="mx-auto max-w-4xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f76d2f]">
-          How it works
-        </p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#114273] md:text-4xl">
-          A Simple &amp; Secure Process
-        </h2>
-        <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-[#f76d2f]" />
-        <p className="mt-4 text-sm text-slate-600">
-          No banks, no realtors, no paperwork stacks.
-        </p>
-      </div>
+    <section className="bg-white py-18">
+      <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
+        {/* Heading block */}
+        <div className="mx-auto max-w-[552px] text-center space-y-4">
+          <h6 className="text-[#f76d2f]">How it works</h6>
+          <h2 className="text-[#114273]">A Simple &amp; Secure Process</h2>
+          <div className="mx-auto h-1 w-20 rounded-full bg-[#f76d2f]" />
+          <p className="body-description text-[#4a5565]">
+            No banks, no realtors, no paperwork stacks.
+          </p>
+        </div>
 
-      <div className="mx-auto mt-10 flex max-w-4xl gap-6">
-        <div className="relative flex flex-col items-center">
-          <div className="absolute top-8 h-[calc(100%-3rem)] w-[2px] bg-[#114273]" />
+        {/* Timeline + steps: each row has its own rail segment aligned to its card */}
+        <div className="mx-auto mt-14 max-w-[896px] space-y-6">
           {steps.map((step, index) => (
-            <div
-              key={step.number}
-              className={`relative mb-8 flex items-start gap-4 ${
-                index === steps.length - 1 ? "mb-0" : ""
-              }`}
-            >
-              <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#114273] text-base font-semibold text-white shadow-md">
-                {step.number}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex-1 space-y-5">
-          {steps.map((step) => (
-            <div
-              key={step.number}
-              className="rounded-2xl border border-[#f3f4f6] bg-white px-6 py-5 shadow-sm"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <h3 className="text-base font-semibold text-[#114273]">
-                    {step.title}
-                  </h3>
+            <div key={step.number} className="flex gap-6">
+              {/* Left rail segment with number */}
+              <div className="relative flex flex-col items-center pt-1">
+                {/* Vertical line segment below the circle, hidden for last item */}
+                {index !== steps.length - 1 && (
+                  <div className="absolute top-16 bottom-[-30px] w-[2px] bg-[#114273]" />
+                )}
+                <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-[#114273] text-[24px] font-bold leading-[32px] text-white shadow-[0px_10px_15px_rgba(0,0,0,0.1),0px_4px_6px_rgba(0,0,0,0.1)]">
+                  {step.number}
                 </div>
-                {step.badge ? (
-                  <div className="rounded border border-[#f76d2f] px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-[#f76d2f]">
-                    {step.badge}
-                  </div>
-                ) : null}
               </div>
-              <p className="mt-2 text-sm text-[#4a5565]">{step.description}</p>
+
+              {/* Step card */}
+              <div className="flex-1 rounded-[14px] border border-[#f3f4f6] bg-white px-[25px] py-[25px] shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_2px_4px_rgba(0,0,0,0.1)]">
+                <div className="flex items-start gap-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#fef4f1] text-xl text-[#f76d2f]">
+                    {step.icon}
+                  </div>
+
+                  <div className="flex-1 space-y-3">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="text-[#114273]">{step.title}</h3>
+
+                      {step.badge ? (
+                        <div className="h-[26px] rounded-[4px] border border-[#f76d2f] px-[13px] py-[5px] text-[12px] font-semibold uppercase leading-4 tracking-[0.12em] text-[#f76d2f]">
+                          {step.badge.toUpperCase()}
+                        </div>
+                      ) : null}
+                    </div>
+
+                    <p className="description text-[#4a5565]">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
-      </div>
 
-      <div className="mt-10 flex justify-center">
-        <button
-          type="button"
-          className="rounded-lg bg-[#f76d2f] px-10 py-3 text-sm font-semibold uppercase tracking-[0.07em] text-white shadow-md"
-        >
-          Find affordable land
-        </button>
+        <div className="mt-10 flex justify-center">
+          <button type="button" className="btn-secondary text-white">
+            Find Affordable Land
+          </button>
+        </div>
       </div>
     </section>
   );
 }
 
 export default HomeHowItWorks;
-

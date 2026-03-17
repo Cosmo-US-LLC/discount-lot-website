@@ -102,30 +102,26 @@ const faqs = [
 
 function HomeFaq() {
   return (
-    <section className="bg-[#eaf4fb] px-4 py-20">
+    <section className="bg-[#f3f4f6] px-4 py-20">
       <div className="mx-auto max-w-4xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f76d2f]">
-          Resources
-        </p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#114273] md:text-4xl">
-          Got Questions?
-        </h2>
-        <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-[#f76d2f]" />
+        <h6 className=" text-[#f76d2f]">Resources</h6>
+        <h2 className="mt-3 text-[#114273]">Got Questions?</h2>
+        <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-[#f76d2f]" />
       </div>
 
-      <div className="mx-auto mt-10 max-w-4xl rounded-md bg-white shadow-sm">
-        <Accordion
-          type="single"
-          collapsible
-          className="divide-y divide-[#e5e7eb]"
-        >
-          {faqs.map((item, index) => (
-            <AccordionItem key={item.id} value={item.id} className="">
+      <div className="mx-auto mt-14 w-full max-w-4xl">
+        <Accordion type="single" collapsible className="space-y-3">
+          {faqs.map((item) => (
+            <AccordionItem
+              key={item.id}
+              value={item.id}
+              className="overflow-hidden rounded-[6px] bg-white shadow-sm"
+            >
               <AccordionTrigger value={item.id}>
-                {item.question}
+                <h3 className=" text-[#114273]">{item.question}</h3>
               </AccordionTrigger>
               <AccordionContent value={item.id}>
-                <p className="whitespace-pre-line">{item.answer}</p>
+                <p className="whitespace-pre-line description">{item.answer}</p>
               </AccordionContent>
             </AccordionItem>
           ))}
@@ -136,4 +132,3 @@ function HomeFaq() {
 }
 
 export default HomeFaq;
-

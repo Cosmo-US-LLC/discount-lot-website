@@ -1,7 +1,6 @@
 import React from "react";
-
-const logo =
-  "https://www.figma.com/api/mcp/asset/93c9157b-ec86-45c6-aea1-a45c24a59b1b";
+import { Check, X } from "lucide-react";
+import discountLotsLogo from "@/assets/images/home/discount_lots_logo.svg";
 
 const rows = [
   {
@@ -33,54 +32,70 @@ const rows = [
 
 function HomeComparison() {
   return (
-    <section className="bg-white px-4 py-20">
-      <div className="mx-auto max-w-5xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f76d2f]">
+    <section className="bg-white py-18">
+      {/* Heading */}
+      <div className="mx-auto max-w-[1280px] px-4 md:px-8 text-center space-y-3">
+        <h6 className="text-xs font-bold uppercase tracking-[3px] text-[#f76d2f]">
           What makes us different
-        </p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#114273] md:text-4xl">
-          Discount Lots vs Traditional
-        </h2>
-        <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-[#f76d2f]" />
+        </h6>
+        <h2 className="text-[#114273]">Discount Lots vs Traditional</h2>
+        <div className="mx-auto h-1 w-20 rounded-full bg-[#f76d2f]" />
       </div>
 
-      <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-md bg-white">
-        <div className="flex items-center border-b border-[#e5e7eb] px-5 py-3 text-sm font-semibold text-[#114273] uppercase tracking-[0.12em]">
-          <div className="w-40 text-left">Features</div>
-          <div className="flex flex-1 items-center justify-center gap-16">
-            <div className="flex items-center gap-3">
-              <img src={logo} alt="Discount Lots" className="h-8 w-auto" />
-            </div>
-            <div>Traditional banks</div>
-          </div>
-        </div>
-
-        <div className="divide-y divide-[#e5e7eb] text-sm">
-          {rows.map((row) => (
-            <div
-              key={row.label}
-              className="flex items-center px-5 py-3 text-[#111827]"
-            >
-              <div className="w-40 font-semibold text-left">{row.label}</div>
-              <div className="flex flex-1 items-center justify-center gap-16">
-                <div className="text-[#f76d2f] font-semibold text-left w-40">
-                  {row.discountLots}
-                </div>
-                <div className="text-[#6b7280] text-left w-40">
-                  {row.traditional}
-                </div>
-              </div>
-            </div>
-          ))}
+      {/* Comparison table styled like Figma */}
+      <div className="mx-auto mt-10 w-full max-w-[1080px] text-sm text-[#111827]">
+        <div className="overflow-hidden rounded-[6px] border border-[#e5e7eb] bg-white shadow-[0px_18px_40px_rgba(15,23,42,0.06)]">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="text-[20px] font-[700] leading-[28px] uppercase tracking-[-0.5px] text-[#114273]">
+                <th className="px-6 py-4 text-left font-semibold">Features</th>
+                <th className="px-6 py-4 text-center font-semibold">
+                  <div className="inline-flex flex-col items-center gap-3">
+                    <img
+                      src={discountLotsLogo}
+                      alt="Discount Lots"
+                      className="h-10 w-auto"
+                    />
+                  </div>
+                </th>
+                <th className="px-6 py-4 text-center font-semibold text-[#114273]">
+                  Traditional banks
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr key={row.label} className="border-t border-[#e5e7eb]">
+                  <td className="whitespace-nowrap px-6 py-4 text-left font-[600] text-[18px] leading-[28px]">
+                    {row.label}
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <div className="inline-flex w-[280px] items-center gap-4 px-4 py-1 text-[18px] font-[600] leading-[28px] text-[#F76D2F]">
+                      <div className="h-6 w-6 flex items-center justify-center rounded-full bg-[#24B24A]">
+                        <Check className="h-4 w-4 text-white" />
+                      </div>
+                      <span>{row.discountLots}</span>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <div className="inline-flex w-[280px] items-center gap-4 px-4 py-1 text-[18px] font-[400] leading-[28px] text-[#6B7280]">
+                      <div className="h-6 w-6 flex items-center justify-center rounded-full bg-[#EF4444]">
+                        <X className="h-4 w-4 text-white" />
+                      </div>
+                      <span>{row.traditional}</span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
+      {/* CTA */}
       <div className="mt-10 flex justify-center">
-        <button
-          type="button"
-          className="rounded-md bg-[#f76d2f] px-8 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-md"
-        >
-          Find affordable land
+        <button type="button" className="btn-secondary text-white">
+          Find Affordable Land
         </button>
       </div>
     </section>
@@ -88,4 +103,3 @@ function HomeComparison() {
 }
 
 export default HomeComparison;
-
