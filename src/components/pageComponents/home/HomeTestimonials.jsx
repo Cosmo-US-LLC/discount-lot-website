@@ -1,4 +1,5 @@
 import React from "react";
+import { CheckCircle2, MoreVertical, Play, Star } from "lucide-react";
 
 const cards = [
   {
@@ -32,72 +33,112 @@ const cards = [
 
 function HomeTestimonials() {
   return (
-    <section className="bg-[#114273] px-4 py-20 text-white">
-      <div className="mx-auto max-w-5xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f76d2f]">
+    <section className="bg-[#114273] px-4 py-16 text-white md:py-[60px]">
+      <div className="mx-auto max-w-7xl text-center">
+        <p className="text-[12px] font-bold uppercase tracking-[3px] text-[#f76d2f] md:text-[14px]">
           Testimonials
         </p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+        <h2 className="mt-4 font-bold tracking-[-1px] text-[34px] leading-[38px] md:text-[60px] md:leading-[60px] md:tracking-[-1.5px]">
           Hear From Families Like Yours
         </h2>
-        <p className="mt-4 text-sm text-slate-100">
+        <p className="mt-4 text-[16px] leading-[24px] text-white md:text-[20px] md:leading-[28px]">
           Over 3,000+ properties sold to satisfied buyers across the nation.
         </p>
 
-        <div className="mt-5 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-xs font-medium text-white">
-          <span className="flex items-center gap-1">
-            <span className="text-base">G</span>
+        <div className="mx-auto mt-6 inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-3 text-white">
+          <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[12px] font-bold">
+            G
           </span>
-          <span className="flex items-center gap-1 text-[#fbbf24]">
-            {"★★★★★"}
+          <span className="inline-flex items-center gap-1 text-[#f76d2f]">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="h-4 w-4 fill-current" aria-hidden="true" />
+            ))}
           </span>
-          <span>4.9/5 Google Rating</span>
+          <span className="text-[14px] font-bold leading-7 md:text-[18px]">
+            4.9/5 Google Rating
+          </span>
         </div>
       </div>
 
-      <div className="mx-auto mt-10 flex max-w-6xl flex-col gap-10">
-        <div className="grid gap-6 md:grid-cols-3">
+      <div className="mx-auto mt-14 max-w-7xl px-0 md:px-5">
+        <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
           {cards.map((card) => (
             <div
               key={card.name}
-              className="flex flex-col rounded-2xl bg-white text-left shadow-[0_18px_40px_rgba(15,23,42,0.7)]"
+              className="flex w-full flex-col items-center"
             >
-              <div className="relative h-[360px] overflow-hidden rounded-t-2xl">
-                <img
-                  src={card.thumbnail}
-                  alt={card.name}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-sm text-white">
-                  <p>{card.quoteSnippet}</p>
+              <div className="w-full max-w-[353px]">
+                <div className="relative overflow-hidden rounded-[16px] bg-black shadow-[0px_18px_40px_rgba(0,0,0,0.35)]">
+                  <div className="relative aspect-313/517 w-full">
+                    <img
+                      src={card.thumbnail}
+                      alt={card.name}
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+
+                    <button
+                      type="button"
+                      className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-[8px] bg-black/80"
+                      aria-label="More options"
+                    >
+                      <MoreVertical className="h-5 w-5 text-white" aria-hidden="true" />
+                    </button>
+
+                    <div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-[4px] bg-black/80 px-3 py-2 text-white">
+                      <Play className="h-4 w-4 fill-current" aria-hidden="true" />
+                      <span className="text-[12px] font-semibold leading-[15px]">
+                        Play
+                      </span>
+                    </div>
+
+                    <div className="absolute inset-x-0 bottom-0 bg-[#f76d2f] px-5 py-3">
+                      <div className="flex items-center justify-between gap-3">
+                        <p className="truncate text-[20px] font-bold leading-[24px] text-white">
+                          {card.name}
+                        </p>
+                        <span className="text-[12px] font-semibold leading-[15px] text-white/90">
+                          01:00
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="pointer-events-none absolute inset-x-0 bottom-14 px-4 pb-4">
+                      <div className="mx-auto max-w-[260px] rounded-[9999px] bg-black/70 px-3 py-2 text-center text-[12px] leading-[14px] text-white">
+                        {card.quoteSnippet}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <button
-                  type="button"
-                  className="absolute bottom-3 left-3 inline-flex items-center gap-1 rounded bg-black/80 px-2 py-1 text-[0.7rem] font-medium"
-                >
-                  ▶ <span>Play</span>
-                </button>
-              </div>
-              <div className="px-4 pb-5 pt-4 text-[#0f172a]">
-                <div className="mb-1 text-sm text-[#fbbf24]">★★★★★</div>
-                <h3 className="text-sm font-semibold text-[#114273]">
-                  {card.name}
-                </h3>
-                <p className="mt-2 text-xs text-slate-700">{card.quote}</p>
-                <div className="mt-3 flex items-center gap-2 text-[0.7rem] text-emerald-400">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                  <span>{card.role}</span>
+
+                <div className="mt-5 flex flex-col items-center text-center">
+                  <div className="text-[#f7cf2f]">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="inline-block h-4 w-4 fill-current" aria-hidden="true" />
+                    ))}
+                  </div>
+                  <h3 className="mt-3 text-[16px] font-bold tracking-[0.4px] text-white">
+                    {card.name}
+                  </h3>
+                  <p className="mt-2 text-[16px] leading-[24px] text-white/90">
+                    {card.quote}
+                  </p>
+
+                  <div className="mt-5 inline-flex items-center gap-2 text-[14px] leading-[20px] text-white/80">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-400" aria-hidden="true" />
+                    <span>{card.role}</span>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="flex justify-center gap-2">
-          <span className="h-1.5 w-4 rounded-full bg-white" />
-          <span className="h-1.5 w-4 rounded-full bg-white/40" />
-          <span className="h-1.5 w-4 rounded-full bg-white/40" />
-          <span className="h-1.5 w-4 rounded-full bg-white/40" />
+        <div className="mt-10 flex justify-center gap-3">
+          <span className="h-2 w-2 rounded-full bg-white/70" />
+          <span className="h-2 w-2 rounded-full bg-white/30" />
+          <span className="h-2 w-2 rounded-full bg-white/30" />
+          <span className="h-2 w-2 rounded-full bg-white/30" />
+          <span className="h-2 w-2 rounded-full bg-white/30" />
         </div>
       </div>
     </section>
