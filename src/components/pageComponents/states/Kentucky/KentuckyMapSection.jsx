@@ -6,19 +6,14 @@ const mapImage =
 
 function KentuckyMapSection() {
   return (
-    <section className="bg-white px-4 py-16 md:px-[68px] md:py-[60px]">
+    <section className="bg-white md:px-8 px-4 py-16">
       <div className="mx-auto flex max-w-[1000px] flex-col items-center gap-10 text-center">
         <div className="max-w-[560px] space-y-5">
-          <p className="text-[12px] font-bold uppercase tracking-[3px] text-[#114273]">
-            Interactive Property Map
-          </p>
-          <h2 className="text-[32px] font-black leading-[1.1] text-[#114273] md:text-[50px]">
-            Explore the{" "}
-            <span className="text-[#f47b20]">
-              Subdivision
-            </span>
+          <h6 className="text-[#114273]">Interactive Property Map</h6>
+          <h2 className="text-[#114273]">
+            Explore the <span className="text-[#f47b20]">Subdivision</span>
           </h2>
-          <p className="text-[16px] leading-[1.4] text-[#5a6a82]">
+          <p className="body-description text-[#5a6a82]">
             43 numbered lots across a wooded, rolling landscape with paved road
             frontage. Click any lot to explore boundaries and details.
           </p>
@@ -28,17 +23,14 @@ function KentuckyMapSection() {
           <img
             src={mapImage}
             alt="Map view of Kentucky subdivision lots"
-            className="h-full w-full object-cover"
+            className="h-[400px] w-full object-cover"
             loading="lazy"
           />
         </div>
 
         <p className="text-[14px] font-semibold text-[#7a8fa8]">
           Can&apos;t see the map above?{" "}
-          <a
-            href="#interactive-lot-map"
-            className="text-[#114273] underline"
-          >
+          <a href="#interactive-lot-map" className="text-[#114273] underline">
             Click here to open the interactive lot map
           </a>
         </p>
@@ -48,4 +40,3 @@ function KentuckyMapSection() {
 }
 
 export default KentuckyMapSection;
-

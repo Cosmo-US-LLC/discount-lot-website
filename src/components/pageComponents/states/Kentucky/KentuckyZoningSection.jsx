@@ -1,4 +1,6 @@
 import React from "react";
+import { CheckIcon } from "@/components/common/IconsSvgs";
+import { ArrowRightIcon } from "lucide-react";
 
 const zoningRules = [
   "No county zoning confirmed by Clinton County Judge Executive Office",
@@ -18,54 +20,46 @@ const useCases = [
 
 function KentuckyZoningSection() {
   return (
-    <section className="bg-[#eaf4fb] px-4 py-16 md:px-[68px] md:py-[60px]">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8">
-        <div className="max-w-[800px] space-y-4">
-          <p className="text-[12px] font-bold uppercase tracking-[3px] text-[#114273]">
-            What You Can Do Here
-          </p>
-          <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.8px] text-[#114273] md:text-[48px] md:tracking-[-1.2px]">
-            Your Land, Your Rules
-          </h2>
+    <section className="bg-[#eaf4fb] py-18">
+      <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col items-center gap-8">
+        <div className="w-full space-y-[14px]">
+          <h6 className="text-[#114273]">What You Can Do Here</h6>
+          <h2 className="text-[#114273]">Your Land,&nbsp;Your Rules</h2>
           <p className="text-[16px] leading-[26px] text-black">
-            Clinton County has <strong>no zoning restrictions</strong> giving you rare
-            freedom to use your land however you choose.
+            Clinton County has <strong>no zoning restrictions</strong> giving
+            you rare freedom to use your land however you choose.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          <article className="rounded-[8px] bg-white px-6 py-7 shadow-sm">
-            <div className="mb-5 flex items-center gap-3">
+        <div className="flex w-full flex-col items-center justify-between gap-6 md:flex-row md:items-start">
+          <article className="w-full max-w-[637px] h-[346px] rounded-[8px] bg-white px-6 py-[30px]">
+            <div className="mb-6 flex items-center gap-3">
               <span className="h-[25px] w-1 rounded-[1px] bg-[#f76d2f]" />
               <h3 className="text-[24px] font-bold text-[#114273]">
                 Zoning &amp; Building Rules
               </h3>
             </div>
-            <ul className="space-y-3 text-[16px] leading-[1.4] text-[#4a5565]">
+            <ul className="space-y-6 text-[16px] leading-[1.4] text-[#4a5565]">
               {zoningRules.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <span className="mt-[3px] text-[#16a34a]" aria-hidden="true">
-                    ✓
-                  </span>
+                <li key={item} className="flex gap-3">
+                  <CheckIcon className="mt-[3px] size-4 shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </article>
 
-          <article className="rounded-[8px] bg-white px-6 py-7 shadow-sm">
-            <div className="mb-5 flex items-center gap-3">
+          <article className="w-full max-w-[637px] h-[346px] rounded-[8px] bg-white px-6 py-[30px]">
+            <div className="mb-6 flex items-center gap-3">
               <span className="h-[25px] w-1 rounded-[1px] bg-[#f76d2f]" />
               <h3 className="text-[24px] font-bold text-[#114273]">
                 What You Can Build or Do
               </h3>
             </div>
-            <ul className="space-y-3 text-[16px] leading-[1.4] text-[#4a5565]">
+            <ul className="space-y-6 text-[16px] leading-[1.4] text-[#4a5565]">
               {useCases.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <span className="mt-[3px] text-[#16a34a]" aria-hidden="true">
-                    ✓
-                  </span>
+                <li key={item} className="flex gap-3">
+                  <CheckIcon className="mt-[3px] size-4 shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -73,21 +67,21 @@ function KentuckyZoningSection() {
           </article>
         </div>
 
-        <div className="mt-6 flex justify-center">
-          <a
-            href="#ky-properties"
-            className="inline-flex items-center gap-2 rounded-[8px] bg-[#f76d2f] px-9 py-4 text-[16px] font-bold text-white"
+        <a
+          href="#ky-properties"
+          className="mt-2 inline-flex items-center justify-center gap-[6px] rounded-[8px] btn-secondary text-white"
+        >
+          View Available Lots &amp; Pricing
+          <span
+            className="inline-flex size-5 items-center justify-center"
+            aria-hidden="true"
           >
-            View Available Lots &amp; Pricing
-            <span className="text-lg" aria-hidden="true">
-              ↑
-            </span>
-          </a>
-        </div>
+            <ArrowRightIcon className="size-5" />
+          </span>
+        </a>
       </div>
     </section>
   );
 }
 
 export default KentuckyZoningSection;
-

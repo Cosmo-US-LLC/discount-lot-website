@@ -17,20 +17,17 @@ const platforms = [
 
 const quotes = [
   {
-    text:
-      "The process was incredibly simple. From browsing to closing in less than a week I couldn't believe how fast it went. My Land Specialist answered every question I had. I'm already looking at my second lot.",
+    text: "The process was incredibly simple. From browsing to closing in less than a week I couldn't believe how fast it went. My Land Specialist answered every question I had. I'm already looking at my second lot.",
     attribution: "— Verified Google Reviewer",
     meta: "Google · 5 Stars",
   },
   {
-    text:
-      "I never thought I could own land. No credit check, affordable payments, and a team that actually picks up the phone. Discount Lots is the real deal. Highly recommend to anyone looking to invest in their future.",
+    text: "I never thought I could own land. No credit check, affordable payments, and a team that actually picks up the phone. Discount Lots is the real deal. Highly recommend to anyone looking to invest in their future.",
     attribution: "— Verified Trustpilot Reviewer",
     meta: "Trustpilot · 5 Stars",
   },
   {
-    text:
-      "Bought two lots now and plan to buy a third. The Portfolio Manager team has been amazing after the purchase — they keep you in the loop and actually care about what you're building toward. Refreshing.",
+    text: "Bought two lots now and plan to buy a third. The Portfolio Manager team has been amazing after the purchase — they keep you in the loop and actually care about what you're building toward. Refreshing.",
     attribution: "— Verified BBB Reviewer",
     meta: "BBB · 5 Stars",
   },
@@ -38,8 +35,8 @@ const quotes = [
 
 function KentuckyReviewsSection() {
   return (
-    <section className="bg-white px-4 py-16 md:px-[64px] md:py-[40px]">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 text-center">
+    <section className="bg-white py-16">
+      <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col items-center gap-10 text-center">
         <div className="max-w-[800px] space-y-4">
           <p className="text-[14px] font-bold uppercase tracking-[3px] text-[#f76d2f]">
             What Our Customers Say
@@ -49,8 +46,8 @@ function KentuckyReviewsSection() {
               3,000+ Families Trust Discount Lots
             </h2>
             <p className="text-[16px] leading-[26px] text-black md:text-[18px]">
-              Don&apos;t take our word for it—here&apos;s what verified buyers have to
-              say across every major review platform.
+              Don&apos;t take our word for it—here&apos;s what verified buyers
+              have to say across every major review platform.
             </p>
           </div>
         </div>
@@ -65,8 +62,8 @@ function KentuckyReviewsSection() {
                 {platform.name.startsWith("BBB")
                   ? "BBB"
                   : platform.name.startsWith("Google")
-                  ? "G"
-                  : "T"}
+                    ? "G"
+                    : "T"}
               </div>
               <div>
                 <p className="text-[14px] font-extrabold text-[#0a2240]">
@@ -82,7 +79,7 @@ function KentuckyReviewsSection() {
           {quotes.map((quote) => (
             <article
               key={quote.meta}
-              className="flex w-full max-w-[424px] flex-col rounded-[14px] border border-[#f3f4f6] bg-white px-6 py-6 text-left shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)]"
+              className="flex w-full max-w-[390px] flex-col rounded-[14px] border border-[#f3f4f6] bg-white px-6 py-6 text-left shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)]"
             >
               <p className="mb-3 text-[18px] text-[#f5a623]">★★★★★</p>
               <p className="text-[16px] leading-[1.4] text-[#4a5565]">
@@ -101,4 +98,3 @@ function KentuckyReviewsSection() {
 }
 
 export default KentuckyReviewsSection;
-
