@@ -11,6 +11,7 @@ import HomeSafeAndSecure from "../components/pageComponents/home/HomeSafeAndSecu
 import HomeFaq from "../components/pageComponents/home/HomeFaq";
 import HomeTestimonials from "../components/pageComponents/home/HomeTestimonials";
 import HomeContactCta from "../components/pageComponents/home/HomeContactCta";
+import { homeFaqs as defaultFaqs } from "@/data/faqs";
 
 function Home() {
   return (
@@ -24,7 +25,7 @@ function Home() {
       <HomeWhoAreWe />
       <HomeOurPromise />
       <HomeComparison />
-      <HomeFaq />
+      <HomeFaq eyebrow="Resources" title="Got Questions?" faqs={defaultFaqs} />
       <HomeTestimonials />
       <HomeContactCta />
     </div>
