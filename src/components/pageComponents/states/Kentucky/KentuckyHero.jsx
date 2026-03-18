@@ -1,0 +1,84 @@
+import React from "react";
+import heroImageDesktop from "@/assets/images/kentucky/kentucky_hero_desktop.webp";
+import heroImageMobile from "@/assets/images/kentucky/kentucky_hero_mobile.webp";
+import BlurImage from "@/components/common/BlurImage";
+
+function KentuckyHero() {
+  return (
+    <section className="relative h-full w-full flex items-center pt-[120px] pb-[60px] -mt-(--header-height) text-white">
+      <div className="absolute inset-0">
+        <div className="hidden h-full w-full md:block">
+          <BlurImage
+            src={heroImageDesktop}
+            alt="Rolling farmland at sunset"
+            blurhash="LE84lE%1oJbb?dxZa}kCkYjEkCj["
+            className="h-full w-full"
+          />
+        </div>
+        <div className="h-full w-full md:hidden">
+          <BlurImage
+            src={heroImageMobile}
+            alt="Rolling farmland at sunset"
+            blurhash="LE84lE%1oJbb?dxZa}kCkYjEkCj["
+            className="h-full w-full"
+          />
+        </div>
+      </div>
+      <div className="mx-auto z-1 flex max-w-[1280px] md:px-8 px-4 flex-col items-center gap-10 text-center">
+        <div className="flex flex-col items-center gap-8 max-w-[748px]">
+          <div className="inline-flex items-center text-white rounded-[6px] border border-white px-4 py-3 text-[14px] font-bold uppercase tracking-[0.08em]">
+            New Kentucky Subdivision
+          </div>
+
+          <div>
+            <h1 className="font-black">
+              <span>Kentucky </span>
+              <span className="text-[#f76d2f]">Rollin&apos; Hills</span>
+              <p className="mt-2 font-black">Clinton County, KY</p>
+            </h1>
+          </div>
+
+          <div className="text-[16px] leading-normal text-white/80 md:text-[20px]">
+            <p className="mb-1">
+              43 private lots tucked into the rolling hills of south-central
+              Kentucky
+            </p>
+            <p className="mb-1">
+              no zoning restrictions, no banks, no middlemen. Owner financing
+            </p>
+            <p>starts at just $500 down</p>
+          </div>
+        </div>
+
+        <div className="flex max-w-[626px] flex-wrap items-center justify-center gap-3">
+          {[
+            "43 Available Lots",
+            "No Zoning Restrictions",
+            "Water & Power at Road",
+            "Paved Road Access",
+            "Owner Financing Available",
+          ].map((label) => (
+            <div
+              key={label}
+              className="backdrop-blur-[2px] rounded-full border border-white/20 bg-white/10 px-6 py-2 text-[14px] font-semibold text-white"
+            >
+              {label}
+            </div>
+          ))}
+        </div>
+
+        <a
+          href="#ky-properties"
+          className="mt-4 inline-flex items-center gap-2 bg-[#f76d2f] hover:bg-transparent! btn-secondary"
+        >
+          View Available Lots &amp; Pricing
+          <span className="text-lg" aria-hidden="true">
+            ↑
+          </span>
+        </a>
+      </div>
+    </section>
+  );
+}
+
+export default KentuckyHero;

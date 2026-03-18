@@ -1,7 +1,18 @@
 import { HeaderLogo } from "@/components/common/IconsSvgs";
 import React, { useEffect, useState } from "react";
 
-function Header() {
+const defaultLinks = [
+  { label: "How it works", href: "#home" },
+  { label: "About Us", href: "#how-it-works" },
+  { label: "Reviews", href: "#auctions" },
+  { label: "FAQ", href: "#faq" },
+];
+
+function Header({
+  links = defaultLinks,
+  ctaLabel = "Get started",
+  ctaHref = "#properties",
+}) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -23,31 +34,18 @@ function Header() {
         </div>
 
         <ul className="dl-nav__links">
-          <li>
-            <a href="#home" className="dl-nav__link">
-              How it works
-            </a>
-          </li>
-          <li>
-            <a href="#how-it-works" className="dl-nav__link">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="#auctions" className="dl-nav__link">
-              Reviews
-            </a>
-          </li>
-          <li>
-            <a href="#faq" className="dl-nav__link">
-              FAQ
-            </a>
-          </li>
+          {links.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} className="dl-nav__link">
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
 
-        <button type="button" className="dl-nav__btn btn-primary">
-          Get started
-        </button>
+        <a href={ctaHref} className="dl-nav__btn btn-primary">
+          {ctaLabel}
+        </a>
       </nav>
     </div>
   );
