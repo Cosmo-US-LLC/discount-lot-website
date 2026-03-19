@@ -33,7 +33,7 @@ const cards = [
 
 function HomeTestimonials() {
   return (
-    <section className="bg-[#114273] px-4 py-16 text-white md:py-[60px]">
+    <section id="reviews" className="bg-[#114273] px-4 py-16 text-white md:py-[60px]">
       <div className="mx-auto max-w-7xl text-center">
         <p className="text-[12px] font-bold uppercase tracking-[3px] text-[#f76d2f] md:text-[14px]">
           Testimonials

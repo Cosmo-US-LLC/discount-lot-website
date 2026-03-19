@@ -1,6 +1,11 @@
 import React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+
+import TestimonialsSlide1 from "@/assets/images/kentucky/testimonials_slide_1.webp";
+import TestimonialsSlide2 from "@/assets/images/kentucky/testimonials_slide_2.webp";
+import TestimonialsSlide3 from "@/assets/images/kentucky/testimonials_slide_3.webp";
+import TestimonialsSlide4 from "@/assets/images/kentucky/testimonials_slide_4.webp";
 
 import {
   Carousel,
@@ -13,33 +18,29 @@ const testimonials = [
     name: "Marcus R.",
     quote:
       '"I was skeptical at first  buying land online felt risky. But DiscountLots made it so easy. My 5-acre parcel in Mohave County was exactly what was described. Papers signed in 2 days."',
-    videoThumb:
-      "https://www.figma.com/api/mcp/asset/a4ee53f4-0170-49ef-8b21-9997821489c9",
+    videoThumb: TestimonialsSlide1,
   },
   {
     name: "Teresa L.",
     quote: `"The financing is what got me. I couldn't get a bank loan but $199 down and $149/month? That I could do. Now I own land in Yavapai County. Still feels unreal."`,
-    videoThumb:
-      "https://www.figma.com/api/mcp/asset/486da714-68f5-4c4e-8021-3f1d8c6335ae",
+    videoThumb: TestimonialsSlide2,
   },
   {
     name: "James K.",
     quote: `"Third parcel I've bought from these guys. They're consistent, the titles are clean, and the customer service team actually answers the phone. Rare."`,
-    videoThumb:
-      "https://www.figma.com/api/mcp/asset/6136775f-eb37-4a0d-9b4a-c94233fca459",
+    videoThumb: TestimonialsSlide3,
   },
   {
     name: "Sal Villacorta",
     quote: `"Discount lot gave me a opportunity, and I came across a website, and the prices are ridiculously low. That’s the best opportunity there is."`,
-    videoThumb:
-      "https://www.figma.com/api/mcp/asset/95dd8e95-4dad-47d3-a669-7e5053c7753e",
+    videoThumb: TestimonialsSlide4,
   },
 ];
 
 function KentuckyVideoTestimonialsSection() {
   const autoplay = React.useRef(
     Autoplay({
-      delay: 4500,
+      delay: 3000,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     }),
@@ -48,12 +49,16 @@ function KentuckyVideoTestimonialsSection() {
   const [api, setApi] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [snapCount, setSnapCount] = React.useState(testimonials.length);
+  const [canPrev, setCanPrev] = React.useState(false);
+  const [canNext, setCanNext] = React.useState(false);
 
   React.useEffect(() => {
     if (!api) return;
     const update = () => {
       setSelectedIndex(api.selectedScrollSnap());
       setSnapCount(api.scrollSnapList().length);
+      setCanPrev(api.canScrollPrev());
+      setCanNext(api.canScrollNext());
     };
     update();
     api.on("select", update);
@@ -65,37 +70,55 @@ function KentuckyVideoTestimonialsSection() {
   }, [api]);
 
   return (
-    <section className="bg-[#114273] px-4 py-20 md:px-8q md:py-[80px]">
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-12">
-        <header className="flex w-full max-w-[660px] flex-col items-center gap-5 text-center">
-          <p className="text-[12px] font-bold uppercase tracking-[3px] text-[#e05a28]">
-            Hear It Directly
-          </p>
-          <h2 className="text-[36px] font-black leading-[1.1] text-white md:text-[50px]">
-            Video&nbsp;Testimonials
-          </h2>
-        </header>
+    <section id="testimonials" className="bg-[#114273] py-18">
+      <div className="mx-auto flex w-full max-w-[1280px] md:px-8 px-4 flex-col items-center gap-12">
+        <div className="flex w-full max-w-[660px] flex-col items-center gap-5 text-center">
+          <h6 className="uppercase text-[#e05a28]">Hear It Directly</h6>
+          <h2 className="text-white">Video&nbsp;Testimonials</h2>
+        </div>
 
-        <div className="w-full">
+        <div className="w-full relative">
           <Carousel
             setApi={setApi}
-            opts={{ loop: true, align: "start" }}
+            opts={{ loop: true, align: "start", slidesToScroll: 1 }}
             plugins={[autoplay.current]}
             className="w-full"
           >
+            {/* Desktop arrows (top-right) */}
+            <div className="absolute right-0 top-[-10%] w-[112px] hidden items-center gap-4 md:flex">
+              <button
+                type="button"
+                onClick={() => api?.scrollPrev()}
+                disabled={!canPrev}
+                aria-label="Previous"
+                className="inline-flex size-12 items-center justify-center cursor-pointer rounded-full border border-white bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20 disabled:opacity-40"
+              >
+                <ArrowLeft className="size-6" />
+              </button>
+              <button
+                type="button"
+                onClick={() => api?.scrollNext()}
+                disabled={!canNext}
+                aria-label="Next"
+                className="inline-flex size-12 items-center justify-center cursor-pointer rounded-full border border-white bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20 disabled:opacity-40"
+              >
+                <ArrowRight className="size-6" />
+              </button>
+            </div>
+
             <CarouselContent className="-ml-4">
               {testimonials.map((t, idx) => (
                 <CarouselItem
                   key={t.name}
-                  className="pl-4 md:basis-1/2 xl:basis-1/4"
+                  className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
                 >
-                  <article className="flex h-full flex-col items-center">
-                    <div className="w-full max-w-[353px] rounded-[16px] bg-black/10 p-2">
-                      <div className="relative h-[480px] w-full overflow-hidden rounded-[16px] bg-black md:h-[556px]">
+                  <article className="flex h-full flex-col  items-center">
+                    <div className="w-full flex gap-2 flex-col rounded-[6px]">
+                      <div className="relative h-[480px] w-full overflow-hidden rounded-[16px] bg-black md:h-[606px]">
                         <img
                           alt=""
                           src={t.videoThumb}
-                          className="absolute inset-0 size-full object-cover"
+                          className="size-full object-fill object-top"
                           loading={idx === 0 ? "eager" : "lazy"}
                         />
                       </div>
@@ -107,7 +130,7 @@ function KentuckyVideoTestimonialsSection() {
                         <p className="text-[16px] font-bold tracking-[0.4px] text-white">
                           {t.name}
                         </p>
-                        <p className="max-w-[301px] text-[16px] leading-[23.2px] text-white">
+                        <p className="max-w-[301px] h-[120px] text-[16px] leading-[23.2px] text-white">
                           {t.quote}
                         </p>
                       </div>
@@ -123,6 +146,28 @@ function KentuckyVideoTestimonialsSection() {
                 </CarouselItem>
               ))}
             </CarouselContent>
+
+            {/* Mobile arrows (below) */}
+            <div className="mt-6 flex items-center justify-center gap-3 md:hidden">
+              <button
+                type="button"
+                onClick={() => api?.scrollPrev()}
+                disabled={!canPrev}
+                aria-label="Previous"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20 disabled:opacity-40"
+              >
+                <ArrowLeft className="size-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => api?.scrollNext()}
+                disabled={!canNext}
+                aria-label="Next"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20 disabled:opacity-40"
+              >
+                <ArrowRight className="size-4" />
+              </button>
+            </div>
           </Carousel>
 
           <div className="mt-8 flex items-center justify-center">

@@ -2,10 +2,11 @@ import React from "react";
 import heroImageDesktop from "@/assets/images/kentucky/kentucky_hero_desktop.webp";
 import heroImageMobile from "@/assets/images/kentucky/kentucky_hero_mobile.webp";
 import BlurImage from "@/components/common/BlurImage";
+import { ArrowRightIcon } from "lucide-react";
 
 function KentuckyHero() {
   return (
-    <section className="relative h-full w-full flex items-center pt-[120px] pb-[60px] -mt-(--header-height) text-white">
+    <section className="relative h-[117dvh] w-full flex items-center pt-[120px] pb-[60px] -mt-(--header-height) text-white">
       <div className="absolute inset-0">
         <div className="hidden h-full w-full md:block">
           <BlurImage
@@ -24,7 +25,7 @@ function KentuckyHero() {
           />
         </div>
       </div>
-      <div className="mx-auto z-1 flex max-w-[1280px] md:px-8 px-4 flex-col items-center gap-10 text-center">
+      <div className="mx-auto z-1 flex max-w-[1280px] md:px-8 px-4 flex-col items-center gap-8 text-center">
         <div className="flex flex-col items-center gap-8 max-w-[748px]">
           <div className="inline-flex items-center text-white rounded-[6px] border border-white px-4 py-3 text-[14px] font-bold uppercase tracking-[0.08em]">
             New Kentucky Subdivision
@@ -50,7 +51,7 @@ function KentuckyHero() {
           </div>
         </div>
 
-        <div className="flex max-w-[626px] flex-wrap items-center justify-center gap-3">
+        <div className="flex md:max-w-[626px] max-w-full flex-wrap items-center justify-center md:gap-3 gap-2">
           {[
             "43 Available Lots",
             "No Zoning Restrictions",
@@ -60,7 +61,7 @@ function KentuckyHero() {
           ].map((label) => (
             <div
               key={label}
-              className="backdrop-blur-[2px] rounded-full border border-white/20 bg-white/10 px-6 py-2 text-[14px] font-semibold text-white"
+              className="backdrop-blur-[2px] rounded-full border border-white/20 bg-white/10 px-4 md:px-6 py-2 md:text-[14px] text-[12px] font-semibold text-white"
             >
               {label}
             </div>
@@ -72,9 +73,7 @@ function KentuckyHero() {
           className="mt-4 inline-flex items-center gap-2 bg-[#f76d2f] hover:bg-transparent! btn-secondary"
         >
           View Available Lots &amp; Pricing
-          <span className="text-lg" aria-hidden="true">
-            ↑
-          </span>
+          <ArrowRightIcon className="h-5 w-5" />
         </a>
       </div>
     </section>

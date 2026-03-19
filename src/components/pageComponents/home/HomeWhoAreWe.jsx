@@ -3,7 +3,7 @@ import foundersImage from "@/assets/images/home/who_are_we.webp";
 
 function HomeWhoAreWe() {
   return (
-    <section className="bg-[#eaf4fb] py-20">
+    <section id="about-us" className="bg-[#eaf4fb] py-20">
       <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col gap-16 rounded-[40px] bg-[#eaf4fb] md:flex-row ">
         {/* Left: founders image / video card */}
         <div className="relative h-[280px] w-full overflow-hidden rounded-[16px] bg-black shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] md:h-[448px] md:flex-1">

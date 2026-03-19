@@ -1,13 +1,12 @@
 import React from "react";
-
-const BOOKING_IMAGE =
-  "https://www.figma.com/api/mcp/asset/ef14fb2a-44ec-4694-8a4d-8bcaad6d2784";
+import BookingCallImageDesktop from "@/assets/images/kentucky/book_a_call_desktop.webp";
+import BookingCallImageMobile from "@/assets/images/kentucky/book_a_call_mobile.webp";
 
 function KentuckyBookingCallSection() {
   return (
-    <section className="bg-white px-4 py-16 md:px-[68px] md:py-[60px]">
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 text-center">
-        <div className="flex w-full max-w-[560px] flex-col items-center gap-7">
+    <section id="schedule-a-call" className="bg-white md:py-18 py-14">
+      <div className="mx-auto flex w-full max-w-[1280px] px-4 md:px-8 flex-col items-center gap-10 text-center">
+        <div className="flex w-full max-w-[560px] flex-col items-center md:gap-7 gap-3">
           <div className="flex flex-col items-center gap-5">
             <h6 className="text-[#f76d2f]">Talk to a Land Specialist</h6>
             <h2 className="text-[#0a2240]">Book a Free&nbsp;15‑Minute Call</h2>
@@ -19,15 +18,20 @@ function KentuckyBookingCallSection() {
           </p>
         </div>
 
-        <div className="h-[260px] w-full max-w-[885px] overflow-hidden rounded-[16px] bg-white shadow-[0px_8px_25px_rgba(0,0,0,0.1)] md:h-[350px]">
-          <div className="relative h-full w-full">
-            <img
-              alt=""
-              src={BOOKING_IMAGE}
-              className="absolute left-0 top-[9px] h-auto w-full object-cover"
-              loading="lazy"
-            />
-          </div>
+        <div className="max-md:hidden h-[350px] w-full max-w-[885px] overflow-hidden rounded-[6px] bg-white shadow-[0px_8px_25px_rgba(0,0,0,0.1)] ">
+          <img
+            src={BookingCallImageDesktop}
+            alt="Book a call"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="md:hidden h-full w-full max-w-[885px] overflow-hidden rounded-[6px] bg-white shadow-[0px_8px_25px_rgba(0,0,0,0.1)] ">
+          <img
+            src={BookingCallImageMobile}
+            alt="Book a call"
+            className="w-full h-full object-cover"
+          />
         </div>
 
         <p className="text-[14px] font-semibold leading-[1.4] text-[#7a8fa8]">

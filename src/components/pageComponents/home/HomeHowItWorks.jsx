@@ -47,7 +47,7 @@ const steps = [
 
 function HomeHowItWorks() {
   return (
-    <section className="bg-white py-18">
+    <section id="how-it-works" className="bg-white py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
         {/* Heading block */}
         <div className="mx-auto max-w-[552px] text-center space-y-4">

@@ -75,7 +75,7 @@ function KentuckyLandInfoSection() {
             // eslint-disable-next-line react/no-unstable-nested-components
             <article
               key={card.label}
-              className="flex w-full max-w-[240px] flex-col items-center rounded-[6px] border border-[#f3f4f6] bg-white px-4 py-[25px] text-center shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)] md:max-w-[207.5px]"
+              className="flex w-full flex-col items-center rounded-[6px] border border-[#f3f4f6] bg-white px-4 py-[25px] text-center shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)] md:max-w-[207.5px]"
             >
               <div className="flex w-full flex-col items-center gap-5">
                 <div className="relative size-[50px] shrink-0 overflow-hidden">

@@ -6,7 +6,7 @@ import { TickBadgeIcon, SearchIcon } from "../../common/IconsSvgs";
 
 function HomeHero() {
   return (
-    <section className="relative h-full w-full flex items-center min-h-dvh -mt-(--header-height) pt-(--header-height) text-white">
+    <section id="home" className="relative h-full w-full flex items-center min-h-dvh -mt-(--header-height) pt-(--header-height) text-white">
       <div className="absolute inset-0">
         <div className="hidden h-full w-full md:block">
           <BlurImage
