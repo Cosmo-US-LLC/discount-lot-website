@@ -1,9 +1,5 @@
 import React from "react";
 
-// Temporary Figma-hosted image; replace with a local asset when ready.
-const mapImage =
-  "https://www.figma.com/api/mcp/asset/50566bbe-04f3-4929-bc24-f79c72ba9921";
-
 function KentuckyMapSection() {
   return (
     <section id="explore-lots" className="bg-white md:px-8 px-4 py-16">
@@ -19,13 +15,16 @@ function KentuckyMapSection() {
           </p>
         </div>
 
-        <div className="w-full rounded-[16px] shadow-[0px_4px_30px_0px_rgba(10,34,64,0.1)] overflow-hidden">
-          <img
-            src={mapImage}
-            alt="Map view of Kentucky subdivision lots"
-            className="h-[400px] w-full object-cover"
-            loading="lazy"
-          />
+        <div className="w-full overflow-hidden rounded-[16px] shadow-[0px_4px_30px_0px_rgba(10,34,64,0.1)]">
+          <div className="relative w-full" style={{ paddingTop: "66.6667%" }}>
+            <iframe
+              src="https://id.land/maps/2b6e8065457f7545420bcaf2d0c51d36/share"
+              title="Kentucky subdivision interactive map"
+              className="absolute inset-0 h-full w-full border-0"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
         </div>
 
         <p className="text-[14px] font-semibold text-[#7a8fa8]">
