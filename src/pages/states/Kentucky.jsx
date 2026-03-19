@@ -36,6 +36,7 @@ function Kentucky() {
       <KentuckyIncBanner />
       <KentuckyBookingCallSection />
       <HomeFaq
+        sectionId="resources"
         eyebrow="Kentucky FAQs"
         title="Frequently Asked Questions"
         faqs={kentuckyFaqs}

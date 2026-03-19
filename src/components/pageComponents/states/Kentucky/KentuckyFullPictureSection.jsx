@@ -110,11 +110,11 @@ function KentuckyFullPictureSection() {
                   </div>
                 ))}
               </div>
-              <div className="flex flex-col gap-5 sm:flex-row">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 {pills.slice(2, 4).map((pill) => (
                   <div
                     key={pill.top}
-                    className="flex w-full items-center justify-center rounded-[40px] border border-[#114273]/40 bg-[#114273]/10 px-[22.8px] py-[10.4px] text-center text-[#114273] backdrop-blur-[2px]"
+                    className="flex w-full items-center justify-center rounded-[40px] border border-[#114273]/40 bg-[#114273]/10 px-[22.8px] py-[9.4px] text-center text-[#114273] backdrop-blur-[2px]"
                   >
                     <div>
                       <p className="text-[16px] font-bold leading-[1.4]">
@@ -144,7 +144,7 @@ function KentuckyFullPictureSection() {
                       <img
                         alt=""
                         src={src}
-                        className="absolute left-[-12.17%] top-[0.01%] h-[99.97%] w-[133.89%] max-w-none"
+                        className="absolute left-[-6.17%] top-[0.01%] h-[99.97%] w-[113.89%] max-w-none"
                         loading={idx === 0 ? "eager" : "lazy"}
                       />
                     </div>

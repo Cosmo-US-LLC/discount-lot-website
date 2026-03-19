@@ -10,9 +10,9 @@ function Layout() {
   const headerConfigs = {
     "/": {
       links: [
-        { label: "How it works", href: "#home" },
-        { label: "About Us", href: "#how-it-works" },
-        { label: "Reviews", href: "#auctions" },
+        { label: "How it works", href: "#how-it-works" },
+        { label: "About Us", href: "#about-us" },
+        { label: "Reviews", href: "#reviews" },
         { label: "FAQ", href: "#faq" },
       ],
       ctaLabel: "Get started",
@@ -22,10 +22,10 @@ function Layout() {
       links: [
         { label: "Explore Lots", href: "#explore-lots" },
         { label: "Schedule a Call", href: "#schedule-a-call" },
-        { label: "reviews", href: "#about-us" },
-        { label: "Resources", href: "#resources" },
+        { label: "Reviews", href: "#testimonials" },
+        { label: "FAQ", href: "#resources" },
       ],
-      ctaLabel: "Explore kentucky properties ",
+      ctaLabel: "Explore Kentucky properties",
       ctaHref: "#explore-lots",
     },
   };

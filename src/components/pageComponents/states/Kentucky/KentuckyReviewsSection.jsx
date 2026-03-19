@@ -1,17 +1,23 @@
 import React from "react";
+import googleIcon from "@/assets/images/kentucky/google.svg";
+import bbbIcon from "@/assets/images/kentucky/bbb.svg";
+import trustpilotIcon from "@/assets/images/kentucky/trustpilot.svg";
 
 const platforms = [
   {
     name: "Google Reviews",
     summary: "★★★★★ 4.9 · 530+ reviews",
+    icon: googleIcon,
   },
   {
     name: "BBB Accredited",
     summary: "★★★★ A Rating · 4.13★",
+    icon: bbbIcon,
   },
   {
     name: "Trustpilot",
     summary: "★★★★★ 4.8 · 200+ reviews",
+    icon: trustpilotIcon,
   },
 ];
 
@@ -35,7 +41,7 @@ const quotes = [
 
 function KentuckyReviewsSection() {
   return (
-    <section className="bg-white py-16">
+    <section id="reviews" className="bg-white py-16">
       <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col items-center gap-10 text-center">
         <div className="max-w-[800px] space-y-4">
           <p className="text-[14px] font-bold uppercase tracking-[3px] text-[#f76d2f]">
@@ -58,13 +64,12 @@ function KentuckyReviewsSection() {
               key={platform.name}
               className="flex min-w-[220px] items-center gap-3 rounded-[14px] border border-[#dde4ee] bg-[#f4f7fb] px-6 py-4 text-left"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-[8px] bg-[#e8520b] text-sm font-black text-white">
-                {platform.name.startsWith("BBB")
-                  ? "BBB"
-                  : platform.name.startsWith("Google")
-                    ? "G"
-                    : "T"}
-              </div>
+              <img
+                src={platform.icon}
+                alt={platform.name}
+                className="h-10 w-10 shrink-0"
+                loading="lazy"
+              />
               <div>
                 <p className="text-[14px] font-extrabold text-[#0a2240]">
                   {platform.name}
@@ -75,7 +80,7 @@ function KentuckyReviewsSection() {
           ))}
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4">
+        {/* <div className="flex flex-wrap justify-center gap-4">
           {quotes.map((quote) => (
             <article
               key={quote.meta}
@@ -91,7 +96,7 @@ function KentuckyReviewsSection() {
               </div>
             </article>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

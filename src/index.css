@@ -137,6 +137,10 @@
   font-display: swap;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --font-heading:
     "Frank Ruhl Libre", system-ui, -apple-system, BlinkMacSystemFont,

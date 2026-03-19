@@ -71,7 +71,7 @@ const cards = [
 
 function HomeFeaturedProperties() {
   return (
-    <section className="bg-[#f2f5f9] px-4 py-20">
+    <section id="properties" className="bg-[#f2f5f9] px-4 py-20">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto mb-10 max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f76d2f]">
