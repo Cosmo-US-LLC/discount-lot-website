@@ -1,5 +1,12 @@
 import { HeaderLogo } from "@/components/common/IconsSvgs";
 import React, { useEffect, useState } from "react";
+import { Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 const defaultLinks = [
   { label: "How it works", href: "#how-it-works" },
@@ -56,7 +63,8 @@ function Header({
           <HeaderLogo />
         </div>
 
-        <ul className="dl-nav__links">
+        {/* Desktop nav */}
+        <ul className="hidden dl-nav__links md:flex">
           {links.map((link) => (
             <li key={link.href}>
               <a
@@ -70,13 +78,57 @@ function Header({
           ))}
         </ul>
 
-        <a
-          href={ctaHref}
-          className="dl-nav__btn btn-primary"
-          onClick={(e) => scrollToSection(e, ctaHref)}
-        >
-          {ctaLabel}
-        </a>
+        <div className="flex items-center gap-3">
+          {/* Desktop CTA */}
+          <div className="hidden md:block">
+            <a
+              href={ctaHref}
+              className="dl-nav__btn btn-primary flex"
+              onClick={(e) => scrollToSection(e, ctaHref)}
+            >
+              {ctaLabel}
+            </a>
+          </div>
+
+          {/* Mobile menu */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <button
+                  type="button"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/30 bg-black/20 text-white"
+                  aria-label="Open navigation"
+                >
+                  <Menu className="h-5 w-5" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="left" className="!bg-[#0b1b30] !text-white">
+                <nav className="mt-4 space-y-3 text-left">
+                  {links.map((link) => (
+                    <SheetClose asChild key={link.href}>
+                      <button
+                        type="button"
+                        className="block w-full rounded-md px-2 py-2 text-[15px] text-left"
+                        onClick={(e) => scrollToSection(e, link.href)}
+                      >
+                        {link.label}
+                      </button>
+                    </SheetClose>
+                  ))}
+                  <SheetClose asChild>
+                    <button
+                      type="button"
+                      className="mt-4 w-full btn-secondary"
+                      onClick={(e) => scrollToSection(e, ctaHref)}
+                    >
+                      {ctaLabel}
+                    </button>
+                  </SheetClose>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
       </nav>
     </div>
   );
