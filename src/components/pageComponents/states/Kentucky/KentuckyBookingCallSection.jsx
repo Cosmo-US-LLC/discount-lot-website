@@ -5,7 +5,7 @@ const BOOKING_IMAGE =
 
 function KentuckyBookingCallSection() {
   return (
-    <section className="bg-white px-4 py-16 md:px-[68px] md:py-[60px]">
+    <section id="schedule-a-call" className="bg-white px-4 py-16 md:px-[68px] md:py-[60px]">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 text-center">
         <div className="flex w-full max-w-[560px] flex-col items-center gap-7">
           <div className="flex flex-col items-center gap-5">

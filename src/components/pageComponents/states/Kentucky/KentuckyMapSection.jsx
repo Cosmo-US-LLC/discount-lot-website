@@ -6,7 +6,7 @@ const mapImage =
 
 function KentuckyMapSection() {
   return (
-    <section className="bg-white md:px-8 px-4 py-16">
+    <section id="explore-lots" className="bg-white md:px-8 px-4 py-16">
       <div className="mx-auto flex max-w-[1000px] flex-col items-center gap-10 text-center">
         <div className="max-w-[560px] space-y-5">
           <h6 className="text-[#114273]">Interactive Property Map</h6>

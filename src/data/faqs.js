@@ -96,40 +96,64 @@ export const homeFaqs = [
 
 export const kentuckyFaqs = [
   {
-    id: "ky-lots-availability",
-    question: "How many lots are available in this Kentucky subdivision?",
+    id: "ky-no-zoning",
+    question: "Is there really no zoning in Clinton County, KY?",
     answer:
-      "This subdivision includes 43 surveyed lots with platted roads and access. Inventory can change quickly as lots are reserved, so always review the current map and pricing section on this page for the most up-to-date availability.",
+      "Yes — confirmed directly with two sources. Kelly at the Clinton County Judge Executive Office (📞 (606) 387-5234) confirmed there are no zoning restrictions. Wes Finley, the county Building Inspector (📞 (606) 416-4182), confirmed the same: no minimum lot size, no setbacks, and no permit required for a single-family home or power hookup. Other structure types — such as townhouses or commercial buildings — would require a permit through Wes Finley's office.",
   },
   {
-    id: "ky-utilities",
-    question: "What utilities are available on these Kentucky lots?",
+    id: "ky-water",
+    question: "Is water available on these lots?",
     answer:
-      "These lots were selected for real, practical utilities. Many have access to electric at the lot line or nearby, and several have options for water or well installation depending on the specific parcel. See the Utilities section above for details on power, water, and septic options for this subdivision.",
+      "Yes. Municipal water from the Albany City Water Department services Willis Creek Rd up to the hill, with connection available at street level. For hookup information, contact David Gussy at 📞 (606) 306-1379 or visit albanyky.org.\n\nImportant note: There is no public sewer service in this area. Buyers who want full plumbing will need to install a septic system — completely standard for rural land. Your Land Specialist can walk you through typical costs.",
   },
   {
-    id: "ky-restrictions",
-    question: "Are there restrictions or an HOA on this Kentucky property?",
+    id: "ky-electricity",
+    question: "Who provides electricity, and how do I connect?",
     answer:
-      "There is no HOA and no overbearing restrictions in this subdivision. Zoning is county-controlled, and the focus is on livable, flexible use rather than tight subdivision rules. Always confirm your specific plans with the county using the zoning information we provide on this page.",
+      "Electric service is provided by South Kentucky RECC, which covers Albany, KY and surrounding areas. Power is available at the road for all lots. To arrange service, contact South Kentucky RECC directly:\n\n📞 800-264-5112\n✉️ skrecc@skrecc.com\n🌐 skrecc.com",
   },
   {
-    id: "ky-access",
-    question: "What is road access like to the Kentucky lots?",
+    id: "ky-rv-tiny-home",
+    question: "Can I park an RV or place a tiny home on the property?",
     answer:
-      "The subdivision was planned with road access to each lot, and most roads are drivable in a standard vehicle under normal conditions. In wet weather, a higher-clearance vehicle can be helpful. Review the map section above to see access points, nearby highways, and drive time to the nearest town.",
+      "Yes. Because Clinton County has no zoning, you are free to place an RV, tiny home, mobile home, or similar structure on your lot without county-level restrictions. There is no HOA at Rollin' Hills Estates. Always confirm any deed-level conditions with your Land Specialist during the purchase process.",
   },
   {
-    id: "ky-usage",
-    question: "Can I use my Kentucky lot for camping, RVs, or a cabin?",
+    id: "ky-credit",
+    question: "Do I need good credit to buy?",
     answer:
-      "Many buyers use their lots for weekend getaways, RV parking, small cabins, and long-term homes. The exact allowances depend on county zoning and basic permitting, but this area is chosen for flexible, owner-friendly use. Check the Zoning section for permitted uses and talk to the county if you have a specific project in mind.",
+      "No. Discount Lots offers owner financing — we hold the note ourselves, which means no banks and no credit checks. Anyone who can meet the down payment and monthly payment terms can qualify. It's one of the biggest reasons buyers choose us: we make land ownership accessible in a way the traditional market never has.",
   },
   {
-    id: "ky-financing",
-    question: "Do you offer owner financing for these Kentucky lots?",
+    id: "ky-closing",
+    question: "How fast can I close on a lot?",
     answer:
-      "Yes. Just like the rest of our properties, we offer straightforward owner financing with low down payments and affordable monthly terms on most Kentucky lots. There are no banks, credit checks, or prepayment penalties—review the Pricing section for example terms or reach out for a custom plan.",
+      "Closings can be finalized in under a week in most cases. Because we own every property outright before listing it, there's no waiting on bank approvals, appraisals, or third-party delays. Once you choose your lot and agree to terms, we move fast.",
+  },
+  {
+    id: "ky-specialist-vs-manager",
+    question:
+      "What's the difference between a Land Specialist and a Portfolio Manager?",
+    answer:
+      "Your Land Specialist guides you through the buying process — answering questions, helping you choose the right lot, and walking you through the financing terms. Once your purchase is complete, you're introduced to your dedicated Portfolio Manager, who supports you after the sale: title transfer, payment questions, and long-term planning for your property. You're covered at every stage, not just at closing.",
+  },
+  {
+    id: "ky-roads-access",
+    question: "Are the roads paved? Will I have year-round access?",
+    answer:
+      "Yes. All lots in Kentucky Rollin' Hills are accessible via paved public roads: Willis Creek Road connects to KY-90 and KY-127, Clinton County's main highways. Front lots and the main entrance have direct paved road frontage on Willis Creek Road. Interior lots are accessed via a private dirt road through the subdivision. For details on which specific lots have paved vs. dirt access, ask your Land Specialist — they can walk you through the lot map.",
+  },
+  {
+    id: "ky-sell-later",
+    question: "What happens if I want to sell my lot later?",
+    answer:
+      "Once your lot is paid off, you own it free and clear and can sell it on your own timeline. Many of our customers hold land as a long-term investment — and with a 20% repeat purchase rate, the demand for affordable land in growing areas stays consistent. Your Portfolio Manager can help you think through timing and strategy.",
+  },
+  {
+    id: "ky-trust-discount-lots",
+    question: "Who is Discount Lots? Can I trust them?",
+    answer:
+      "Discount Lots was founded in 2019 and has served 3,000+ customers across multiple states. We're ranked #778 on the 2025 Inc. 5000 (540% revenue growth). We hold a BBB A rating (4.13★), a 4.9★ Google rating across 530+ reviews, and a 4.8★ Trustpilot rating across 200+ reviews. Our team of 70+ includes dedicated Land Specialists and Portfolio Managers whose only job is to make your land purchase as smooth as possible.",
   },
 ];
-
