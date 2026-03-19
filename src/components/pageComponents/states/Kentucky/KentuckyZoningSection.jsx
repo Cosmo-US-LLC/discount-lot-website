@@ -32,7 +32,7 @@ function KentuckyZoningSection() {
         </div>
 
         <div className="flex w-full flex-col items-center justify-between gap-6 md:flex-row md:items-start">
-          <article className="w-full max-w-[637px] h-[346px] rounded-[8px] bg-white px-6 py-[30px]">
+          <article className="w-full max-w-[637px] md:h-[346px] h-full rounded-[8px] bg-white px-6 py-[30px]">
             <div className="mb-6 flex items-center gap-3">
               <span className="h-[25px] w-1 rounded-[1px] bg-[#f76d2f]" />
               <h3 className="text-[24px] font-bold text-[#114273]">
@@ -49,7 +49,7 @@ function KentuckyZoningSection() {
             </ul>
           </article>
 
-          <article className="w-full max-w-[637px] h-[346px] rounded-[8px] bg-white px-6 py-[30px]">
+          <article className="w-full max-w-[637px] md:h-[346px] h-full rounded-[8px] bg-white px-6 py-[30px]">
             <div className="mb-6 flex items-center gap-3">
               <span className="h-[25px] w-1 rounded-[1px] bg-[#f76d2f]" />
               <h3 className="text-[24px] font-bold text-[#114273]">

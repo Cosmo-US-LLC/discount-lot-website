@@ -100,9 +100,10 @@ function KentuckyUtilitiesSection() {
             <article
               key={card.title}
               className={[
-                "flex w-full max-w-[314px] h-[390px] flex-col items-center rounded-[6px] border border-[#f3f4f6] bg-white p-4 shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)] transition-[background-color,box-shadow] duration-200",
+                "flex w-full max-w-[314px] md:h-[390px] h-full flex-col items-center rounded-[6px] border border-[#f3f4f6] bg-white p-4 shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)] transition-[background-color,box-shadow] duration-200",
                 "hover:bg-[rgba(17,66,115,0.06)] hover:shadow-[0px_6px_12px_rgba(0,0,0,0.08),0px_2px_4px_rgba(0,0,0,0.06)]",
                 // Use ring instead of border-2 to avoid layout shift on hover
+                "max-md:ring-2 max-md:ring-inset max-md:ring-[#114273]",
                 "hover:ring-2 hover:ring-inset hover:ring-[#114273]",
               ].join(" ")}
             >
