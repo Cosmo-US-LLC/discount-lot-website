@@ -62,7 +62,7 @@ function KentuckyReviewsSection() {
           {platforms.map((platform) => (
             <div
               key={platform.name}
-              className="flex min-w-[220px] items-center gap-3 rounded-[14px] border border-[#dde4ee] bg-[#f4f7fb] px-6 py-4 text-left"
+              className="flex min-w-[220px] items-center gap-3 rounded-[8px] border border-[#dde4ee] bg-[#f4f7fb] px-6 py-4 text-left"
             >
               <img
                 src={platform.icon}

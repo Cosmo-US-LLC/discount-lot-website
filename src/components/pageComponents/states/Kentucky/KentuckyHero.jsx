@@ -51,7 +51,7 @@ function KentuckyHero() {
           </div>
         </div>
 
-        <div className="flex max-w-[626px] flex-wrap items-center justify-center gap-3">
+        <div className="flex md:max-w-[626px] max-w-full flex-wrap items-center justify-center md:gap-3 gap-2">
           {[
             "43 Available Lots",
             "No Zoning Restrictions",
@@ -61,7 +61,7 @@ function KentuckyHero() {
           ].map((label) => (
             <div
               key={label}
-              className="backdrop-blur-[2px] rounded-full border border-white/20 bg-white/10 px-6 py-2 text-[14px] font-semibold text-white"
+              className="backdrop-blur-[2px] rounded-full border border-white/20 bg-white/10 px-4 md:px-6 py-2 md:text-[14px] text-[12px] font-semibold text-white"
             >
               {label}
             </div>
