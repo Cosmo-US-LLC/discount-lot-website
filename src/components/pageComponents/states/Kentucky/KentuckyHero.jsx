@@ -26,7 +26,7 @@ function KentuckyHero() {
         </div>
       </div>
       <div className="mx-auto z-1 flex max-w-[1280px] md:px-8 px-4 flex-col items-center gap-8 text-center">
-        <div className="flex flex-col items-center gap-8 max-w-[748px]">
+        <div className="flex flex-col items-center gap-8 w-full">
           <div className="inline-flex items-center text-white rounded-[6px] border border-white px-4 py-3 text-[14px] font-bold uppercase tracking-[0.08em]">
             New Kentucky Subdivision
           </div>
@@ -51,6 +51,16 @@ function KentuckyHero() {
           </div>
         </div>
 
+        <div className="hidden max-md:block ">
+          <a
+            href="#ky-properties"
+            className="mt-4 inline-flex items-center gap-2 bg-[#f76d2f] hover:bg-transparent! btn-secondary"
+          >
+            View Available Lots &amp; Pricing
+            <ArrowRightIcon className="h-5 w-5" />
+          </a>
+        </div>
+
         <div className="flex md:max-w-[626px] max-w-full flex-wrap items-center justify-center md:gap-3 gap-2">
           {[
             "43 Available Lots",
@@ -68,13 +78,15 @@ function KentuckyHero() {
           ))}
         </div>
 
-        <a
-          href="#ky-properties"
-          className="mt-4 inline-flex items-center gap-2 bg-[#f76d2f] hover:bg-transparent! btn-secondary"
-        >
-          View Available Lots &amp; Pricing
-          <ArrowRightIcon className="h-5 w-5" />
-        </a>
+        <div className="hidden md:block">
+          <a
+            href="#ky-properties"
+            className="mt-4 inline-flex items-center gap-2 bg-[#f76d2f] hover:bg-transparent! btn-secondary"
+          >
+            View Available Lots &amp; Pricing
+            <ArrowRightIcon className="h-5 w-5" />
+          </a>
+        </div>
       </div>
     </section>
   );
