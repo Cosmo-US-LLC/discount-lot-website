@@ -12,17 +12,17 @@ function HomeContactCta() {
           </p>
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-4 md:mt-0 md:h-[54px] md:flex-nowrap">
+        <div className="mt-6 flex flex-wrap gap-4 md:mt-0 h-full md:h-[54px] md:flex-nowrap">
           <a
             href="tel:8668087809"
-            className="inline-flex btn-primary items-center justify-center gap-3 uppercase  text-white "
+            className="inline-flex btn-primary items-center w-full justify-center gap-3 "
           >
             <Phone aria-hidden="true" className="h-[18px] w-[18px]" />
             <span>Call 866-808-7809</span>
           </a>
           <a
             href="mailto:help@discountlots.com"
-            className="inline-flex items-center justify-center gap-3 rounded-[6px] border border-[#e5e7eb] bg-white px-[33px] py-[17px] text-[14px] font-bold uppercase tracking-[1.4px] text-[#114273]"
+            className="inline-flex w-full items-center justify-center gap-3 rounded-[6px] border border-[#e5e7eb] bg-white px-4 py-3 text-[14px] font-bold uppercase tracking-[1.4px] text-[#114273]"
           >
             <Mail aria-hidden="true" className="h-[18px] w-[18px]" />
             <span>help@discountlots.com</span>
