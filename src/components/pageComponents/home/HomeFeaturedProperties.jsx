@@ -11,6 +11,7 @@ import {
 import card1Image from "@/assets/images/home/card1Image.webp";
 import card2Image from "@/assets/images/home/card2Image.webp";
 import card3Image from "@/assets/images/home/card3Image.webp";
+import { openSavePropertyAlert } from "@/components/common/openSavePropertyAlert";
 
 const cards = [
   {
@@ -86,6 +87,8 @@ function HomeFeaturedProperties() {
                 <button
                   type="button"
                   className="absolute right-3 top-3 flex items-center justify-center rounded-full bg-white/85 p-2 shadow-md backdrop-blur"
+                  onClick={() => openSavePropertyAlert(card)}
+                  aria-label={`Save ${card.title}`}
                 >
                   <HeartGrayIcon className="h-4 w-4" />
                 </button>
