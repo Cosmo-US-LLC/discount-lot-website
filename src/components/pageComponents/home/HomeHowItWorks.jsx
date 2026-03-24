@@ -62,9 +62,9 @@ function HomeHowItWorks() {
         {/* Timeline + steps: each row has its own rail segment aligned to its card */}
         <div className="mx-auto mt-14 max-w-[896px] space-y-6">
           {steps.map((step, index) => (
-            <div key={step.number} className="flex gap-6">
+            <div key={step.number} className="flex gap-0 md:gap-6">
               {/* Left rail segment with number */}
-              <div className="relative flex flex-col items-center pt-1">
+              <div className="relative hidden flex-col items-center pt-1 md:flex">
                 {/* Vertical line segment below the circle, hidden for last item */}
                 {index !== steps.length - 1 && (
                   <div className="absolute top-16 bottom-[-30px] w-[2px] bg-[#114273]" />
@@ -75,7 +75,7 @@ function HomeHowItWorks() {
               </div>
 
               {/* Step card */}
-              <div className="flex-1 rounded-[14px] border border-[#f3f4f6] bg-white px-[25px] py-[25px] shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_2px_4px_rgba(0,0,0,0.1)]">
+              <div className="flex-1 rounded-[14px] border border-[#f3f4f6] bg-white px-4 py-4 shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_2px_4px_rgba(0,0,0,0.1)] md:px-[25px] md:py-[25px]">
                 <div className="flex items-start gap-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#fef4f1] text-xl text-[#f76d2f]">
                     {step.icon}
@@ -86,7 +86,7 @@ function HomeHowItWorks() {
                       <h3 className="text-[#114273]">{step.title}</h3>
 
                       {step.badge ? (
-                        <div className="h-[26px] rounded-[4px] border border-[#f76d2f] px-[13px] py-[5px] text-[12px] font-semibold uppercase leading-4 tracking-[0.12em] text-[#f76d2f]">
+                        <div className="hidden h-[26px] rounded-[4px] border border-[#f76d2f] px-[13px] py-[5px] text-[12px] font-semibold uppercase leading-4 tracking-[0.12em] text-[#f76d2f] md:block">
                           {step.badge.toUpperCase()}
                         </div>
                       ) : null}

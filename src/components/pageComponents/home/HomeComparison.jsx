@@ -43,14 +43,14 @@ function HomeComparison() {
       </div>
 
       {/* Comparison table styled like Figma */}
-      <div className="mx-auto mt-10 w-full max-w-[1080px] text-sm text-[#111827]">
+      <div className="mx-auto mt-10 w-full md:max-w-[1080px] max-w-full text-sm text-[#111827]">
         <div className="overflow-hidden rounded-[6px] border border-[#e5e7eb] bg-white shadow-[0px_18px_40px_rgba(15,23,42,0.06)]">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="text-[20px] font-[700] leading-[28px] uppercase tracking-[-0.5px] text-[#114273]">
+              <tr className="md:text-[20px] text-[16px] font-[700] leading-[28px] uppercase tracking-[-0.5px] text-[#114273]">
                 <th className="px-6 py-4 text-left font-semibold">Features</th>
                 <th className="px-6 py-4 text-center font-semibold">
-                  <div className="inline-flex flex-col items-center gap-3">
+                  <div className="md:inline-flex flex-col items-center gap-3 hidden">
                     <img
                       src={discountLotsLogo}
                       alt="Discount Lots"
@@ -66,23 +66,23 @@ function HomeComparison() {
             <tbody>
               {rows.map((row) => (
                 <tr key={row.label} className="border-t border-[#e5e7eb]">
-                  <td className="whitespace-nowrap px-6 py-4 text-left font-[600] text-[18px] leading-[28px]">
+                  <td className="whitespace-nowrap md:px-6 px-3 py-4 text-left font-[600] text-[18px] leading-[28px]">
                     {row.label}
                   </td>
-                  <td className="px-6 py-4 text-center">
-                    <div className="inline-flex w-[280px] items-center gap-4 px-4 py-1 text-[18px] font-[600] leading-[28px] text-[#F76D2F]">
-                      <div className="h-6 w-6 flex items-center justify-center rounded-full bg-[#24B24A]">
-                        <Check className="h-4 w-4 text-white" />
+                  <td className="md:px-6 px-3 py-4 text-center">
+                    <div className="inline-flex md:w-[280px] w-[60px] items-center gap-4 px-4 py-1 text-[18px] font-[600] leading-[28px] text-[#F76D2F]">
+                      <div className="md:h-6 h-4 md:w-6 w-4 flex items-center justify-center rounded-full bg-[#24B24A]">
+                        <Check className="md:h-4 h-3 md:w-4 w-3 text-white" />
                       </div>
-                      <span>{row.discountLots}</span>
+                      <span className="md:flex hidden">{row.discountLots}</span>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-center">
-                    <div className="inline-flex w-[280px] items-center gap-4 px-4 py-1 text-[18px] font-[400] leading-[28px] text-[#6B7280]">
-                      <div className="h-6 w-6 flex items-center justify-center rounded-full bg-[#EF4444]">
-                        <X className="h-4 w-4 text-white" />
+                  <td className="md:px-6 px-3 py-4 text-center">
+                    <div className="inline-flex md:w-[280px] w-[60px] items-center gap-4 px-4 py-1 text-[18px] font-[400] leading-[28px] text-[#6B7280]">
+                      <div className="md:h-6 h-4 md:w-6 w-4 flex items-center justify-center rounded-full bg-[#EF4444]">
+                        <X className="md:h-4 h-3 md:w-4 w-3 text-white" />
                       </div>
-                      <span>{row.traditional}</span>
+                      <span className="md:flex hidden">{row.traditional}</span>
                     </div>
                   </td>
                 </tr>

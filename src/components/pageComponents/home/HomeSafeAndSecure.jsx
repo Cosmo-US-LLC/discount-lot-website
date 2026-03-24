@@ -6,14 +6,14 @@ function HomeSafeAndSecure() {
   return (
     <section className="bg-white py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
-        <div className="grid gap-24 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-start">
+        <div className="grid md:gap-24 gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-start">
           {/* Left: copy + CTA */}
-          <div className="space-y-6 max-w-[576px]">
-            <div className="space-y-4">
+          <div className="space-y-6 max-w-[576px] flex flex-col items-center justify-center md:items-start md:justify-start">
+            <div className="space-y-4 text-center md:text-left">
               <h6 className="text-[#f76d2f]">Save and secure</h6>
-              <div className="space-y-2">
+              <div className="space-y-2 text-center md:text-left">
                 <h2 className="text-[#114273]">The Land-Vetting Guarantee</h2>
-                <div className="h-1 w-20 rounded-full bg-[#f76d2f]" />
+                <div className="h-1 w-20 rounded-full bg-[#f76d2f] mx-auto md:mx-0" />
               </div>
               <p className="body-description text-[#111827]">
                 We personally own every land we sell, and each one has been
@@ -28,7 +28,7 @@ function HomeSafeAndSecure() {
 
           {/* Right: image + highlights */}
           <div className="space-y-6">
-            <div className="space-y-2">
+            <div className="space-y-2 text-center md:text-left">
               <h3 className="text-[24px] font-bold leading-[32px] tracking-[-0.6px] text-[#114273]">
                 Utility Proximity Checks
               </h3>
@@ -38,7 +38,7 @@ function HomeSafeAndSecure() {
               </p>
             </div>
 
-            <div className="h-[400px] w-full overflow-hidden rounded-[8px]">
+            <div className="md:h-[400px] h-[200px] w-full overflow-hidden rounded-[8px]">
               <img
                 src={safeAndSecureLandImage}
                 alt="Aerial view of vetted land property"
@@ -46,7 +46,7 @@ function HomeSafeAndSecure() {
               />
             </div>
 
-            <div className="grid gap-3 md:grid-cols-3">
+            <div className="grid md:gap-3 gap-2 grid-cols-2 md:grid-cols-3">
               {[
                 "Legal Access Verified",
                 "Build-ability Confirmed",
@@ -54,7 +54,7 @@ function HomeSafeAndSecure() {
               ].map((label) => (
                 <div
                   key={label}
-                  className="flex flex-col gap-2 rounded-[6px] border border-[rgba(255,255,255,0.1)] bg-[rgba(0,0,0,0.05)] px-[21px] py-[18px]"
+                  className="flex md:flex-col flex-row gap-2 rounded-[6px] border border-[rgba(255,255,255,0.1)] bg-[rgba(0,0,0,0.05)] md:px-5 px-3 py-4"
                 >
                   <div className="h-6 w-6">
                     <img
