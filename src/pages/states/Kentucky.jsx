@@ -17,8 +17,15 @@ import KentuckyFinalCta from "../../components/pageComponents/states/Kentucky/Ke
 import KentuckyDescriptions from "@/components/pageComponents/states/Kentucky/KentuckyDescriptions";
 import HomeFaq from "../../components/pageComponents/home/HomeFaq";
 import { kentuckyFaqs } from "@/data/faqs";
+import useMeta from "@/lib/useMeta";
 
 function Kentucky() {
+  useMeta({
+    title: "Kentucky Land & Home Lots for Sale | Affordable Land Deals",
+    description:
+      "Browse land for sale in Kentucky, lots, acreage & rural properties. Affordable lots with owner financing from $500 down. Limited availability.",
+  });
+
   return (
     <>
       <KentuckyHero />
@@ -27,7 +34,7 @@ function Kentucky() {
       <KentuckyFullPictureSection />
       <KentuckyWhySection />
       <KentuckyNearbySection />
-      <KentuckyBackyardSection />
+      {/* <KentuckyBackyardSection /> */}
       <KentuckyZoningSection />
       <KentuckyUtilitiesSection />
       <KentuckyPricingSection />
@@ -37,8 +44,10 @@ function Kentucky() {
       <KentuckyBookingCallSection />
       <HomeFaq
         sectionId="resources"
-        eyebrow="Kentucky FAQs"
+        eyebrow="Got Questions?"
         title="Frequently Asked Questions"
+        description=" Everything you need to know about Kentucky Rollin' Hills and how
+          Discount Lots works."
         faqs={kentuckyFaqs}
       />
       <KentuckyFinalCta />

@@ -141,11 +141,11 @@
 /* Hero */
 
 .dl-header--scrolled .dl-nav__link {
-  color: #1f2933;
+  color: #114273;
 }
 
 .dl-header--scrolled .dl-nav__link:hover {
-  color: #111827;
+  color: #114273;
 }
 
 @media (max-width: 768px) {

@@ -29,7 +29,7 @@ function KentuckyIncBanner() {
                 Ranked <span className="text-[#f76d2f]">#778</span> in the
                 United States — 2025
               </p>
-              <p className="text-[12px] font-semibold uppercase tracking-wide text-white/80 sm:text-[13px] md:text-[14px]">
+              <p className="text-[12px] font-semibold uppercase tracking-wide text-white/80 md:text-[16px]">
                 America&apos;s Fastest‑Growing Private Companies
               </p>
             </div>
@@ -42,15 +42,13 @@ function KentuckyIncBanner() {
                 <p className="text-[40px] font-extrabold leading-none text-[#f76d2f] sm:text-[44px] md:text-[48px]">
                   540%
                 </p>
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] sm:text-[12px]">
+                <p className="mt-1 font-bold uppercase tracking-[0.1em] text-[14px]">
                   Revenue Growth
                 </p>
-                <p className="text-[11px] text-white/60 sm:text-[12px]">
-                  (2022 – 2024)
-                </p>
+                <p className="text-[12px] text-white/60 ">(2022 – 2024)</p>
               </div>
 
-              <div className="mt-1 inline-flex h-auto items-center justify-center rounded-full bg-white/10 px-5 py-2 text-center text-[13px] text-white sm:h-9 sm:px-6 sm:text-[14px] md:px-8">
+              <div className="mt-1 inline-flex h-auto items-center justify-center rounded-full bg-white/10 px-5 py-2 text-center text-[14px] text-white sm:h-9 sm:px-6 sm:text-[16px] md:px-8">
                 Top <span className="mx-1 font-bold text-[#f76d2f]">16%</span>{" "}
                 of all U.S. private companies
               </div>

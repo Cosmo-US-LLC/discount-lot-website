@@ -31,7 +31,10 @@ function KentuckyPricingSection() {
               key={item.label}
               className="flex w-[160px] h-[100px] backdrop-blur-[2px] border border-[#11427366] bg-[#1142731A] rounded-[6px] flex-col items-center justify-center"
             >
-              <p className="w-full text-[36px] font-black leading-[57.2px] text-[#114273]">
+              <p
+                className="w-full text-[36px] font-black leading-[57.2px] text-[#114273]"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
                 {item.value}
               </p>
               <p className="w-full text-[14px] font-normal leading-normal text-[#114273]">

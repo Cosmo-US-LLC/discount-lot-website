@@ -6,6 +6,7 @@ import "./layout.css";
 
 function Layout() {
   const location = useLocation();
+  const showFooter = location.pathname !== "/states/kentucky";
 
   const headerConfigs = {
     "/": {
@@ -21,7 +22,10 @@ function Layout() {
     "/states/kentucky": {
       links: [
         { label: "Explore Lots", href: "#explore-lots" },
-        { label: "Schedule a Call", href: "#schedule-a-call" },
+        {
+          label: "Schedule a Call",
+          href: "https://api.leadconnectorhq.com/widget/bookings/sales-reps-rr",
+        },
         { label: "Reviews", href: "#testimonials" },
         { label: "FAQ", href: "#resources" },
       ],
@@ -38,7 +42,7 @@ function Layout() {
       <div className="dl-layout__content">
         <Outlet />
       </div>
-      <Footer />
+      {showFooter && <Footer />}
     </>
   );
 }

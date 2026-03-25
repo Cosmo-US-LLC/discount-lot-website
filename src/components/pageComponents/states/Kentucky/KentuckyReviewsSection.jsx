@@ -2,6 +2,7 @@ import React from "react";
 import googleIcon from "@/assets/images/kentucky/google.svg";
 import bbbIcon from "@/assets/images/kentucky/bbb.svg";
 import trustpilotIcon from "@/assets/images/kentucky/trustpilot.svg";
+import facebookIcon from "@/assets/images/kentucky/facebook.svg";
 
 const platforms = [
   {
@@ -11,13 +12,18 @@ const platforms = [
   },
   {
     name: "BBB Accredited",
-    summary: "★★★★ A Rating · 4.13★",
+    summary: "★★★★ A Rating",
     icon: bbbIcon,
   },
   {
     name: "Trustpilot",
     summary: "★★★★★ 4.8 · 200+ reviews",
-    icon: trustpilotIcon,
+    icon: null,
+  },
+  {
+    name: "Facebook",
+    summary: "92% Recommended (96 Reviews)",
+    icon: facebookIcon,
   },
 ];
 
@@ -39,21 +45,42 @@ const quotes = [
   },
 ];
 
+function StarText({ text }) {
+  // Color only the star glyphs while keeping the rest of the summary text styled by the parent <p>.
+  const parts = String(text).split("★");
+  if (parts.length === 1) return text;
+
+  return (
+    <>
+      {parts.map((part, idx) => (
+        <React.Fragment key={idx}>
+          {part}
+          {idx < parts.length - 1 && (
+            <span className="text-[#f5a623] font-bold text-[14px] mx-[1px]">
+              ★
+            </span>
+          )}
+        </React.Fragment>
+      ))}
+    </>
+  );
+}
+
 function KentuckyReviewsSection() {
   return (
     <section id="reviews" className="bg-white py-16">
       <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col items-center gap-10 text-center">
         <div className="max-w-[800px] space-y-4">
-          <p className="text-[14px] font-bold uppercase tracking-[3px] text-[#f76d2f]">
+          {/* <p className="text-[14px] font-bold uppercase tracking-[3px] text-[#f76d2f]">
             What Our Customers Say
-          </p>
+          </p> */}
           <div className="space-y-2">
             <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.8px] text-[#114273] md:text-[48px] md:tracking-[-1.2px]">
-              3,000+ Families Trust Discount Lots
+              Rated Across Trusted Platforms
             </h2>
-            <p className="text-[16px] leading-[26px] text-black md:text-[18px]">
-              Don&apos;t take our word for it—here&apos;s what verified buyers
-              have to say across every major review platform.
+            <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-[#f76d2f]" />
+            <p className="text-[16px] leading-[26px] text-black md:text-[16px]">
+              Backed by consistent feedback across major platforms.
             </p>
           </div>
         </div>
@@ -62,19 +89,23 @@ function KentuckyReviewsSection() {
           {platforms.map((platform) => (
             <div
               key={platform.name}
-              className="flex min-w-[220px] items-center gap-3 rounded-[8px] border border-[#dde4ee] bg-[#f4f7fb] px-6 py-4 text-left"
+              className="flex min-w-[220px] items-center gap-3 rounded-[12px] border border-[#dde4ee] bg-[#f4f7fb] px-6 py-4 text-left"
             >
-              <img
-                src={platform.icon}
-                alt={platform.name}
-                className="h-10 w-10 shrink-0"
-                loading="lazy"
-              />
+              {platform.icon && (
+                <img
+                  src={platform.icon}
+                  alt={platform.name}
+                  className="h-10 w-10 shrink-0"
+                  loading="lazy"
+                />
+              )}
               <div>
                 <p className="text-[14px] font-extrabold text-[#0a2240]">
                   {platform.name}
                 </p>
-                <p className="text-[12px] text-[#5a6a82]">{platform.summary}</p>
+                <p className="text-[12px] text-[#5a6a82] leading-[20px]">
+                  <StarText text={platform.summary} />
+                </p>
               </div>
             </div>
           ))}
