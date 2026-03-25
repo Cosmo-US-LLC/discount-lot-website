@@ -12,8 +12,15 @@ import HomeFaq from "../components/pageComponents/home/HomeFaq";
 import HomeTestimonials from "../components/pageComponents/home/HomeTestimonials";
 import HomeContactCta from "../components/pageComponents/home/HomeContactCta";
 import { homeFaqs as defaultFaqs } from "@/data/faqs";
+import useMeta from "@/lib/useMeta";
 
 function Home() {
+  useMeta({
+    title: "Own Land for Less Than Rent | Discount Lots",
+    description:
+      "Own premium land with easy monthly payments. No credit checks, fast digital closing, and flexible terms. Starting at $200/month.",
+  });
+
   return (
     <div>
       <HomeHero />

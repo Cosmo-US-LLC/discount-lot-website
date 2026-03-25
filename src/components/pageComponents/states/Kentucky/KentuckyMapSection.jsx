@@ -4,7 +4,7 @@ function KentuckyMapSection() {
   return (
     <section id="explore-lots" className="bg-white md:px-8 px-4 py-16">
       <div className="mx-auto flex max-w-[1000px] flex-col items-center gap-10 text-center">
-        <div className="max-w-[560px] space-y-5">
+        <div className="max-w-[590px] space-y-5">
           <h6 className="text-[#114273]">Interactive Property Map</h6>
           <h2 className="text-[#114273]">
             Explore the <span className="text-[#f47b20]">Subdivision</span>
@@ -29,7 +29,10 @@ function KentuckyMapSection() {
 
         <p className="text-[14px] font-semibold text-[#7a8fa8]">
           Can&apos;t see the map above?{" "}
-          <a href="#interactive-lot-map" className="text-[#114273] underline">
+          <a
+            href="https://id.land/maps/2b6e8065457f7545420bcaf2d0c51d36/share"
+            className="text-[#114273] underline"
+          >
             Click here to open the interactive lot map
           </a>
         </p>

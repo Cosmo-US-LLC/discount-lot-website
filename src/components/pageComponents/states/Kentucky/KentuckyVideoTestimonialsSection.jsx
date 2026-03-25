@@ -73,7 +73,7 @@ function KentuckyVideoTestimonialsSection() {
     <section id="testimonials" className="bg-[#114273] py-18">
       <div className="mx-auto flex w-full max-w-[1280px] md:px-8 px-4 flex-col items-center gap-12">
         <div className="flex w-full max-w-[660px] flex-col items-center gap-5 text-center">
-          <h6 className="uppercase text-[#e05a28]">Hear It Directly</h6>
+          <h6 className="uppercase text-[#e05a28]">What our Customers Say</h6>
           <h2 className="text-white">Video&nbsp;Testimonials</h2>
         </div>
 

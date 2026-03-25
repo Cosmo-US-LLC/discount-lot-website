@@ -7,11 +7,19 @@ import {
   ForkIcon,
   ParkIcon,
 } from "@/components/common/IconsSvgs";
+import nearbyCard1 from "@/assets/images/kentucky/your_backyard_card1.webp";
+import nearbyCard2 from "@/assets/images/kentucky/your_backyard_card2.webp";
+import nearbyCard3 from "@/assets/images/kentucky/your_backyard_card3.webp";
+import nearbyCard4 from "@/assets/images/kentucky/your_backyard_card4.webp";
+import nearbyCard5 from "@/assets/images/kentucky/your_backyard_card5.webp";
+import nearbyCard6 from "@/assets/images/kentucky/your_backyard_card6.webp";
 
 const nearbySpots = [
   {
     name: "Lake Cumberland",
     iconSrc: <LakeIcon />,
+    backgroundSrc: nearbyCard1,
+    overlayOpacity: 0.3,
     description: [
       "~20 min · Houseboat capital of the world",
       "world‑class boating, fishing & sunsets",
@@ -20,6 +28,8 @@ const nearbySpots = [
   {
     name: "Seventy Six Falls",
     iconSrc: <FallsIcon />,
+    backgroundSrc: nearbyCard2,
+    overlayOpacity: 0.3,
     description: [
       "~10 miles · A dramatic 44‑foot waterfall in",
       "Daniel Boone National Forest",
@@ -28,6 +38,8 @@ const nearbySpots = [
   {
     name: "Wolf Creek Dam & Fish Hatchery",
     iconSrc: <FishIcon />,
+    backgroundSrc: nearbyCard3,
+    overlayOpacity: 0.3,
     description: [
       "~20 miles · One of the largest dams",
       "east of the Mississippi",
@@ -36,11 +48,15 @@ const nearbySpots = [
   {
     name: "Dale Hollow Lake State Resort Park",
     iconSrc: <GolfIcon />,
+    backgroundSrc: nearbyCard4,
+    overlayOpacity: 0.3,
     description: ["~25 miles · Thousands of acres", "+ 18‑hole golf course"],
   },
   {
     name: "Big South Fork",
     iconSrc: <ForkIcon />,
+    backgroundSrc: nearbyCard5,
+    overlayOpacity: 0.3,
     description: [
       "~50 miles · National River & Recreation Area — horseback riding, dramatic gorge views",
     ],
@@ -48,6 +64,8 @@ const nearbySpots = [
   {
     name: "Cumberland Falls State Resort Park",
     iconSrc: <ParkIcon />,
+    backgroundSrc: nearbyCard6,
+    overlayOpacity: 0.3,
     description: [
       '~55 miles · "Niagara of the South" one of the only places on Earth with a natural moonbow',
       ,
@@ -68,15 +86,35 @@ function KentuckyNearbySection() {
           {nearbySpots.map((spot) => (
             <article
               key={spot.name}
-              className="flex h-full w-full max-w-[424px] flex-col items-center rounded-[6px] border border-[#f3f4f6] bg-white px-6 py-6 text-center text-[#1a1208] shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)]"
+              className="flex relative h-full w-full max-w-[424px] flex-col items-center rounded-[6px] overflow-hidden border border-[#f3f4f6] bg-white px-6 py-6 text-center text-[#1a1208] shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)]"
             >
-              <div className="flex w-full flex-col items-center gap-5">
-                <div className="relative size-[50px] shrink-0">
+              <img
+                src={spot.backgroundSrc}
+                alt=""
+                className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+              {spot.overlayOpacity > 0 && (
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0"
+                  style={{
+                    backgroundColor: `rgba(0,0,0,${spot.overlayOpacity})`,
+                  }}
+                />
+              )}
+              <div className="flex w-full flex-col items-center gap-5 z-10">
+                <div className="relative size-[50px] shrink-0 text-[#ffffff]">
                   {spot.iconSrc}
                 </div>
                 <div className="flex w-full flex-col items-center gap-1 text-[16px]">
-                  <h3 className=" text-[#1a1208]">{spot.name}</h3>
-                  <div className="description text-[#4a5565]">
+                  <h3
+                    className=" text-[#FFFFFF] "
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    {spot.name}
+                  </h3>
+                  <div className="description text-[#FFFFFF]">
                     {spot.description.map((line) => (
                       <p key={line}>{line}</p>
                     ))}
@@ -87,9 +125,9 @@ function KentuckyNearbySection() {
           ))}
         </div>
 
-        <div className="mt-4 w-full max-w-[998px] rounded-[6px] border border-white/10 bg-white/5 px-8 py-6 text-left backdrop-blur-[2px] md:px-[41px] md:py-[31px]">
+        <div className="mt-4 w-full max-w-[1098px] rounded-[6px] border border-white/10 bg-white/5 px-8 py-6 text-left backdrop-blur-[2px] md:px-[41px] md:py-[31px]">
           <div className="border-l-4 border-[#f76d2f] pl-9">
-            <h3 className="text-white">
+            <h3 className="text-white text-[16px] md:!text-[36px]">
               Previous Subdivisions Sold Out in&nbsp;as Little as 90 Days
             </h3>
             <p className="mt-3 text-[16px] leading-[1.4] text-white">
