@@ -49,7 +49,7 @@ export function AccordionTrigger({ value, children }) {
     <button
       type="button"
       onClick={() => ctx.toggleItem(value)}
-      className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-[0.95rem] font-semibold text-[#114273] sm:px-5 sm:py-4"
+      className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-[0.95rem] font-semibold text-[#114273] cursor-pointer sm:px-5 sm:py-4"
     >
       <span className="flex-1 pr-3">{children}</span>
       <span

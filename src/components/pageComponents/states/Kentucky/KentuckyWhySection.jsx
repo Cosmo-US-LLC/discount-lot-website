@@ -29,20 +29,18 @@ function KentuckyWhySection() {
       ),
     },
     {
-      title: "Why Rollin' Hills?",
+      title: "Why Wolf Creek?",
       iconSrc: HillsIcon,
       body: (
         <>
           <p>
-            This isn&apos;t remote wilderness. Albany is just{" "}
-            <span className="font-semibold text-[#363636]">8 miles away</span>{" "}
-            McDonald&apos;s, Burger King, Sonic, grocery stores, hardware,
-            24-hour gas stations. All lots connect to KY-90 and KY-127 via paved
-            roads.
+            Wolf Creek Reserve sits minutes from Lake Cumberland, 1,255 miles of
+            shoreline. Fishing, boating, and outdoor living year-round. This
+            isn't just a lot in a field.
           </p>
           <p className="mt-4">
-            Water is already at the street. Power is already at the street.
-            Getting here is easy. Staying here is even easier.
+            It's a address inside one of Kentucky's most sought-after recreation
+            corridors.
           </p>
         </>
       ),
@@ -93,13 +91,13 @@ function KentuckyWhySection() {
 
   return (
     <section className="bg-[#eaf4fb] py-18">
-      <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col items-center gap-[28px] text-center">
-        <div className="flex w-full flex-col items-center gap-[40px]">
-          <h2 className="w-full max-w-[676px] text-[#114273]">
+      <div className="mx-auto flex max-w-[1320px] px-4 md:px-8 flex-col items-center gap-10 text-center">
+        <div className="flex w-full flex-col items-center gap-10">
+          <h2 className="w-full max-w-[616px] text-[#114273]">
             Why These Kentucky Lots Are Selling Fast
           </h2>
 
-          <div className="flex w-full flex-col items-center gap-4 md:flex-row md:items-stretch md:justify-center md:gap-6">
+          <div className="flex w-full flex-col items-center gap-4 md:flex-row md:items-stretch md:justify-center md:gap-4">
             {cards.map((card) => (
               <article
                 key={card.title}
@@ -109,7 +107,7 @@ function KentuckyWhySection() {
                   <img alt="" src={card.iconSrc} className=" " />
                 </div>
 
-                <div className="w-full max-w-[278px] text-center">
+                <div className="w-full max-w-[268px] text-center">
                   <h3 className=" text-[#114273]">{card.title}</h3>
                   <div className="mt-2 description text-[#4a5565]">
                     {card.body}

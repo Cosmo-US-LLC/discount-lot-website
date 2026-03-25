@@ -110,13 +110,19 @@ function HomeFaq({
   title = "Got Questions?",
   faqs = defaultFaqs,
   sectionId = "faq",
+  description = "",
 }) {
   return (
     <section id={sectionId} className="bg-[#f3f4f6] px-4 py-20">
-      <div className="mx-auto max-w-4xl text-center">
+      <div className="mx-auto max-w-4xl text-center space-y-3">
         <h6 className=" text-[#f76d2f]">{eyebrow}</h6>
         <h2 className="mt-3 text-[#114273]">{title}</h2>
         <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-[#f76d2f]" />
+        {description && (
+          <p className="text-[16px] leading-[27px] text-[#5A6A82] md:text-[16px] max-w-[500px] mx-auto">
+            {description}
+          </p>
+        )}
       </div>
 
       <div className="mx-auto mt-14 w-full max-w-4xl">

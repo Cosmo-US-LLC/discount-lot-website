@@ -11,20 +11,20 @@ import {
 
 const pills = [
   {
-    top: "55 miles to Cumberland Falls",
-    bottom: "Niagara of the South",
+    top: "18 miles to Wolf Creek Dam A Recreation hub",
+    bottom: "",
   },
   {
-    top: "20 min from Lake Cumberland",
-    bottom: "Houseboat Capital of the World",
+    top: "Minutes from Wolf Creek National Fish Hatchery Surrounded by natural beauty and open space",
+    bottom: "",
   },
   {
-    top: "10 miles from Seventy Six Falls",
-    bottom: "44-ft waterfall in your backyard",
+    top: "Minutes from Wolf River ideal for outdoor experiences and peaceful surroundings",
+    bottom: "",
   },
   {
-    top: "8 miles to Albany, KY",
-    bottom: "Groceries, gas, dining & more",
+    top: "25 miles to Russell County (Wolf Creek area) affordable land with long-term potential",
+    bottom: "",
   },
 ];
 
@@ -67,30 +67,28 @@ function KentuckyFullPictureSection() {
               <div className="flex flex-col gap-[18px]">
                 <h6 className=" text-[#f76d2f]">The Full Picture</h6>
                 <h2 className="text-[#114273]">
-                  Why Kentucky. Why Rollin&apos; Hills. Why Now.
+                  Why Kentucky. Why Wolf Creek Reserve. Why Now.
                 </h2>
               </div>
 
               <div className="description text-[#4a5565]">
                 <p>
-                  Picture this: rolling hills, crisp country air, and land that
-                  stretches as far as the eye can see. Welcome to{" "}
-                  <span className="font-bold">Rollin&apos; Hills Estates</span>{" "}
-                  43 prime lots nestled in the heart of Clinton County,
-                  Kentucky, where the ultimate goal is simple:{" "}
-                  <span className="font-bold">freedom.</span> No HOA. No
-                  restrictions. No time limit to build. Park an RV, build your
-                  dream home, or create the perfect retreat the choice is
-                  completely yours. And unlike most rural land this
+                  Picture this: your land, minutes from Wolf Creek Dam and the
+                  largest man-made lake east of the Mississippi. Wolf Creek
+                  Reserve , 43 prime lots nestled in te heart of Clinton County,
+                  Kentucky. The kind of location people search years for. No
+                  HOA. No restrictions. No deadline to build. Park an RV, build
+                  your dream home, or hold it as an investment. Whatever fits
+                  your plans.
                 </p>
-                <p className="mt-6">
+                {/* <p className="mt-6">
                   Accessible,{" "}
                   <span className="font-bold">
                     the infrastructure is already waiting.
                   </span>{" "}
                   Water and power are available on site, which on land like this
                   is genuinely rare.
-                </p>
+                </p> */}
               </div>
             </div>
 
@@ -99,10 +97,10 @@ function KentuckyFullPictureSection() {
                 {pills.slice(0, 2).map((pill) => (
                   <div
                     key={pill.top}
-                    className="flex w-full items-center justify-center rounded-[40px] border border-[#114273]/40 bg-[#114273]/10 px-[22.8px] py-[10.4px] text-center text-[#114273] backdrop-blur-[2px]"
+                    className="flex w-full items-center justify-center rounded-[40px] border border-[#114273]/40 bg-[#114273]/10 px-4 py-3 text-center text-[#114273] backdrop-blur-[2px]"
                   >
                     <div>
-                      <p className="text-[16px] font-bold leading-[1.4]">
+                      <p className="text-[14px] font-bold leading-[1.4]">
                         {pill.top}
                       </p>
                       <p className="text-[14px] leading-[1.4]">{pill.bottom}</p>
@@ -114,10 +112,10 @@ function KentuckyFullPictureSection() {
                 {pills.slice(2, 4).map((pill) => (
                   <div
                     key={pill.top}
-                    className="flex w-full items-center justify-center rounded-[40px] border border-[#114273]/40 bg-[#114273]/10 px-[22.8px] py-[9.4px] text-center text-[#114273] backdrop-blur-[2px]"
+                    className="flex w-full items-center justify-center rounded-[40px] border border-[#114273]/40 bg-[#114273]/10 px-4 py-3 text-center text-[#114273] backdrop-blur-[2px]"
                   >
                     <div>
-                      <p className="text-[16px] font-bold leading-[1.4]">
+                      <p className="text-[14px] font-bold leading-[1.4]">
                         {pill.top}
                       </p>
                       <p className="text-[14px] leading-[1.4]">{pill.bottom}</p>

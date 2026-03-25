@@ -3,7 +3,7 @@ import { ArrowRightIcon } from "lucide-react";
 
 function KentuckyFinalCta() {
   return (
-    <section className="bg-[#f76d2f] px-4 py-16 md:px-[200px] md:py-20 text-white text-center">
+    <section className="bg-[#f76d2f] px-4 py-16 md:px-[200px] md:py-16 text-white text-center">
       <div className="mx-auto flex max-w-[896px] flex-col items-center gap-8">
         <div className="space-y-4 flex flex-col items-center">
           <h2 className="text-[#ffffff]">
@@ -18,7 +18,7 @@ function KentuckyFinalCta() {
 
         <a
           href="#ky-properties"
-          className="inline-flex gap-2 items-center justify-center rounded-[8px] bg-white px-9 py-4 text-[16px] font-bold text-[#f76d2f]"
+          className="inline-flex gap-2 items-center justify-center btn-secondary border !border-[#ffffff] text-[#ffffff]"
         >
           View Available Lots &amp; Pricing{" "}
           <ArrowRightIcon className="w-4 h-4" />
