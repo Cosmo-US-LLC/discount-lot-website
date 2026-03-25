@@ -75,23 +75,23 @@ function KentuckyLandInfoSection() {
             // eslint-disable-next-line react/no-unstable-nested-components
             <article
               key={card.label}
-              className="flex w-full flex-col items-center rounded-[6px] border border-[#f3f4f6] bg-white px-4 py-[25px] text-center shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)] md:max-w-[207.5px]"
+              className="flex w-full flex-col items-center rounded-[14px] border border-[#f3f4f6] bg-white px-4 py-5 text-center shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)] md:max-w-[207.5px]"
             >
               <div className="flex w-full flex-col items-center gap-5">
-                <div className="relative size-[50px] shrink-0 overflow-hidden">
+                <div className="relative shrink-0 overflow-hidden">
                   {(() => {
                     const Icon = card.iconSrc;
                     return <Icon />;
                   })()}
                 </div>
                 <div className="w-full flex flex-col items-center gap-2">
-                  <p className="text-[12px] font-bold uppercase tracking-[2px] text-[#114273]">
+                  <p className="text-[12px] font-[700] uppercase tracking-[3px] text-[#114273]">
                     {card.label}
                   </p>
-                  <p className=" text-[16px] font-bold text-[#1a1208]">
+                  <p className=" text-[16px] font-bold leading-[22px] text-[#1a1208]">
                     {card.title}
                   </p>
-                  <div className=" text-[16px] leading-[1.4] text-[#4a5565]">
+                  <div className=" text-[16px] leading-[22px] text-[#4a5565]">
                     {card.description.map((line) => (
                       <p key={line}>{line}</p>
                     ))}

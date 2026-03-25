@@ -108,7 +108,9 @@ function KentuckyWhySection() {
                 </div>
 
                 <div className="w-full max-w-[268px] text-center">
-                  <h3 className=" text-[#114273]">{card.title}</h3>
+                  <p className="description !font-[700] text-[#114273]">
+                    {card.title}
+                  </p>
                   <div className="mt-2 description text-[#4a5565]">
                     {card.body}
                   </div>
