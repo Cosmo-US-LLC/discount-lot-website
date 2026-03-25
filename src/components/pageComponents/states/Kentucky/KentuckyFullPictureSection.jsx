@@ -11,20 +11,20 @@ import {
 
 const pills = [
   {
-    top: "18 miles to Wolf Creek Dam A Recreation hub",
-    bottom: "",
+    top: "18 miles to Wolf Creek Dam ",
+    bottom: "A Recreation hub",
   },
   {
-    top: "Minutes from Wolf Creek National Fish Hatchery Surrounded by natural beauty and open space",
-    bottom: "",
+    top: "Minutes from Wolf Creek Hatchery",
+    bottom: "Nestled in nature",
   },
   {
-    top: "Minutes from Wolf River ideal for outdoor experiences and peaceful surroundings",
-    bottom: "",
+    top: "Minutes from Wolf River ",
+    bottom: "Experience Nature, adventure, & peace",
   },
   {
-    top: "25 miles to Russell County (Wolf Creek area) affordable land with long-term potential",
-    bottom: "",
+    top: "25 miles to Russell County ",
+    bottom: "Affordable land in a high-potential area",
   },
 ];
 
@@ -63,15 +63,15 @@ function KentuckyFullPictureSection() {
       <div className="mx-auto flex w-full max-w-[1280px] px-4 md:px-8 flex-col items-center justify-between gap-12 lg:flex-row lg:items-start lg:gap-10">
         <div className="w-full lg:flex-1">
           <div className="flex w-full max-w-[706px] flex-col items-start gap-[30px]">
-            <div className="flex flex-col gap-6">
-              <div className="flex flex-col gap-[18px]">
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4">
                 <h6 className=" text-[#f76d2f]">The Full Picture</h6>
                 <h2 className="text-[#114273]">
                   Why Kentucky. Why Wolf Creek Reserve. Why Now.
                 </h2>
               </div>
 
-              <div className="description text-[#4a5565]">
+              <div className="description text-[#000000]">
                 <p>
                   Picture this: your land, minutes from Wolf Creek Dam and the
                   largest man-made lake east of the Mississippi. Wolf Creek
@@ -92,33 +92,33 @@ function KentuckyFullPictureSection() {
               </div>
             </div>
 
-            <div className="flex w-full flex-col gap-5">
-              <div className="flex flex-col gap-5 sm:flex-row">
+            <div className="flex w-full flex-col gap-4">
+              <div className="flex flex-col gap-2 sm:flex-row">
                 {pills.slice(0, 2).map((pill) => (
                   <div
                     key={pill.top}
                     className="flex w-full items-center justify-center rounded-[40px] border border-[#114273]/40 bg-[#114273]/10 px-4 py-3 text-center text-[#114273] backdrop-blur-[2px]"
                   >
                     <div>
-                      <p className="text-[14px] font-bold leading-[1.4]">
+                      <p className="text-[16px] font-bold leading-[1.4]">
                         {pill.top}
                       </p>
-                      <p className="text-[14px] leading-[1.4]">{pill.bottom}</p>
+                      <p className="text-[16px] leading-[1.4]">{pill.bottom}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="flex flex-col gap-4 sm:flex-row">
+              <div className="flex flex-col gap-2 sm:flex-row">
                 {pills.slice(2, 4).map((pill) => (
                   <div
                     key={pill.top}
                     className="flex w-full items-center justify-center rounded-[40px] border border-[#114273]/40 bg-[#114273]/10 px-4 py-3 text-center text-[#114273] backdrop-blur-[2px]"
                   >
                     <div>
-                      <p className="text-[14px] font-bold leading-[1.4]">
+                      <p className="text-[16px] font-bold leading-[1.4]">
                         {pill.top}
                       </p>
-                      <p className="text-[14px] leading-[1.4]">{pill.bottom}</p>
+                      <p className="text-[16px] leading-[1.4]">{pill.bottom}</p>
                     </div>
                   </div>
                 ))}
