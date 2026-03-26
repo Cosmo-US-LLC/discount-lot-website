@@ -112,38 +112,72 @@ function HomeFaq({
   sectionId = "faq",
   description = "",
 }) {
+  const half = Math.ceil((faqs?.length ?? 0) / 2);
+  const leftFaqs = faqs.slice(0, half);
+  const rightFaqs = faqs.slice(half);
+
   return (
-    <section id={sectionId} className="bg-[#f3f4f6] px-4 py-20">
-      <div className="mx-auto max-w-4xl text-center space-y-3">
-        <h6 className=" text-[#f76d2f]">{eyebrow}</h6>
-        <h2 className="mt-3 text-[#114273]">{title}</h2>
-        <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-[#f76d2f]" />
-        {description && (
-          <p className="text-[16px] leading-[27px] text-[#5A6A82] md:text-[16px] max-w-[500px] mx-auto">
-            {description}
-          </p>
-        )}
+    <section id={sectionId} className="bg-white md:py-18 py-12">
+      <div className="mx-auto max-w-[1280px] px-4 md:px-8 text-center">
+        <div className="space-y-4">
+          <h6 className="text-[#f76d2f] text-[12px] font-bold tracking-[3px] uppercase">
+            {eyebrow}
+          </h6>
+          <h2 className="text-[#114273] text-[36px] leading-[1.1] font-black md:text-[50px]">
+            {title}
+          </h2>
+          {description && (
+            <p className="mx-auto max-w-[540px] text-[16px] leading-[1.4] text-[#5A6A82]">
+              {description}
+            </p>
+          )}
+        </div>
       </div>
 
-      <div className="mx-auto mt-14 w-full max-w-4xl">
-        <Accordion type="single" collapsible className="space-y-3">
-          {faqs.map((item) => (
-            <AccordionItem
-              key={item.id}
-              value={item.id}
-              className="overflow-hidden rounded-[6px] bg-white shadow-sm"
-            >
-              <AccordionTrigger value={item.id}>
-                <h3 className=" text-[#114273]">{item.question}</h3>
-              </AccordionTrigger>
-              <AccordionContent value={item.id}>
-                <p className="whitespace-pre-line description [&_a]:break-all">
-                  {formatFaqAnswer(item.answer)}
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+      <div className="mx-auto mt-10 w-full max-w-[1280px] px-4 md:px-8">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <Accordion type="single" collapsible className="flex flex-col gap-4">
+            {leftFaqs.map((item) => (
+              <AccordionItem
+                key={item.id}
+                value={item.id}
+                className="overflow-hidden rounded-[6px] bg-[#f9fafb]"
+              >
+                <AccordionTrigger value={item.id}>
+                  <span className="text-[18px] leading-[28px] font-bold text-[#114273]">
+                    {item.question}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent value={item.id}>
+                  <p className="whitespace-pre-line description [&_a]:break-all">
+                    {formatFaqAnswer(item.answer)}
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          <Accordion type="single" collapsible className="flex flex-col gap-4">
+            {rightFaqs.map((item) => (
+              <AccordionItem
+                key={item.id}
+                value={item.id}
+                className="overflow-hidden rounded-[6px] bg-[#f9fafb]"
+              >
+                <AccordionTrigger value={item.id}>
+                  <span className="text-[18px] leading-[28px] font-bold text-[#114273]">
+                    {item.question}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent value={item.id}>
+                  <p className="whitespace-pre-line description [&_a]:break-all">
+                    {formatFaqAnswer(item.answer)}
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </section>
   );

@@ -49,11 +49,11 @@ export function AccordionTrigger({ value, children }) {
     <button
       type="button"
       onClick={() => ctx.toggleItem(value)}
-      className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-[0.95rem] font-semibold text-[#114273] cursor-pointer sm:px-5 sm:py-4"
+      className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer"
     >
       <span className="flex-1 pr-3">{children}</span>
       <span
-        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[rgba(72,156,216,0.1)] text-sm text-[#114273] transition-transform ${
+        className={`flex shrink-0 items-center justify-center rounded-full bg-[rgba(72,156,216,0.1)] p-1 text-[#114273] transition-transform ${
           open ? "rotate-180" : ""
         }`}
       >
@@ -70,8 +70,8 @@ export function AccordionContent({ value, children }) {
 
   return (
     <div
-      className={`overflow-hidden px-5 pb-4 text-sm text-[#4a4f54] transition-all ${
-        open ? "max-h-[500px] pt-1" : "max-h-0"
+      className={`overflow-hidden px-5 pb-4 text-[16px] leading-[1.4] text-[#5A6A82] transition-all ${
+        open ? "max-h-[600px] pt-2" : "max-h-0"
       }`}
     >
       {open ? children : null}

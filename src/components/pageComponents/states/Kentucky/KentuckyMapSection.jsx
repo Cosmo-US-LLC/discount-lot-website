@@ -2,9 +2,9 @@ import React from "react";
 
 function KentuckyMapSection() {
   return (
-    <section id="explore-lots" className="bg-white md:px-8 px-4 py-16">
-      <div className="mx-auto flex max-w-[1000px] flex-col items-center gap-10 text-center">
-        <div className="max-w-[580px] space-y-4">
+    <section id="explore-lots" className="bg-white md:px-8 px-4 md:py-18 py-12">
+      <div className="mx-auto flex max-w-[1000px] flex-col items-center md:gap-10 gap-6 text-center">
+        <div className="max-w-[580px] md:space-y-4 space-y-2">
           <h6 className="text-[#114273]">Interactive Property Map</h6>
           <h2 className="text-[#114273]">
             Explore the <span className="text-[#f47b20]">Subdivision</span>

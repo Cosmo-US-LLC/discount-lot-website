@@ -90,7 +90,7 @@ function KentuckyWhySection() {
   ];
 
   return (
-    <section className="bg-[#eaf4fb] py-18">
+    <section className="bg-[#eaf4fb] md:py-18 py-12">
       <div className="mx-auto flex max-w-[1320px] px-4 md:px-8 flex-col items-center gap-10 text-center">
         <div className="flex w-full flex-col items-center gap-10">
           <h2 className="w-full max-w-[616px] text-[#114273]">

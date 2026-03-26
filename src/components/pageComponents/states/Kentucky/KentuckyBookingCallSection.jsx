@@ -4,7 +4,7 @@ import BookingCallImageMobile from "@/assets/images/kentucky/book_a_call_mobile.
 
 function KentuckyBookingCallSection() {
   return (
-    <section id="schedule-a-call" className="bg-white md:py-18 py-14">
+    <section id="schedule-a-call" className="bg-white md:py-18 py-12">
       <div className="mx-auto flex w-full max-w-[1280px] px-4 md:px-8 flex-col items-center gap-10 text-center">
         <div className="flex w-full max-w-[590px] flex-col items-center md:gap-4 gap-3">
           <div className="flex flex-col items-center gap-4">

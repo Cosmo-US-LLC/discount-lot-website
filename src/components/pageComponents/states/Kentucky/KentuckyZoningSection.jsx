@@ -20,9 +20,9 @@ const useCases = [
 
 function KentuckyZoningSection() {
   return (
-    <section className="bg-[#eaf4fb] py-18">
+    <section className="bg-[#eaf4fb] md:py-18 py-12">
       <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col items-center gap-8">
-        <div className="w-full space-y-[14px]">
+        <div className="w-full md:space-y-[14px] space-y-2">
           <h6 className="text-[#114273]">What You Can Do Here</h6>
           <h2 className="text-[#114273]">Your Land,&nbsp;Your Rules</h2>
           <p className="text-[16px] leading-[26px] text-black">
@@ -35,11 +35,11 @@ function KentuckyZoningSection() {
           <article className="w-full max-w-[637px] md:h-[346px] h-full rounded-[8px] bg-white px-6 py-[30px]">
             <div className="mb-6 flex items-center gap-3">
               <span className="h-[25px] w-1 rounded-[1px] bg-[#f76d2f]" />
-              <h3 className="text-[24px] font-bold text-[#114273]">
+              <h3 className="md:!text-[24px] !text-[20px] font-bold text-[#114273]">
                 Zoning &amp; Building Rules
               </h3>
             </div>
-            <ul className="space-y-6 text-[16px] leading-[1.4] text-[#4a5565]">
+            <ul className="space-y-6 md:text-[16px] !text-[14px] leading-[1.4] text-[#4a5565]">
               {zoningRules.map((item) => (
                 <li key={item} className="flex gap-3">
                   <CheckIcon className="mt-[3px] size-4 shrink-0" />
@@ -52,11 +52,11 @@ function KentuckyZoningSection() {
           <article className="w-full max-w-[637px] md:h-[346px] h-full rounded-[8px] bg-white px-6 py-[30px]">
             <div className="mb-6 flex items-center gap-3">
               <span className="h-[25px] w-1 rounded-[1px] bg-[#f76d2f]" />
-              <h3 className="text-[24px] font-bold text-[#114273]">
+              <h3 className="md:!text-[24px] !text-[20px] font-bold text-[#114273]">
                 What You Can Build or Do
               </h3>
             </div>
-            <ul className="space-y-6 text-[16px] leading-[1.4] text-[#4a5565]">
+            <ul className="space-y-6 md:text-[16px] !text-[14px] leading-[1.4] text-[#4a5565]">
               {useCases.map((item) => (
                 <li key={item} className="flex gap-3">
                   <CheckIcon className="mt-[3px] size-4 shrink-0" />
