@@ -6,7 +6,7 @@ import { ArrowRightIcon } from "lucide-react";
 
 function KentuckyHero() {
   return (
-    <section className="relative h-[108dvh] w-full flex items-center pt-[120px] pb-[50px] -mt-(--header-height) text-white">
+    <section className="relative h-[100dvh] w-full flex items-center pt-[120px] pb-[40px] -mt-(--header-height) text-white">
       <div className="absolute inset-0">
         <div className="hidden h-full w-full md:block">
           <BlurImage
@@ -39,7 +39,7 @@ function KentuckyHero() {
             </h1>
           </div>
 
-          <div className="text-[16px] md:max-w-[586px] max-w-full leading-normal text-white/80 md:text-[20px]">
+          <div className="md:max-w-[736px] max-w-full body-description">
             43 private lots tucked into the south-central Kentucky no zoning
             restrictions, no banks, no middlemen. Owner financing starts at just
             $500 down insert.
@@ -75,7 +75,7 @@ function KentuckyHero() {
 
         <div className="hidden md:block">
           <a
-            href="#ky-properties"
+            href="https://discountlots.com/property-map?states=Kentucky&counties=Clinton&usage=&acreage.min=0.07&acreage.max=40&price.min=5943&price.max=128999&monthly_payment.min=141&monthly_payment.max=1875"
             className="mt-2 inline-flex items-center gap-2 bg-[#f76d2f] hover:bg-transparent! btn-secondary"
           >
             View Available Lots &amp; Pricing

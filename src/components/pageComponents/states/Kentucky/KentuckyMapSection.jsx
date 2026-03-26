@@ -4,12 +4,12 @@ function KentuckyMapSection() {
   return (
     <section id="explore-lots" className="bg-white md:px-8 px-4 py-16">
       <div className="mx-auto flex max-w-[1000px] flex-col items-center gap-10 text-center">
-        <div className="max-w-[590px] space-y-5">
+        <div className="max-w-[580px] space-y-4">
           <h6 className="text-[#114273]">Interactive Property Map</h6>
           <h2 className="text-[#114273]">
             Explore the <span className="text-[#f47b20]">Subdivision</span>
           </h2>
-          <p className="body-description text-[#5a6a82]">
+          <p className="description text-[#5a6a82]">
             43 numbered lots across a wooded, rolling landscape with paved road
             frontage. Click any lot to explore boundaries and details.
           </p>

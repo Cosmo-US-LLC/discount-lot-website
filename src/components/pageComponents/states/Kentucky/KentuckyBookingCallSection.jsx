@@ -6,8 +6,8 @@ function KentuckyBookingCallSection() {
   return (
     <section id="schedule-a-call" className="bg-white md:py-18 py-14">
       <div className="mx-auto flex w-full max-w-[1280px] px-4 md:px-8 flex-col items-center gap-10 text-center">
-        <div className="flex w-full max-w-[560px] flex-col items-center md:gap-7 gap-3">
-          <div className="flex flex-col items-center gap-5">
+        <div className="flex w-full max-w-[590px] flex-col items-center md:gap-4 gap-3">
+          <div className="flex flex-col items-center gap-4">
             <h6 className="text-[#f76d2f]">Talk to a Land Specialist</h6>
             <h2 className="text-[#0a2240]">Book a Free&nbsp;15‑Minute Call</h2>
           </div>
@@ -16,6 +16,13 @@ function KentuckyBookingCallSection() {
             no-pressure call with one of our Land Specialists and get answers
             fast.
           </p>
+          <a
+            href="https://api.leadconnectorhq.com/widget/bookings/sales-reps-rr"
+            className="inline-flex gap-2 items-center justify-center btn-primary"
+          >
+            Schedule a Call
+            {/* <ArrowRightIcon className="w-4 h-4" /> */}
+          </a>
         </div>
 
         <div className="max-md:hidden h-[350px] w-full max-w-[885px] overflow-hidden rounded-[6px] bg-white shadow-[0px_8px_25px_rgba(0,0,0,0.1)] ">

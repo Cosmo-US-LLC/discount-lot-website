@@ -156,18 +156,18 @@ body {
 
 h1 {
   font-family: var(--font-heading);
-  font-size: 70px;
+  font-size: 62px;
   font-style: normal;
-  font-weight: 700;
-  line-height: 72px;
+  font-weight: 900;
+  line-height: 68px;
 }
 
 h2 {
   font-family: var(--font-heading);
-  font-size: 48px;
+  font-size: 50px;
   font-style: normal;
-  font-weight: 700;
-  line-height: 48px;
+  font-weight: 900;
+  line-height: 55px;
   letter-spacing: -1.2px;
 }
 
@@ -181,7 +181,7 @@ h3 {
 
 h6 {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 15px;
@@ -191,7 +191,7 @@ h6 {
 
 .body-description {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
