@@ -96,7 +96,7 @@ function Header({
               <SheetTrigger asChild>
                 <button
                   type="button"
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/30 bg-black/20 text-white"
+                  className={`inline-flex h-9 w-9 items-center justify-center rounded-[6px] border ${scrolled ? "border-[#000] bg-white text-[#000]" : "border-white bg-black/20 text-white"}  `}
                   aria-label="Open navigation"
                 >
                   <Menu className="h-5 w-5" />

@@ -48,7 +48,7 @@ function KentuckyHero() {
 
         <div className="hidden max-md:block ">
           <a
-            href="#ky-properties"
+            href="https://discountlots.com/property-map?states=Kentucky&counties=Clinton&usage=&acreage.min=0.07&acreage.max=40&price.min=5943&price.max=128999&monthly_payment.min=141&monthly_payment.max=1875"
             className="mt-2 inline-flex items-center gap-2 bg-[#f76d2f] hover:bg-transparent! btn-secondary"
           >
             View Available Lots &amp; Pricing

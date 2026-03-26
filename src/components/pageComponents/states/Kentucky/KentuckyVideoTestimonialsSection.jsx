@@ -82,9 +82,9 @@ function KentuckyVideoTestimonialsSection() {
   }, [api, pauseAllExcept]);
 
   return (
-    <section id="testimonials" className="bg-[#114273] py-18">
+    <section id="testimonials" className="bg-[#114273] md:py-18 py-12">
       <div className="mx-auto flex w-full max-w-[1280px] md:px-8 px-4 flex-col items-center gap-12">
-        <div className="flex w-full max-w-[660px] flex-col items-center gap-5 text-center">
+        <div className="flex w-full md:max-w-[660px] flex-col items-center md:gap-5 gap-4 text-center">
           <h6 className="uppercase text-[#e05a28]">What our Customers Say</h6>
           <h2 className="text-white">Video&nbsp;Testimonials</h2>
         </div>
@@ -121,7 +121,7 @@ function KentuckyVideoTestimonialsSection() {
               {testimonials.map((t, idx) => (
                 <CarouselItem
                   key={t.name}
-                  className="pr-4 basis-full lg:basis-[32.5%]"
+                  className="md:pr-4 basis-full md:lg:basis-[32.5%]"
                 >
                   <article className="flex h-full flex-col  items-center">
                     <div className="w-full flex gap-2 flex-col rounded-[6px]">

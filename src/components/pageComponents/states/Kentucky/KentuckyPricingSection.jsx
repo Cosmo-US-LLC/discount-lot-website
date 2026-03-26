@@ -10,7 +10,7 @@ const stats = [
 
 function KentuckyPricingSection() {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white md:py-18 py-12">
       <div className="mx-auto flex max-w-5xl px-4 md:px-8 flex-col items-center gap-10 text-center">
         <div className="flex w-full max-w-[800px] flex-col items-center gap-4">
           <div className="flex w-full flex-col items-center gap-3">

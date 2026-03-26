@@ -68,7 +68,7 @@ function StarText({ text }) {
 
 function KentuckyReviewsSection() {
   return (
-    <section id="reviews" className="bg-white py-16">
+    <section id="reviews" className="bg-white md:py-18 py-12">
       <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col items-center gap-10 text-center">
         <div className="max-w-[800px] space-y-4">
           {/* <p className="text-[14px] font-bold uppercase tracking-[3px] text-[#f76d2f]">
