@@ -49,8 +49,8 @@ const infoCards = [
 
 function KentuckyLandInfoSection() {
   return (
-    <section className="bg-[#eaf4fb] py-18">
-      <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col items-center gap-10">
+    <section className="bg-[#eaf4fb] md:py-18 py-12">
+      <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col items-center md:gap-10 gap-8">
         <div className="w-full max-w-[676px] text-center flex flex-col items-center gap-4">
           <h6 className="text-[#f76d2f]">Quick insights</h6>
           <h2 className="text-[#114273]">

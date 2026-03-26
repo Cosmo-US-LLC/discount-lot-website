@@ -132,13 +132,6 @@ export const kentuckyFaqs = [
       "Closings can be finalized in under a week in most cases. Because we own every property outright before listing it, there's no waiting on bank approvals, appraisals, or third-party delays. Once you choose your lot and agree to terms, we move fast.",
   },
   {
-    id: "ky-specialist-vs-manager",
-    question:
-      "What's the difference between a Land Specialist and a Portfolio Manager?",
-    answer:
-      "Your Land Specialist guides you through the buying process — answering questions, helping you choose the right lot, and walking you through the financing terms. Once your purchase is complete, you're introduced to your dedicated Portfolio Manager, who supports you after the sale: title transfer, payment questions, and long-term planning for your property. You're covered at every stage, not just at closing.",
-  },
-  {
     id: "ky-roads-access",
     question: "Are the roads paved? Will I have year-round access?",
     answer:
@@ -155,5 +148,12 @@ export const kentuckyFaqs = [
     question: "Who is Discount Lots? Can I trust them?",
     answer:
       "Discount Lots was founded in 2019 and has served 3,000+ customers across multiple states. We're ranked #778 on the 2025 Inc. 5000 (540% revenue growth). We hold a BBB A rating (4.13★), a 4.9★ Google rating across 530+ reviews, and a 4.8★ Trustpilot rating across 200+ reviews. Our team of 70+ includes dedicated Land Specialists and Portfolio Managers whose only job is to make your land purchase as smooth as possible.",
+  },
+  {
+    id: "ky-specialist-vs-manager",
+    question:
+      "What's the difference between a Land Specialist and a Portfolio Manager?",
+    answer:
+      "Your Land Specialist guides you through the buying process — answering questions, helping you choose the right lot, and walking you through the financing terms. Once your purchase is complete, you're introduced to your dedicated Portfolio Manager, who supports you after the sale: title transfer, payment questions, and long-term planning for your property. You're covered at every stage, not just at closing.",
   },
 ];

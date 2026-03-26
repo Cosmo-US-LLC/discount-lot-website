@@ -72,13 +72,13 @@ const utilityCards = [
 
 function KentuckyUtilitiesSection() {
   return (
-    <section className="bg-white py-18">
-      <div className="mx-auto flex w-full max-w-[1322px] px-4 md:px-8 flex-col items-center gap-10 text-center md:gap-[40px]">
+    <section className="bg-white md:py-18 py-12">
+      <div className="mx-auto flex w-full max-w-[1322px] px-4 md:px-8 flex-col items-center md:gap-10 gap-8 text-center">
         <div className="flex w-full max-w-[800px] flex-col items-center gap-4">
           <div className="flex w-full flex-col items-center gap-3">
-            <p className="w-full text-[14px] font-bold uppercase tracking-[3px] text-[#f76d2f]">
+            <h6 className="w-full text-[14px] font-bold uppercase tracking-[3px] text-[#f76d2f]">
               Infrastructure
-            </p>
+            </h6>
             <div className="flex flex-col items-center gap-2">
               <h2 className="text-[34px] font-bold leading-none tracking-[-1.2px] text-[#114273] md:text-[48px] md:leading-[48px]">
                 Utilities Within Reach Line
@@ -100,7 +100,7 @@ function KentuckyUtilitiesSection() {
             <article
               key={card.title}
               className={[
-                "flex w-full max-w-[314px] md:h-[390px] h-full flex-col items-center rounded-[14px] border border-[#f3f4f6] bg-white p-4 shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)] transition-[background-color,box-shadow] duration-200",
+                "flex w-full md:max-w-[314px] md:h-[390px] h-full flex-col items-center rounded-[14px] border border-[#f3f4f6] bg-white md:p-4 p-6 shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)] transition-[background-color,box-shadow] duration-200",
                 "hover:bg-[rgba(17,66,115,0.06)] hover:shadow-[0px_6px_12px_rgba(0,0,0,0.08),0px_2px_4px_rgba(0,0,0,0.06)]",
                 // Use ring instead of border-2 to avoid layout shift on hover
                 "max-md:ring-2 max-md:ring-inset max-md:ring-[#114273]",
@@ -112,8 +112,13 @@ function KentuckyUtilitiesSection() {
                   <card.iconSrc />
                 </div>
                 <div className="flex w-full flex-col items-center gap-[6px] text-center">
-                  <h3 className=" text-[#1a1208] ">{card.title}</h3>
-                  <div className="space-y-2 description text-[rgba(26,18,8,0.6)] text-[16px] leading-[20px]">
+                  <h3
+                    className=" text-[#1a1208] !text-[16px] font-[700] leading-[22px]"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    {card.title}
+                  </h3>
+                  <div className="space-y-2 description text-[rgba(26,18,8,0.6)] ">
                     {card.body}
                   </div>
                 </div>
