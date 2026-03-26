@@ -17,7 +17,7 @@ function KentuckyFinalCta() {
         </div>
 
         <a
-          href="#ky-properties"
+          href="https://discountlots.com/property-map?states=Kentucky&counties=Clinton&usage=&acreage.min=0.07&acreage.max=40&price.min=5943&price.max=128999&monthly_payment.min=141&monthly_payment.max=1875"
           className="inline-flex gap-2 items-center justify-center btn-secondary border !border-[#ffffff] text-[#ffffff]"
         >
           View Available Lots &amp; Pricing{" "}
