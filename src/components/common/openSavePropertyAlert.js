@@ -16,7 +16,7 @@ export async function openSavePropertyAlert() {
     background: "#f3f4f6",
     padding: "2.25rem 1.5rem 2rem",
     customClass: {
-      popup: "text-left rounded-none min-h-[560px]",
+      popup: "text-left rounded-none min-h-[500px]",
       closeButton: "!text-[#111827] !text-[30px] !shadow-none",
     },
     html: `
@@ -29,30 +29,30 @@ export async function openSavePropertyAlert() {
       </div>
 
       <form id="save-property-form" style="margin-top:36px;text-align:left;">
-        <label for="save-full-name" style="display:block;text-align:left;margin-bottom:8px;color:#114273;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;">
+        <label for="save-full-name" style="display:block;text-align:left;margin-bottom:8px;color:#114273;font-size:12px;font-weight:700;line-height:18px;text-transform:uppercase;">
           Full name
         </label>
         <input
           id="save-full-name"
           type="text"
           placeholder="Enter name"
-          style="height:42px;width:100%;border-radius:4px;border:1px solid #d1d5db;background:#f3f4f6;padding:0 12px;font-size:13px;outline:none;"
+          style="height:42px;width:100%;border-radius:4px;border:1px solid #d1d5db;background:#f3f4f6;padding:0 12px;font-size:14px;outline:none;"
         />
 
-        <label for="save-email" style="display:block;text-align:left;margin:24px 0 8px;color:#114273;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;">
+        <label for="save-email" style="display:block;text-align:left;margin:24px 0 8px;color:#114273;font-size:12px;font-weight:700;line-height:18px;text-transform:uppercase;">
           Email address
         </label>
         <input
           id="save-email"
           type="email"
           placeholder="john@example.com"
-          style="height:42px;width:100%;border-radius:4px;border:1px solid #d1d5db;background:#f3f4f6;padding:0 12px;font-size:13px;outline:none;"
+          style="height:42px;width:100%;border-radius:4px;border:1px solid #d1d5db;background:#f3f4f6;padding:0 12px;font-size:14px;outline:none;"
         />
 
         <button
           id="save-property-submit"
           type="submit"
-          style="display:block;margin:24px auto 0;border:none;border-radius:4px;background:#0f4578;padding:12px 24px;color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;"
+          style="display:block;margin:24px auto 0;border:none;border-radius:4px;background:#0f4578;padding:12px 24px;color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;cursor:pointer;"
         >
           Save Property &amp; Get Alerts
         </button>
