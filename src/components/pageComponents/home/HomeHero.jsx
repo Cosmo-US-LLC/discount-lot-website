@@ -5,6 +5,21 @@ import homeHeroDesktop from "../../../assets/images/home/home_hero_desktop.webp"
 import homeHeroMobile from "../../../assets/images/home/home_hero_mobile.webp";
 import { TickBadgeIcon, SearchIcon } from "../../common/IconsSvgs";
 
+const ROTATING_HERO_STATES = [
+  "North Carolina",
+  "Arizona",
+  "California",
+  "Colorado",
+  "Florida",
+  "Georgia",
+  "Kentucky",
+  "Michigan",
+  "Missori",
+  "Nevada",
+  "Tennessee",
+  "Texas",
+];
+
 function HomeHero() {
   const MIN_ACRES = 0;
   const MAX_ACRES = 50;
@@ -20,30 +35,68 @@ function HomeHero() {
   const trackRef = React.useRef(null);
   const [isDraggingAcreage, setIsDraggingAcreage] = React.useState(false);
   const [selectedState, setSelectedState] = React.useState("");
+  const [rotatingHeroStateIndex, setRotatingHeroStateIndex] = React.useState(0);
+  const [locationOpen, setLocationOpen] = React.useState(false);
+  const locationPopoverRef = React.useRef(null);
+  const locationAnchorRef = React.useRef(null);
+  const [locationQuery, setLocationQuery] = React.useState("");
+
+  React.useEffect(() => {
+    if (ROTATING_HERO_STATES.length <= 1) return;
+
+    const intervalId = window.setInterval(() => {
+      setRotatingHeroStateIndex((i) => (i + 1) % ROTATING_HERO_STATES.length);
+    }, 3000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  React.useEffect(() => {
+    if (!locationOpen) return;
+    const onDocMouseDown = (e) => {
+      const pop = locationPopoverRef.current;
+      const anchor = locationAnchorRef.current;
+      if (!pop || !anchor) return;
+      if (pop.contains(e.target) || anchor.contains(e.target)) return;
+      setLocationOpen(false);
+    };
+    document.addEventListener("mousedown", onDocMouseDown);
+    return () => document.removeEventListener("mousedown", onDocMouseDown);
+  }, [locationOpen]);
 
   // Query param format expects `states` to be empty for "All States".
   // For the external `discountlots.com/property-map` filters, `states` should be the full state name
   // (example: `states=California`).
   const stateOptions = [
     { label: "All States", value: "" },
-    { label: "Alaska (1)", value: "Alaska" },
     { label: "Arizona (26)", value: "Arizona" },
-    { label: "California (60)", value: "California" },
-    { label: "Colorado (4)", value: "Colorado" },
+    { label: "California (61)", value: "California" },
+    { label: "Colorado (5)", value: "Colorado" },
     { label: "Florida (23)", value: "Florida" },
-    { label: "Georgia (2)", value: "Georgia" },
+    { label: "Georgia (3)", value: "Georgia" },
+    { label: "Indiana (1)", value: "Indiana" },
     { label: "Kentucky (43)", value: "Kentucky" },
     { label: "Michigan (1)", value: "Michigan" },
     { label: "Minnesota (1)", value: "Minnesota" },
     { label: "Mississippi (1)", value: "Mississippi" },
     { label: "Missouri (1)", value: "Missouri" },
     { label: "Nevada (3)", value: "Nevada" },
-    { label: "South Carolina (1)", value: "South Carolina" },
+    { label: "New Mexico (1)", value: "New Mexico" },
+    { label: "South Carolina (2)", value: "South Carolina" },
     { label: "Tennessee (4)", value: "Tennessee" },
-    { label: "Texas (10)", value: "Texas" },
+    { label: "Texas (8)", value: "Texas" },
     { label: "Utah (1)", value: "Utah" },
     { label: "Wyoming (1)", value: "Wyoming" },
   ];
+
+  const selectedStateLabel =
+    stateOptions.find((o) => o.value === selectedState)?.label ?? "All States";
+
+  const filteredStateOptions = stateOptions.filter((opt) => {
+    const q = locationQuery.trim().toLowerCase();
+    if (!q) return true;
+    return opt.label.toLowerCase().includes(q);
+  });
 
   const acresMinPercent =
     ((acresMinValue - MIN_ACRES) / (MAX_ACRES - MIN_ACRES)) * 100;
@@ -180,7 +233,9 @@ function HomeHero() {
     url.searchParams.set("acreage.max", acresMaxValue.toFixed(2));
     // Only send budget params when the user has actually selected something (i.e. not the initial "Range" placeholder).
     const isBudgetDefault =
-      budgetMin === DEFAULT_BUDGET_MIN && budgetMaxAny && !budgetMinCustomEnabled;
+      budgetMin === DEFAULT_BUDGET_MIN &&
+      budgetMaxAny &&
+      !budgetMinCustomEnabled;
 
     if (!isBudgetDefault) {
       url.searchParams.set("price.min", String(budgetMin));
@@ -261,38 +316,109 @@ function HomeHero() {
           </ul>
         </div>
 
-        <div className="w-full max-w-[460px] rounded-[16px] bg-white px-6 py-8 text-slate-900 shadow-[0_18px_45px_rgba(15,23,42,0.25)] backdrop-blur-md">
-          <div className="flex flex-col gap-2.5 items-center text-center">
+        <div className="w-full flex flex-col gap-6 max-w-[490px] rounded-[14px] bg-white px-8 py-10 text-slate-900 shadow-[0_18px_45px_rgba(15,23,42,0.25)] backdrop-blur-md">
+          <div className="flex flex-col gap-1 items-center text-center">
             <h2 className="font-bold text-[30px]! leading-[36px]! tracking-[-0.75px]! text-[#1f5c94]">
               Find Your Land
             </h2>
             <p className="text-base leading-6 text-[#6b7280]">
               Search{" "}
-              <span className="font-bold text-[#114273]">North Carolina</span>{" "}
+              <span className="font-bold text-[#114273]">
+                {ROTATING_HERO_STATES[rotatingHeroStateIndex]}
+              </span>{" "}
               properties now
             </p>
           </div>
 
-          <div className="mt-6 flex flex-col gap-8">
-            <div className="flex flex-col gap-3 pb-6">
+          <div className=" flex flex-col gap-3">
+            <div className="flex flex-col gap-5 pb-5">
               <div className="flex gap-3">
                 <div className="flex-1 flex flex-col gap-2">
                   <label className="text-xs font-semibold uppercase leading-5 text-[#114273]">
                     Location
                   </label>
-                  <div className="flex h-[52px] items-center rounded-[6px] border border-[#e5e7eb] px-4 py-3.5">
-                    <select
+                  <div className="relative">
+                    <button
+                      ref={locationAnchorRef}
+                      type="button"
+                      onClick={() =>
+                        setLocationOpen((v) => {
+                          const next = !v;
+                          if (next) setBudgetOpen(false);
+                          return next;
+                        })
+                      }
+                      className="flex h-[52px] w-full items-center justify-between rounded-[6px] border border-[#e5e7eb] bg-white px-4 py-3.5"
                       aria-label="Select state"
-                      className="w-full bg-transparent text-sm leading-[22px] text-[#04213f] focus:outline-none"
-                      value={selectedState}
-                      onChange={(e) => setSelectedState(e.target.value)}
+                      aria-haspopup="listbox"
+                      aria-expanded={locationOpen}
                     >
-                      {stateOptions.map((opt) => (
-                        <option key={opt.value || "all"} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
+                      <span className="text-sm leading-[22px] text-[#04213f]">
+                        {selectedStateLabel}
+                      </span>
+                      <ChevronDown className="h-4 w-4 text-[#04213f]" />
+                    </button>
+
+                    {locationOpen && (
+                      <div
+                        ref={locationPopoverRef}
+                        className="absolute left-0 right-0 z-50 mt-2 rounded-[12px] border border-[#e5e7eb] bg-white p-3 shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]"
+                        role="dialog"
+                        aria-label="Location dialog"
+                      >
+                        <div className="pb-2">
+                          <input
+                            type="text"
+                            value={locationQuery}
+                            onChange={(e) => setLocationQuery(e.target.value)}
+                            placeholder="Search states..."
+                            className="h-10 w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3 text-sm text-[#04213f] outline-none focus:border-[#114273]"
+                            autoFocus
+                          />
+                        </div>
+
+                        <div
+                          role="listbox"
+                          aria-label="State options"
+                          className="max-h-[220px] overflow-y-auto rounded-[8px] border border-[#e5e7eb] bg-white"
+                        >
+                          {filteredStateOptions.length === 0 ? (
+                            <div className="px-3 py-2 text-sm text-[#6b7280]">
+                              No results
+                            </div>
+                          ) : (
+                            filteredStateOptions.map((opt) => {
+                              const isActive = selectedState === opt.value;
+                              return (
+                                <button
+                                  key={opt.value || "all"}
+                                  type="button"
+                                  role="option"
+                                  aria-selected={isActive}
+                                  onClick={() => {
+                                    setSelectedState(opt.value);
+                                    setLocationOpen(false);
+                                    setLocationQuery("");
+                                  }}
+                                  className={`flex w-full items-center justify-between px-3 py-2 text-left text-sm ${
+                                    isActive
+                                      ? "bg-[#f3f4f6] font-semibold text-[#114273]"
+                                      : "text-[#111827] hover:bg-[#f9fafb]"
+                                  }`}
+                                >
+                                  <span>{opt.label}</span>
+                                  {isActive ? (
+                                    <span className="text-[#22c55e]">✓</span>
+                                  ) : (
+                                    <span />
+                                  )}
+                                </button>
+                              );
+                            })
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="flex-1 flex flex-col gap-2">
@@ -535,14 +661,14 @@ function HomeHero() {
                         <div className="mt-4 flex items-center justify-between gap-3">
                           <button
                             type="button"
-                            className="w-full rounded-[10px] border border-[#e5e7eb] bg-white px-4 py-2 text-sm font-semibold text-[#2563eb]"
+                            className="w-full btn-secondary py-2!"
                             onClick={handleResetBudget}
                           >
                             Reset
                           </button>
                           <button
                             type="button"
-                            className="w-full rounded-[10px] bg-[#114273] px-4 py-2 text-sm font-semibold text-white"
+                            className="w-full btn-primary py-2!"
                             onClick={() => {
                               setBudgetMinDropdownOpen(false);
                               setBudgetMaxDropdownOpen(false);
@@ -581,13 +707,13 @@ function HomeHero() {
                     />
 
                     <div
-                      className="absolute top-1/2 h-5 w-5 -translate-y-1/2 -translate-x-1/2 rounded-[10px] border-2 border-[#f76d2f] bg-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.1)]"
+                      className="absolute top-1/2 h-5 w-5 -translate-y-1/2 -translate-x-1/8 rounded-[10px] border-2 border-[#f76d2f] bg-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.1)]"
                       style={{ left: `${acresMinPercentClamped}%` }}
                       data-thumb="min"
                     />
 
                     <div
-                      className="absolute top-1/2 h-5 w-5 -translate-y-1/2 -translate-x-1/2 rounded-[10px] border-2 border-[#f76d2f] bg-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.1)]"
+                      className="absolute top-1/2 h-5 w-5 -translate-y-1/2 -translate-x-1/1 rounded-[10px] border-2 border-[#f76d2f] bg-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.1)]"
                       style={{ left: `${acresMaxPercentClamped}%` }}
                       data-thumb="max"
                     />

@@ -1,6 +1,10 @@
 import React from "react";
-import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+
+import TestimonialsVideo1 from "@/assets/images/kentucky/testimonials_video_1.webm";
+import TestimonialsVideo2 from "@/assets/images/kentucky/testimonials_video_2.webm";
+import TestimonialsVideo3 from "@/assets/images/kentucky/testimonials_video_3.webm";
+import TestimonialsVideo4 from "@/assets/images/kentucky/testimonials_video_4.webm";
 
 import TestimonialsSlide1 from "@/assets/images/kentucky/testimonials_slide_1.webp";
 import TestimonialsSlide2 from "@/assets/images/kentucky/testimonials_slide_2.webp";
@@ -18,33 +22,38 @@ const testimonials = [
     name: "Marcus R.",
     quote:
       '"I was skeptical at first  buying land online felt risky. But DiscountLots made it so easy. My 5-acre parcel in Mohave County was exactly what was described. Papers signed in 2 days."',
-    videoThumb: TestimonialsSlide1,
+    videoSrc: TestimonialsVideo1,
+    videoPoster: null,
   },
   {
     name: "Teresa L.",
     quote: `"The financing is what got me. I couldn't get a bank loan but $199 down and $149/month? That I could do. Now I own land in Yavapai County. Still feels unreal."`,
-    videoThumb: TestimonialsSlide2,
+    videoSrc: TestimonialsVideo2,
+    videoPoster: null,
   },
   {
     name: "James K.",
     quote: `"Third parcel I've bought from these guys. They're consistent, the titles are clean, and the customer service team actually answers the phone. Rare."`,
-    videoThumb: TestimonialsSlide3,
+    videoSrc: TestimonialsVideo3,
+    videoPoster: null,
   },
   {
     name: "Sal Villacorta",
     quote: `"Discount lot gave me a opportunity, and I came across a website, and the prices are ridiculously low. That’s the best opportunity there is."`,
-    videoThumb: TestimonialsSlide4,
+    videoSrc: TestimonialsVideo4,
+    videoPoster: null,
   },
 ];
 
 function KentuckyVideoTestimonialsSection() {
-  const autoplay = React.useRef(
-    Autoplay({
-      delay: 3000,
-      stopOnInteraction: false,
-      stopOnMouseEnter: true,
-    }),
-  );
+  const videoRefs = React.useRef([]);
+
+  const pauseAllExcept = React.useCallback((keepIndex) => {
+    videoRefs.current.forEach((v, idx) => {
+      if (!v) return;
+      if (idx !== keepIndex && !v.paused) v.pause();
+    });
+  }, []);
 
   const [api, setApi] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -55,10 +64,13 @@ function KentuckyVideoTestimonialsSection() {
   React.useEffect(() => {
     if (!api) return;
     const update = () => {
-      setSelectedIndex(api.selectedScrollSnap());
+      const nextIndex = api.selectedScrollSnap();
+      setSelectedIndex(nextIndex);
       setSnapCount(api.scrollSnapList().length);
       setCanPrev(api.canScrollPrev());
       setCanNext(api.canScrollNext());
+      // Stop any previously playing video when user changes slides.
+      pauseAllExcept(nextIndex);
     };
     update();
     api.on("select", update);
@@ -67,7 +79,7 @@ function KentuckyVideoTestimonialsSection() {
       api.off("select", update);
       api.off("reInit", update);
     };
-  }, [api]);
+  }, [api, pauseAllExcept]);
 
   return (
     <section id="testimonials" className="bg-[#114273] py-18">
@@ -81,7 +93,6 @@ function KentuckyVideoTestimonialsSection() {
           <Carousel
             setApi={setApi}
             opts={{ loop: true, align: "start", slidesToScroll: 1 }}
-            plugins={[autoplay.current]}
             className="w-full"
           >
             {/* Desktop arrows (top-right) */}
@@ -106,21 +117,29 @@ function KentuckyVideoTestimonialsSection() {
               </button>
             </div>
 
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="">
               {testimonials.map((t, idx) => (
                 <CarouselItem
                   key={t.name}
-                  className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+                  className="pr-4 basis-full lg:basis-[32.5%]"
                 >
                   <article className="flex h-full flex-col  items-center">
                     <div className="w-full flex gap-2 flex-col rounded-[6px]">
                       <div className="relative h-[480px] w-full overflow-hidden rounded-[16px] bg-black md:h-[606px]">
-                        <img
-                          alt=""
-                          src={t.videoThumb}
+                        <video
+                          ref={(el) => {
+                            videoRefs.current[idx] = el;
+                          }}
                           className="size-full object-fill object-top"
-                          loading={idx === 0 ? "eager" : "lazy"}
-                        />
+                          controls
+                          playsInline
+                          preload="metadata"
+                          poster={t.videoPoster}
+                          onPlay={() => pauseAllExcept(idx)}
+                        >
+                          <source src={t.videoSrc} type="video/webm" />
+                          Your browser does not support the video tag.
+                        </video>
                       </div>
 
                       <div className="mt-6 flex flex-col items-center gap-4 text-center">
