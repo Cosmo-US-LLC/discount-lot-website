@@ -505,7 +505,7 @@ function HomeHero() {
                                 </button>
 
                                 {budgetMinDropdownOpen && (
-                                  <div className="absolute left-0 right-0 top-[56px] z-10 max-h-[200px] overflow-y-auto rounded-[10px] border border-[#e5e7eb] bg-white">
+                                  <div className="absolute left-0 right-0 top-[70px] z-10 max-h-[216px] overflow-y-auto rounded-[10px] border border-[#e5e7eb] bg-white">
                                     <button
                                       type="button"
                                       onClick={() => {
@@ -601,7 +601,7 @@ function HomeHero() {
                                 </button>
 
                                 {budgetMaxDropdownOpen && (
-                                  <div className="absolute left-0 right-0 top-[56px] z-10 max-h-[200px] overflow-y-auto rounded-[10px] border border-[#e5e7eb] bg-white">
+                                  <div className="absolute left-0 right-0 top-[70px] z-10 max-h-[216px] overflow-y-auto rounded-[10px] border border-[#e5e7eb] bg-white">
                                     <button
                                       type="button"
                                       onClick={() => {
