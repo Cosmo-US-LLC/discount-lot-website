@@ -18,7 +18,7 @@ function KentuckyBookingCallSection() {
           </p>
           <a
             href="https://api.leadconnectorhq.com/widget/bookings/sales-reps-rr"
-            className="inline-flex gap-2 items-center justify-center btn-primary"
+            className="inline-flex gap-2 mt-3 items-center justify-center !text-[16px] btn-primary"
           >
             Schedule a Call
             {/* <ArrowRightIcon className="w-4 h-4" /> */}
