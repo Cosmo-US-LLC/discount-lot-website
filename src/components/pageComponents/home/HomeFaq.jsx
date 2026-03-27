@@ -168,7 +168,7 @@ function HomeFaq({
                 className="overflow-hidden rounded-[6px] bg-[#f9fafb]"
               >
                 <AccordionTrigger value={item.id}>
-                  <span className="text-[18px] leading-[28px] font-bold text-[#114273]">
+                  <span className="text-[18px] leading-[28px] font-bold text-[#114273] font-['Frank_Ruhl_Libre',serif]">
                     {item.question}
                   </span>
                 </AccordionTrigger>
@@ -189,7 +189,7 @@ function HomeFaq({
                 className="overflow-hidden rounded-[6px] bg-[#f9fafb]"
               >
                 <AccordionTrigger value={item.id}>
-                  <span className="text-[18px] leading-[28px] font-bold text-[#114273]">
+                  <span className="text-[18px] leading-[28px] font-bold text-[#114273] font-['Frank_Ruhl_Libre',serif]">
                     {item.question}
                   </span>
                 </AccordionTrigger>

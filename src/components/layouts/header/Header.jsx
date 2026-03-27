@@ -26,16 +26,26 @@ function getScrollOffsetPx() {
   return headerHeight + SCROLL_OFFSET_EXTRA_PX;
 }
 
-function scrollToSection(e, href) {
-  if (!href || !href.startsWith("#")) return;
+function scrollToSection(href) {
+  if (!href || !href.startsWith("#")) return false;
   const id = href.slice(1);
   const el = document.getElementById(id);
   if (el) {
-    e.preventDefault();
     const offset = getScrollOffsetPx();
     const top = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: "smooth" });
+    return true;
   }
+  return false;
+}
+
+function navigateOrScroll(href) {
+  if (!href) return;
+  if (href.startsWith("#")) {
+    scrollToSection(href);
+    return;
+  }
+  window.location.href = href;
 }
 
 function Header({
@@ -70,7 +80,11 @@ function Header({
               <a
                 href={link.href}
                 className="dl-nav__link"
-                onClick={(e) => scrollToSection(e, link.href)}
+                onClick={(e) => {
+                  if (link.href?.startsWith("#") && scrollToSection(link.href)) {
+                    e.preventDefault();
+                  }
+                }}
               >
                 {link.label}
               </a>
@@ -84,7 +98,11 @@ function Header({
             <a
               href={ctaHref}
               className="dl-nav__btn btn-primary flex"
-              onClick={(e) => scrollToSection(e, ctaHref)}
+              onClick={(e) => {
+                if (ctaHref?.startsWith("#") && scrollToSection(ctaHref)) {
+                  e.preventDefault();
+                }
+              }}
             >
               {ctaLabel}
             </a>
@@ -96,20 +114,23 @@ function Header({
               <SheetTrigger asChild>
                 <button
                   type="button"
-                  className={`inline-flex h-9 w-9 items-center justify-center rounded-[6px] border ${scrolled ? "border-[#000] bg-white text-[#000]" : "border-white bg-black/20 text-white"}  `}
+                  className={`inline-flex h-9 w-9 items-center justify-center rounded-[6px] border ${scrolled ? "border-black bg-white text-black" : "border-white bg-black/20 text-white"}  `}
                   aria-label="Open navigation"
                 >
                   <Menu className="h-5 w-5" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="left" className="!bg-[#0b1b30] !text-white">
+              <SheetContent
+                side="left"
+                className="bg-[#0b1b30]! text-white!"
+              >
                 <nav className="mt-4 space-y-3 text-left">
                   {links.map((link) => (
                     <SheetClose asChild key={link.href}>
                       <button
                         type="button"
                         className="block w-full rounded-md px-2 py-2 text-[15px] text-left"
-                        onClick={(e) => scrollToSection(e, link.href)}
+                        onClick={() => navigateOrScroll(link.href)}
                       >
                         {link.label}
                       </button>
@@ -119,7 +140,7 @@ function Header({
                     <button
                       type="button"
                       className="mt-4 w-full btn-secondary"
-                      onClick={(e) => scrollToSection(e, ctaHref)}
+                      onClick={() => navigateOrScroll(ctaHref)}
                     >
                       {ctaLabel}
                     </button>
