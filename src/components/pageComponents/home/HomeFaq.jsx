@@ -126,6 +126,7 @@ function HomeFaq({
           <h2 className="text-[#114273] text-[36px] leading-[1.1] font-black md:text-[50px]">
             {title}
           </h2>
+          <div className="mx-auto h-1 w-20 rounded-full bg-[#f76d2f]" />
           {description && (
             <p className="mx-auto max-w-[540px] text-[16px] leading-[1.4] text-[#5A6A82]">
               {description}

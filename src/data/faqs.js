@@ -43,13 +43,7 @@ export const homeFaqs = [
     answer:
       "We provide detailed property information, maps, photos, and clear written agreements. We follow standard recording procedures so your ownership is properly documented and secure. Because we own the properties we sell, we can answer detailed questions about each lot.",
   },
-  {
-    id: "title-help",
-    question:
-      "I'm not sure how buying land and transferring the title works. Will you help?",
-    answer:
-      "Yes. Our team walks you through each step, including the paperwork and title transfer. We explain everything in plain language before you sign.",
-  },
+
   {
     id: "cant-pay",
     question: "What happens if I can't keep up with payments?",
@@ -69,12 +63,6 @@ export const homeFaqs = [
       "You don't need to pay the full price upfront. Most buyers secure their property with a small down payment and affordable monthly terms.",
   },
   {
-    id: "call-county",
-    question: "Do I need to call the county before buying?",
-    answer:
-      "We've already done the heavy lifting. Before listing a property, we verify zoning, access, and buildability with county records. If you still have questions after reviewing the listing details, our team can help you confirm specifics with the county.",
-  },
-  {
     id: "visit-land",
     question: "Can I visit the land before buying?",
     answer:
@@ -91,6 +79,13 @@ export const homeFaqs = [
     question: "When do I receive the deed?",
     answer:
       "For cash purchases, the deed is prepared and sent for recording immediately after closing. For financed purchases, the deed is recorded in your name once the property is paid in full. You'll receive copies of all signed agreements for your records.",
+  },
+  {
+    id: "title-help",
+    question:
+      "I'm not sure how buying land and transferring the title works. Will you help?",
+    answer:
+      "Yes. Our team walks you through each step, including the paperwork and title transfer. We explain everything in plain language before you sign.",
   },
 ];
 
