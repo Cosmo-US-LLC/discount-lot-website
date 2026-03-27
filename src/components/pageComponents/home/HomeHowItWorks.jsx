@@ -46,6 +46,15 @@ const steps = [
 ];
 
 function HomeHowItWorks() {
+  const handleFindAffordableLandClick = () => {
+    const heroSection = document.getElementById("home");
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    window.location.hash = "home";
+  };
+
   return (
     <section id="how-it-works" className="bg-white py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
@@ -103,7 +112,11 @@ function HomeHowItWorks() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <button type="button" className="btn-secondary text-white">
+          <button
+            type="button"
+            className="btn-secondary text-white"
+            onClick={handleFindAffordableLandClick}
+          >
             Find Affordable Land
           </button>
         </div>

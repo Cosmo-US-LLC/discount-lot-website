@@ -12,7 +12,7 @@ const platforms = [
   },
   {
     name: "BBB Accredited",
-    summary: "★★★★ A Rating",
+    summary: "★★★★ A-Rating",
     icon: bbbIcon,
   },
   {
@@ -78,7 +78,7 @@ function KentuckyReviewsSection() {
             <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.8px] text-[#114273] md:text-[48px] md:tracking-[-1.2px]">
               Rated Across Trusted Platforms
             </h2>
-            <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-[#f76d2f]" />
+            <div className="mx-auto mt-2 h-1 w-20 rounded-full bg-[#f76d2f]" />
             <p className="text-[16px] leading-[26px] text-black md:text-[16px]">
               Backed by consistent feedback across major platforms.
             </p>

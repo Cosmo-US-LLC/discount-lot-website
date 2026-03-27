@@ -27,6 +27,7 @@ const cards = [
     photos: "Zoning",
     monthly: "$227/mo",
     cash: "$10,895",
+    propertyUrl: "https://discountlots.com/property/036N13046000100030",
   },
   {
     id: 2,
@@ -41,6 +42,7 @@ const cards = [
     photos: "Zoning",
     monthly: "$169/mo",
     cash: "$8,499",
+    propertyUrl: "https://discountlots.com/property/t1200029100",
   },
   {
     id: 3,
@@ -55,10 +57,20 @@ const cards = [
     photos: "Zoning",
     monthly: "$176/mo",
     cash: "$8,364",
+    propertyUrl: "https://discountlots.com/property/27-09-24-4078-0080-0040",
   },
 ];
 
 function HomeFeaturedProperties() {
+  const handleBrowseAvailablePropertiesClick = () => {
+    const heroSection = document.getElementById("home");
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    window.location.hash = "home";
+  };
+
   return (
     <section id="properties" className="bg-[#f2f5f9] py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
@@ -151,6 +163,9 @@ function HomeFeaturedProperties() {
                 <button
                   type="button"
                   className="mt-3 inline-flex items-center justify-center gap-2 btn-primary"
+                  onClick={() => {
+                    window.location.href = card.propertyUrl;
+                  }}
                 >
                   Explore details
                   <ArrowRightIcon className="h-4 w-4" />
@@ -164,6 +179,7 @@ function HomeFeaturedProperties() {
           <button
             type="button"
             className="inline-flex items-center gap-3 btn-secondary"
+            onClick={handleBrowseAvailablePropertiesClick}
           >
             Browse 200+ Available Properties
             <ArrowRightIcon className="h-4 w-4" />
