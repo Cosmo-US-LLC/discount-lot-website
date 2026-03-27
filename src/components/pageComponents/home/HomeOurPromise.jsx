@@ -1,6 +1,76 @@
 import React from "react";
 import { ArrowRight, ChevronDown, X } from "lucide-react";
 
+const stateOptions = [
+  { label: "All States", value: "" },
+  { label: "Arizona (26)", value: "Arizona" },
+  { label: "California (61)", value: "California" },
+  { label: "Colorado (5)", value: "Colorado" },
+  { label: "Florida (23)", value: "Florida" },
+  { label: "Georgia (3)", value: "Georgia" },
+  { label: "Indiana (1)", value: "Indiana" },
+  { label: "Kentucky (43)", value: "Kentucky" },
+  { label: "Michigan (1)", value: "Michigan" },
+  { label: "Minnesota (1)", value: "Minnesota" },
+  { label: "Mississippi (1)", value: "Mississippi" },
+  { label: "Missouri (1)", value: "Missouri" },
+  { label: "Nevada (3)", value: "Nevada" },
+  { label: "New Mexico (1)", value: "New Mexico" },
+  { label: "South Carolina (2)", value: "South Carolina" },
+  { label: "Tennessee (4)", value: "Tennessee" },
+  { label: "Texas (8)", value: "Texas" },
+  { label: "Utah (1)", value: "Utah" },
+  { label: "Wyoming (1)", value: "Wyoming" },
+];
+
+const PRICE_BOUND_MIN = 5943;
+const PRICE_BOUND_MAX = 128999;
+const MONTHLY_PAYMENT_BOUND_MIN = 141;
+const MONTHLY_PAYMENT_BOUND_MAX = 1875;
+
+function toAcreageRange(choice) {
+  switch (choice) {
+    case "Under 2 acres":
+      return { min: 0.07, max: 2 };
+    case "2 - 5 acres":
+      return { min: 2, max: 5 };
+    case "5 - 10 acres":
+      return { min: 5, max: 10 };
+    case "10+ acres":
+      return { min: 10, max: 40 };
+    default:
+      return { min: 0.07, max: 40 };
+  }
+}
+
+function buildPropertyMapUrl({ state, acreageChoice, budgetMax }) {
+  const url = new URL("https://discountlots.com/property-map");
+  url.searchParams.set("states", state ?? "");
+  url.searchParams.set("counties", "");
+  url.searchParams.set("usage", "");
+
+  const acres = toAcreageRange(acreageChoice);
+  url.searchParams.set("acreage.min", acres.min.toFixed(2));
+  url.searchParams.set("acreage.max", acres.max.toFixed(2));
+
+  url.searchParams.set("price.min", String(PRICE_BOUND_MIN));
+  const safeMax = Math.max(
+    PRICE_BOUND_MIN,
+    Math.min(PRICE_BOUND_MAX, budgetMax),
+  );
+  url.searchParams.set("price.max", String(safeMax));
+
+  url.searchParams.set(
+    "monthly_payment.min",
+    String(MONTHLY_PAYMENT_BOUND_MIN),
+  );
+  url.searchParams.set(
+    "monthly_payment.max",
+    String(MONTHLY_PAYMENT_BOUND_MAX),
+  );
+  return url.toString();
+}
+
 const flows = {
   building: {
     label: "Building my home",
@@ -63,6 +133,7 @@ function HomeOurPromise() {
   const [stepIndex, setStepIndex] = React.useState(0);
   const [answers, setAnswers] = React.useState({});
   const [sliderValue, setSliderValue] = React.useState(25000);
+  const [statePickerOpen, setStatePickerOpen] = React.useState(false);
 
   const activeSteps = activeFlow ? flows[activeFlow].steps : [];
   const currentStep = activeSteps[stepIndex] || null;
@@ -84,6 +155,7 @@ function HomeOurPromise() {
     setStepIndex(0);
     setAnswers({});
     setSliderValue(25000);
+    setStatePickerOpen(false);
   };
 
   const goBack = () => setStepIndex((prev) => (prev > 0 ? prev - 1 : prev));
@@ -105,23 +177,64 @@ function HomeOurPromise() {
     if (!currentStep) return null;
 
     if (currentStep.type === "select") {
+      const currentValue = answers[currentStep.id] ?? null;
+      const selectedLabel =
+        stateOptions.find((o) => o.value === currentValue)?.label ?? null;
+
       return (
-        <button
-          type="button"
-          className="mt-3 flex w-full items-center justify-between rounded-[10px] border border-[#d9dfea] bg-white px-4 py-3 text-left text-[#334155]"
-        >
-          <span className="text-[20px] md:text-[30px] leading-[1.2] tracking-[-0.6px] text-[#5a6a82]">
-            - {currentStep.placeholder} -
-          </span>
-          <ChevronDown className="h-5 w-5 text-[#94a3b8]" />
-        </button>
+        <div className="relative mt-3">
+          <button
+            type="button"
+            className="flex w-full items-center justify-between rounded-[10px] border border-[#d9dfea] bg-white px-4 py-3 text-left text-[#334155]"
+            onClick={() => setStatePickerOpen((v) => !v)}
+          >
+            <span
+              className={`text-[20px] md:text-[30px] leading-[1.2] tracking-[-0.6px] ${
+                selectedLabel ? "text-[#334155]" : "text-[#5a6a82]"
+              } font-['Frank_Ruhl_Libre',serif]`}
+            >
+              {selectedLabel ? selectedLabel : `- ${currentStep.placeholder} -`}
+            </span>
+            <ChevronDown className="h-5 w-5 text-[#94a3b8]" />
+          </button>
+
+          {statePickerOpen && (
+            <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-10 max-h-[320px] overflow-y-auto rounded-[14px] border border-[#d9dfea] bg-white p-2 shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
+              {stateOptions.map((opt) => {
+                const isActive = opt.value === (currentValue ?? "");
+                return (
+                  <button
+                    key={opt.value || "all"}
+                    type="button"
+                    onClick={() => {
+                      setStatePickerOpen(false);
+                      handlePick(opt.value);
+                    }}
+                    className={`flex w-full items-center justify-between rounded-[10px] px-4 py-3 text-left text-[16px] md:text-[20px] ${
+                      isActive
+                        ? "bg-[#f3f4f6] font-semibold text-[#114273]"
+                        : "text-[#111827] hover:bg-[#f9fafb]"
+                    } font-['Frank_Ruhl_Libre',serif]`}
+                  >
+                    <span>{opt.label}</span>
+                    {isActive ? (
+                      <span className="text-[#22c55e]">✓</span>
+                    ) : (
+                      <span />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
       );
     }
 
     if (currentStep.type === "range") {
       return (
         <>
-          <p className="mt-2 text-[34px] md:text-[42px] font-bold leading-[1.1] tracking-[-1px] text-[#114273]">
+          <p className="mt-2 text-[34px] md:text-[42px] font-bold leading-[1.1] tracking-[-1px] text-[#114273] font-['Frank_Ruhl_Libre',serif]">
             ${sliderValue.toLocaleString()}{" "}
             <span className="text-[20px] md:text-[30px] font-medium text-[#7a8fa8]">
               {currentStep.suffix}
@@ -135,7 +248,7 @@ function HomeOurPromise() {
             onChange={(e) => setSliderValue(Number(e.target.value))}
             className="mt-4 h-2 w-full cursor-pointer appearance-none rounded-full bg-[#dbe4ee]"
           />
-          <div className="mt-2 flex justify-between text-[14px] md:text-[22px] font-medium text-[#a3b3c9]">
+          <div className="mt-2 flex justify-between text-[14px] md:text-[22px] font-medium text-[#a3b3c9] font-['Frank_Ruhl_Libre',serif]">
             <span>${currentStep.min.toLocaleString()}</span>
             <span>${currentStep.max.toLocaleString()}+</span>
           </div>
@@ -149,7 +262,7 @@ function HomeOurPromise() {
           <button
             key={option}
             type="button"
-            className="rounded-full border border-[#d9dfea] bg-white px-4 md:px-5 py-2.5 md:py-3 text-[16px] md:text-[30px] leading-[1.2] tracking-[-0.6px] text-[#334155] transition hover:border-[#f76d2f] hover:text-[#f76d2f]"
+            className="rounded-full border border-[#d9dfea] bg-white px-4 md:px-5 py-2.5 md:py-3 text-[16px] md:text-[30px] leading-[1.2] tracking-[-0.6px] text-[#334155] transition hover:border-[#f76d2f] hover:text-[#f76d2f] font-['Frank_Ruhl_Libre',serif]"
             onClick={() => handlePick(option)}
           >
             {option}
@@ -177,7 +290,7 @@ function HomeOurPromise() {
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-5">
             <button
               type="button"
-              className="w-full md:w-fit btn-secondary hover:!bg-[#e47c28] !text-white"
+              className="w-full md:w-fit btn-secondary hover:bg-[#e47c28]! text-white!"
               onClick={() => startFlow("building")}
             >
               Building my home
@@ -201,19 +314,17 @@ function HomeOurPromise() {
           onClick={resetFlow}
         >
           <div
-            className="w-full max-w-[980px] rounded-[28px] bg-white text-left text-[#114273] shadow-[0px_35px_80px_rgba(0,0,0,0.35)]"
+            className="w-full max-w-[880px] rounded-[28px] bg-white text-left text-[#114273] shadow-[0px_35px_80px_rgba(0,0,0,0.35)]"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="px-6 pt-6 md:px-12 md:pt-10">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <span className="inline-flex rounded-full bg-[#fff4ec] px-4 py-1 text-[12px] md:text-[20px] font-bold uppercase tracking-[2px] text-[#f76d2f]">
+                  <span className="inline-flex rounded-full bg-[#fff4ec] px-4 py-1.5 text-[14px] md:text-[18px] font-bold uppercase tracking-[1px] text-[#f76d2f]">
                     {flows[activeFlow].badgeEmoji} {flows[activeFlow].label}
                   </span>
-                  <h3 className="mt-4 text-[40px] md:text-[58px] leading-[1.05] tracking-[-1.2px] text-[#1b2d50]">
-                    Find your perfect lot
-                  </h3>
-                  <p className="mt-2 text-[18px] md:text-[30px] leading-[1.2] tracking-[-0.6px] text-[#7a8fa8]">
+                  <h3 className="mt-4 text-[#1b2d50]">Find your perfect lot</h3>
+                  <p className="mt-2 text-[18px] md:text-[22px] leading-[1.2] tracking-[-0.6px] text-[#7a8fa8]">
                     3 quick answers — we&apos;ll show matching properties
                     instantly
                   </p>
@@ -239,7 +350,18 @@ function HomeOurPromise() {
                     .
                   </p>
                   <div className="flex flex-col gap-4 sm:flex-row">
-                    <button type="button" className="btn-secondary">
+                    <button
+                      type="button"
+                      className="btn-secondary"
+                      onClick={() => {
+                        const url = buildPropertyMapUrl({
+                          state: answers.state ?? "",
+                          acreageChoice: answers.acres,
+                          budgetMax: Number(answers.budget ?? sliderValue),
+                        });
+                        window.location.href = url;
+                      }}
+                    >
                       Show Matching Properties
                     </button>
                     <button
@@ -253,23 +375,23 @@ function HomeOurPromise() {
                 </div>
               ) : (
                 <>
-                  <div className="mb-5 flex items-center gap-3">
+                  <div className="mb-4 flex items-center gap-3">
                     {activeSteps.map((_, i) => (
                       <span
                         key={i}
                         className={`h-2.5 w-2.5 md:h-3 md:w-3 rounded-full ${i <= stepIndex ? "bg-[#f07a25]" : "bg-[#d7dde7]"}`}
                       />
                     ))}
-                    <span className="ml-2 md:ml-3 text-[14px] md:text-[22px] text-[#9aa9bf]">
+                    <span className="ml-2 md:ml-3 text-[14px] md:text-[18px] text-[#9aa9bf]">
                       Step {stepIndex + 1} of {activeSteps.length}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-[#f07a25] text-[16px] md:text-[18px] font-bold text-white">
+                    <span className="inline-flex h-6 w-6 md:h-7 md:w-7 items-center justify-center rounded-full bg-[#f07a25] text-[16px] md:text-[18px] font-bold text-white">
                       {stepIndex + 1}
                     </span>
-                    <p className="text-[24px] md:text-[34px] font-semibold leading-[1.2] tracking-[-0.7px] text-[#1f2f50]">
+                    <p className="text-[18px] md:text-[24px] font-semibold leading-[1.2] tracking-[-0.7px] text-[#1f2f50] font-['Frank_Ruhl_Libre',serif]">
                       {currentStep.question}
                     </p>
                   </div>
@@ -279,7 +401,7 @@ function HomeOurPromise() {
                   <div className="mt-8 flex gap-3 md:gap-4">
                     <button
                       type="button"
-                      className="rounded-[10px] bg-[#eef2f7] px-4 md:px-8 py-3 md:py-4 text-[16px] md:text-[30px] font-semibold text-[#9aa9bf] disabled:opacity-60"
+                      className="btn-primary bg-[#eef2f7] text-[#9aa9bf] disabled:opacity-60"
                       onClick={goBack}
                       disabled={stepIndex === 0}
                     >
@@ -288,11 +410,11 @@ function HomeOurPromise() {
                     {currentStep?.type !== "choice" ? (
                       <button
                         type="button"
-                        className="flex-1 rounded-[10px] bg-[#e47c28] px-6 py-3 md:px-8 md:py-4 text-[18px] md:text-[30px] font-bold text-white"
+                        className="flex-1 btn-secondary"
                         onClick={handleNext}
                       >
                         Next{" "}
-                        <ArrowRight className="ml-2 inline h-5 w-5 md:h-6 md:w-6" />
+                        <ArrowRight className="ml-2 inline h-5 w-4 md:h-4 md:w-5" />
                       </button>
                     ) : (
                       <button
