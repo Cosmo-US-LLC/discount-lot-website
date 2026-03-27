@@ -1,5 +1,4 @@
 import React from "react";
-import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight, CheckCircle2, Star } from "lucide-react";
 import googleIcon from "@/assets/images/kentucky/google.svg";
 
@@ -9,59 +8,65 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
+import TestimonialsVideo1 from "@/assets/images/kentucky/testimonials_video_1.webm";
+import TestimonialsVideo2 from "@/assets/images/kentucky/testimonials_video_2.webm";
+import TestimonialsVideo3 from "@/assets/images/kentucky/testimonials_video_3.webm";
+import TestimonialsVideo4 from "@/assets/images/kentucky/testimonials_video_4.webm";
+
 const testimonials = [
   {
-    name: "LaJeanna Brooks",
+    name: "Marcus R.",
     quote:
-      "The process was extremely easy... it was a super smooth transition. They're very communicative. They will show you the ropes and they will definitely put you in peace.",
-    videoThumb:
-      "https://www.figma.com/api/mcp/asset/4bed7f00-3d7f-4a74-9974-e2a63c2e5b66",
+      '"I was skeptical at first  buying land online felt risky. But DiscountLots made it so easy. My 5-acre parcel in Mohave County was exactly what was described. Papers signed in 2 days."',
+    videoSrc: TestimonialsVideo1,
+    videoPoster: null,
   },
   {
-    name: "Charles Riggs",
-    quote:
-      "I've been with Discount Lots for a few years. I purchased a property... It was a no money down situation. So I thought it would be a good investment.",
-    videoThumb:
-      "https://www.figma.com/api/mcp/asset/e4de5070-9761-4362-aa4e-b88fa24f78f2",
+    name: "Teresa L.",
+    quote: `"The financing is what got me. I couldn't get a bank loan but $199 down and $149/month? That I could do. Now I own land in Yavapai County. Still feels unreal."`,
+    videoSrc: TestimonialsVideo2,
+    videoPoster: null,
   },
   {
-    name: "Broch Clinton",
-    quote:
-      '"10 out of 10. I believe it’ll be an incredible asset in the future so I feel really good about it."',
-    videoThumb:
-      "https://www.figma.com/api/mcp/asset/0fe832cc-190f-4053-b143-c7f13a0b14d1",
+    name: "James K.",
+    quote: `"Third parcel I've bought from these guys. They're consistent, the titles are clean, and the customer service team actually answers the phone. Rare."`,
+    videoSrc: TestimonialsVideo3,
+    videoPoster: null,
   },
   {
     name: "Sal Villacorta",
-    quote:
-      '"Discount lot gave me a opportunity, and I came across a website, and the prices are ridiculously low. That’s the best opportunity there is."',
-    videoThumb:
-      "https://www.figma.com/api/mcp/asset/95dd8e95-4dad-47d3-a669-7e5053c7753e",
+    quote: `"Discount lot gave me a opportunity, and I came across a website, and the prices are ridiculously low. That’s the best opportunity there is."`,
+    videoSrc: TestimonialsVideo4,
+    videoPoster: null,
   },
 ];
 
 function HomeTestimonials() {
-  const autoplay = React.useRef(
-    Autoplay({
-      delay: 3000,
-      stopOnInteraction: false,
-      stopOnMouseEnter: true,
-    }),
-  );
-
   const [api, setApi] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [snapCount, setSnapCount] = React.useState(testimonials.length);
   const [canPrev, setCanPrev] = React.useState(false);
   const [canNext, setCanNext] = React.useState(false);
 
+  const videoRefs = React.useRef([]);
+
+  const pauseAllExcept = React.useCallback((keepIndex) => {
+    videoRefs.current.forEach((v, idx) => {
+      if (!v) return;
+      if (idx !== keepIndex && !v.paused) v.pause();
+    });
+  }, []);
+
   React.useEffect(() => {
     if (!api) return;
     const update = () => {
-      setSelectedIndex(api.selectedScrollSnap());
+      const nextIndex = api.selectedScrollSnap();
+      setSelectedIndex(nextIndex);
       setSnapCount(api.scrollSnapList().length);
       setCanPrev(api.canScrollPrev());
       setCanNext(api.canScrollNext());
+      // Stop any previously playing video when user changes slides.
+      pauseAllExcept(nextIndex);
     };
     update();
     api.on("select", update);
@@ -70,11 +75,11 @@ function HomeTestimonials() {
       api.off("select", update);
       api.off("reInit", update);
     };
-  }, [api]);
+  }, [api, pauseAllExcept]);
 
   return (
-    <section id="reviews" className="bg-[#114273] py-18">
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-12 px-4 md:px-8">
+    <section id="testimonials" className="bg-[#114273] md:py-18 py-12">
+      <div className="mx-auto flex w-full max-w-[1280px] md:px-8 px-4 flex-col items-center gap-12">
         <div className="flex w-full max-w-[800px] flex-col items-center gap-4 text-center">
           <h6 className="uppercase text-[#e05a28]">Testimonials</h6>
           <h2 className="text-white">Hear From Land Owners Like Yours</h2>
@@ -103,20 +108,20 @@ function HomeTestimonials() {
           </div>
         </div>
 
-        <div className="relative w-full">
+        <div className="w-full relative">
           <Carousel
             setApi={setApi}
             opts={{ loop: true, align: "start", slidesToScroll: 1 }}
-            plugins={[autoplay.current]}
             className="w-full"
           >
-            <div className="absolute right-0 top-[-10%] hidden w-[112px] items-center gap-4 md:flex">
+            {/* Desktop arrows (top-right) */}
+            <div className="absolute right-0 top-[-10%] w-[112px] hidden items-center gap-4 md:flex">
               <button
                 type="button"
                 onClick={() => api?.scrollPrev()}
                 disabled={!canPrev}
                 aria-label="Previous"
-                className="inline-flex size-12 cursor-pointer items-center justify-center rounded-full border border-white bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20 disabled:opacity-40"
+                className="inline-flex size-12 items-center justify-center cursor-pointer rounded-full border border-white bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20 disabled:opacity-40"
               >
                 <ArrowLeft className="size-6" />
               </button>
@@ -125,27 +130,35 @@ function HomeTestimonials() {
                 onClick={() => api?.scrollNext()}
                 disabled={!canNext}
                 aria-label="Next"
-                className="inline-flex size-12 cursor-pointer items-center justify-center rounded-full border border-white bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20 disabled:opacity-40"
+                className="inline-flex size-12 items-center justify-center cursor-pointer rounded-full border border-white bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20 disabled:opacity-40"
               >
                 <ArrowRight className="size-6" />
               </button>
             </div>
 
-            <CarouselContent className="-ml-4">
+            <CarouselContent>
               {testimonials.map((t, idx) => (
                 <CarouselItem
                   key={t.name}
-                  className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
+                  className="md:pr-4 basis-full md:lg:basis-[32.5%]"
                 >
                   <article className="flex h-full flex-col items-center">
-                    <div className="flex w-full flex-col gap-2 rounded-[6px]">
+                    <div className="w-full flex gap-2 flex-col rounded-[6px]">
                       <div className="relative h-[480px] w-full overflow-hidden rounded-[16px] bg-black md:h-[606px]">
-                        <img
-                          alt={t.name}
-                          src={t.videoThumb}
+                        <video
+                          ref={(el) => {
+                            videoRefs.current[idx] = el;
+                          }}
                           className="size-full object-fill object-top"
-                          loading={idx === 0 ? "eager" : "lazy"}
-                        />
+                          controls
+                          playsInline
+                          preload="metadata"
+                          poster={t.videoPoster}
+                          onPlay={() => pauseAllExcept(idx)}
+                        >
+                          <source src={t.videoSrc} type="video/webm" />
+                          Your browser does not support the video tag.
+                        </video>
                       </div>
 
                       <div className="mt-6 flex flex-col items-center gap-4 text-center">
@@ -155,7 +168,7 @@ function HomeTestimonials() {
                         <p className="text-[16px] font-bold tracking-[0.4px] text-white">
                           {t.name}
                         </p>
-                        <p className="h-[120px] max-w-[301px] text-[16px] leading-[23.2px] text-white">
+                        <p className="max-w-[301px] h-[120px] text-[16px] leading-[23.2px] text-white">
                           {t.quote}
                         </p>
                       </div>
@@ -172,6 +185,7 @@ function HomeTestimonials() {
               ))}
             </CarouselContent>
 
+            {/* Mobile arrows (below) */}
             <div className="mt-6 flex items-center justify-center gap-3 md:hidden">
               <button
                 type="button"

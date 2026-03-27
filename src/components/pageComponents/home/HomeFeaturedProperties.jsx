@@ -96,14 +96,14 @@ function HomeFeaturedProperties() {
                   alt={card.title}
                   className="h-full w-full object-cover"
                 />
-                <button
+                {/* <button
                   type="button"
                   className="absolute right-3 top-3 flex items-center justify-center rounded-full bg-white/85 p-2 shadow-md backdrop-blur"
                   onClick={() => openSavePropertyAlert(card)}
                   aria-label={`Save ${card.title}`}
                 >
                   <HeartGrayIcon className="h-4 w-4" />
-                </button>
+                </button> */}
                 <div
                   className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.09em] text-white shadow-lg"
                   style={{ backgroundColor: card.badgeColor }}
