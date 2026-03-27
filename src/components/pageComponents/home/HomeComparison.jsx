@@ -13,11 +13,11 @@ const rows = [
     discountLots: "None required",
     traditional: "Strictly required",
   },
-  {
-    label: "Closing time",
-    discountLots: "Less than 5 minutes",
-    traditional: "60–90 days average",
-  },
+  // {
+  //   label: "Closing time",
+  //   discountLots: "Less than 5 minutes",
+  //   traditional: "60–90 days average",
+  // },
   {
     label: "Paperwork",
     discountLots: "Secure digital process",
@@ -44,21 +44,21 @@ function HomeComparison() {
 
       {/* Comparison table styled like Figma */}
       <div className="mx-auto mt-10 w-full md:max-w-[1080px] max-w-full text-sm text-[#111827]">
-        <div className="overflow-hidden rounded-[6px] border border-[#e5e7eb] bg-white shadow-[0px_18px_40px_rgba(15,23,42,0.06)]">
+        <div className="overflow-hidden   ">
           <table className="w-full border-collapse">
             <thead>
               <tr className="md:text-[20px] text-[16px] font-[700] leading-[28px] uppercase tracking-[-0.5px] text-[#114273]">
-                <th className="px-6 py-4 text-left font-semibold">Features</th>
-                <th className="px-6 py-4 text-center font-semibold">
+                <th className="px-6 py-6 text-left font-semibold">Features</th>
+                <th className="px-6 py-6 text-center font-semibold bg-[#FEF4F1] rounded-t-[8px]">
                   <div className="md:inline-flex flex-col items-center gap-3 hidden">
                     <img
                       src={discountLotsLogo}
                       alt="Discount Lots"
-                      className="h-10 w-auto"
+                      className="h-10 w-auto z-10 relative"
                     />
                   </div>
                 </th>
-                <th className="px-6 py-4 text-center font-semibold text-[#114273]">
+                <th className="px-6 py-6 text-center font-semibold text-[#114273]">
                   Traditional banks
                 </th>
               </tr>
@@ -69,7 +69,7 @@ function HomeComparison() {
                   <td className="whitespace-nowrap md:px-6 px-3 py-4 text-left font-[600] text-[18px] leading-[28px]">
                     {row.label}
                   </td>
-                  <td className="md:px-6 px-3 py-4 text-center">
+                  <td className="md:px-6 px-3 py-4 text-center bg-[#FEF4F1] rounded-b-[4px]">
                     <div className="inline-flex md:w-[280px] w-[60px] items-center gap-4 px-4 py-1 text-[18px] font-[600] leading-[28px] text-[#F76D2F]">
                       <div className="md:h-6 h-4 md:w-6 w-4 flex items-center justify-center rounded-full bg-[#24B24A]">
                         <Check className="md:h-4 h-3 md:w-4 w-3 text-white" />

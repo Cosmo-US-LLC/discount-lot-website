@@ -163,7 +163,7 @@ function HomeOurPromise() {
     <section className="bg-[#114273] px-4 py-16 text-white shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] md:px-16 md:py-16">
       <div className="mx-auto w-full max-w-5xl text-center">
         <h2>Not seeing what you need?</h2>
-        <p className="mx-auto mt-5 max-w-2xl body-description">
+        <p className="mx-auto mt-5 max-w-3xl body-description">
           Answer 3 simple questions and we&apos;ll show you matching properties
           right now.
         </p>

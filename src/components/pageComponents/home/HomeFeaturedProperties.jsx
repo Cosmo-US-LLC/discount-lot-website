@@ -24,7 +24,7 @@ const cards = [
     cityLine: "Graceville, Jackson",
     acres: "0.16 Acres",
     county: "Jackson County, FL",
-    photos: "15 pictures",
+    photos: "Zoning",
     monthly: "$227/mo",
     cash: "$10,895",
   },
@@ -38,7 +38,7 @@ const cards = [
     cityLine: "Onalaska, Polk",
     acres: "0.19 Acres",
     county: "Polk County, Texas.",
-    photos: "12 pictures",
+    photos: "Zoning",
     monthly: "$169/mo",
     cash: "$8,499",
   },
@@ -52,7 +52,7 @@ const cards = [
     cityLine: "Interlachen, Putnam",
     acres: "0.34 Acres",
     county: "Putnam County, FL",
-    photos: "8 pictures",
+    photos: "Zoning",
     monthly: "$176/mo",
     cash: "$8,364",
   },
@@ -63,7 +63,7 @@ function HomeFeaturedProperties() {
     <section id="properties" className="bg-[#f2f5f9] py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
         <div className="mx-auto mb-10 max-w-[652px] text-center space-y-4">
-          <h6 className="text-[#f76d2f]">Premium listings</h6>
+          <h6 className="text-[#f76d2f]">Active listings</h6>
           <h2 className="text-[#114273]">Featured Properties</h2>
           <div className="mx-auto h-1 w-20 rounded-full bg-[#f76d2f]" />
           <p className="body-description text-[#4a5565]">

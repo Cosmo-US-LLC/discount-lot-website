@@ -38,7 +38,7 @@ function HomeSocialProof() {
         </div>
 
         <h6 className="inline-flex items-center rounded-full border border-[rgba(72,156,216,0.1)] bg-white md:px-6 px-4 md:py-5 py-4 md:!text-[14px] !text-[10px] font-semibold uppercase tracking-[1px] text-sky-500 shadow-sm">
-          3,000+ owners · 900+ verified 5-star reviews
+          3,000+ Land OWNERS • 900+ VERIFIED 5-STAR REVIEWS
         </h6>
       </div>
     </section>

@@ -75,13 +75,13 @@ function HomeTestimonials() {
   return (
     <section id="reviews" className="bg-[#114273] py-18">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-12 px-4 md:px-8">
-        <div className="flex w-full max-w-[660px] flex-col items-center gap-5 text-center">
+        <div className="flex w-full max-w-[800px] flex-col items-center gap-4 text-center">
           <h6 className="uppercase text-[#e05a28]">Testimonials</h6>
-          <h2 className="text-white">Hear From Families Like Yours</h2>
+          <h2 className="text-white">Hear From Land Owners Like Yours</h2>
           <p className="text-white">
             Over 3,000+ properties sold to satisfied buyers across the nation.
           </p>
-          <div className="mx-auto mt-6 inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-3 text-white">
+          <div className="mx-auto mt-4 inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-3 text-white">
             <img
               src={googleIcon}
               alt="Google"
