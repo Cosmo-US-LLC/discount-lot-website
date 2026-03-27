@@ -106,7 +106,7 @@ export const kentuckyFaqs = [
     id: "ky-electricity",
     question: "Who provides electricity, and how do I connect?",
     answer:
-      "Electric service is provided by South Kentucky RECC, which covers Albany, KY and surrounding areas. Power is available at the road for all lots. To arrange service, contact South Kentucky RECC directly:\n\n📞 800-264-5112\n✉️ skrecc [at] skrecc.com\n🌐 skrecc.com",
+      "Electric service is provided by South Kentucky RECC, which covers Albany, KY and surrounding areas. Power is available at the road for all lots. To arrange service, contact South Kentucky RECC directly:\n\n📞 800-264-5112\n✉️ skrecc@skrecc.com\n🌐 skrecc.com",
   },
   {
     id: "ky-rv-tiny-home",
