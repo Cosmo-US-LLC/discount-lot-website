@@ -12,7 +12,7 @@ const platforms = [
   },
   {
     name: "BBB Accredited",
-    summary: "★★★★ A-Rating",
+    summary: "★★★★ A- Rating",
     icon: bbbIcon,
   },
   {
