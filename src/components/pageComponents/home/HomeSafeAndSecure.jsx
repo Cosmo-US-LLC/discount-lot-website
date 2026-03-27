@@ -3,10 +3,19 @@ import safeAndSecureLandImage from "@/assets/images/home/save_and_secure.webp";
 import checkIcon from "@/assets/images/home/icon_park_twotone_check_one.webp";
 
 function HomeSafeAndSecure() {
+  const handleFindAffordableLandClick = () => {
+    const heroSection = document.getElementById("home");
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    window.location.hash = "home";
+  };
+
   return (
     <section className="bg-white py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
-        <div className="grid md:gap-24 gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-start">
+        <div className="grid md:gap-20 gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-start">
           {/* Left: copy + CTA */}
           <div className="space-y-6 max-w-[576px] flex flex-col items-center justify-center md:items-start md:justify-start">
             <div className="space-y-4 text-center md:text-left">
@@ -21,7 +30,11 @@ function HomeSafeAndSecure() {
               </p>
             </div>
 
-            <button type="button" className="btn-secondary text-white">
+            <button
+              type="button"
+              className="btn-secondary text-white"
+              onClick={handleFindAffordableLandClick}
+            >
               Find Affordable Land
             </button>
           </div>
@@ -46,15 +59,15 @@ function HomeSafeAndSecure() {
               />
             </div>
 
-            <div className="grid md:gap-3 gap-2 grid-cols-2 md:grid-cols-3">
+            <div className="grid md:gap-2 gap-2 grid-cols-2 md:grid-cols-3">
               {[
                 "Legal Access Verified",
-                "Build-ability Confirmed",
+                "Build ability Confirmed",
                 "Zoning Authenticated",
               ].map((label) => (
                 <div
                   key={label}
-                  className="flex md:flex-col flex-row gap-2 rounded-[6px] border border-[rgba(255,255,255,0.1)] bg-[rgba(0,0,0,0.05)] md:px-5 px-3 py-4"
+                  className="flex md:flex-col flex-row gap-2 rounded-[6px] border border-[rgba(255,255,255,0.1)] bg-[rgba(0,0,0,0.05)] md:px-2 px-2 py-4"
                 >
                   <div className="h-6 w-6">
                     <img

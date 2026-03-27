@@ -12,6 +12,8 @@ import { homeFaqs as defaultFaqs } from "@/data/faqs";
 const PHONE_REGEX = /(?:📞\s*)?(\(?\d{3}\)?[-.\s]*\d{3}[-.\s]*\d{4})/g;
 // Simple domain links (e.g. albanyky.org, skrecc.com)
 const URL_REGEX = /\b([a-zA-Z0-9-]+\.(?:com|org))\b/g;
+// Email links (e.g. skrecc@skrecc.com)
+const EMAIL_REGEX = /\b([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})\b/g;
 
 function toTelHref(phoneStr) {
   const digits = phoneStr.replace(/\D/g, "");
@@ -40,6 +42,16 @@ function formatFaqAnswer(text) {
       start: m.index,
       end: m.index + m[0].length,
       type: "url",
+      value: m[1],
+    });
+  }
+
+  EMAIL_REGEX.lastIndex = 0;
+  while ((m = EMAIL_REGEX.exec(text)) !== null) {
+    matches.push({
+      start: m.index,
+      end: m.index + m[0].length,
+      type: "email",
       value: m[1],
     });
   }
@@ -101,6 +113,17 @@ function formatFaqAnswer(text) {
         </a>
       );
     }
+    if (seg.type === "email") {
+      return (
+        <a
+          key={i}
+          href={`mailto:${seg.value}`}
+          className="text-[#2563eb] underline decoration-[#2563eb]/40 underline-offset-2 hover:text-[#1d4ed8] hover:decoration-[#1d4ed8]"
+        >
+          {seg.value}
+        </a>
+      );
+    }
     return null;
   });
 }
@@ -126,6 +149,7 @@ function HomeFaq({
           <h2 className="text-[#114273] text-[36px] leading-[1.1] font-black md:text-[50px]">
             {title}
           </h2>
+          <div className="mx-auto h-1 w-20 rounded-full bg-[#f76d2f]" />
           {description && (
             <p className="mx-auto max-w-[540px] text-[16px] leading-[1.4] text-[#5A6A82]">
               {description}

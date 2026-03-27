@@ -24,9 +24,10 @@ const cards = [
     cityLine: "Graceville, Jackson",
     acres: "0.16 Acres",
     county: "Jackson County, FL",
-    photos: "15 pictures",
+    photos: "Zoning",
     monthly: "$227/mo",
     cash: "$10,895",
+    propertyUrl: "https://discountlots.com/property/036N13046000100030",
   },
   {
     id: 2,
@@ -38,9 +39,10 @@ const cards = [
     cityLine: "Onalaska, Polk",
     acres: "0.19 Acres",
     county: "Polk County, Texas.",
-    photos: "12 pictures",
+    photos: "Zoning",
     monthly: "$169/mo",
     cash: "$8,499",
+    propertyUrl: "https://discountlots.com/property/t1200029100",
   },
   {
     id: 3,
@@ -52,18 +54,28 @@ const cards = [
     cityLine: "Interlachen, Putnam",
     acres: "0.34 Acres",
     county: "Putnam County, FL",
-    photos: "8 pictures",
+    photos: "Zoning",
     monthly: "$176/mo",
     cash: "$8,364",
+    propertyUrl: "https://discountlots.com/property/27-09-24-4078-0080-0040",
   },
 ];
 
 function HomeFeaturedProperties() {
+  const handleBrowseAvailablePropertiesClick = () => {
+    const heroSection = document.getElementById("home");
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    window.location.hash = "home";
+  };
+
   return (
     <section id="properties" className="bg-[#f2f5f9] py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
         <div className="mx-auto mb-10 max-w-[652px] text-center space-y-4">
-          <h6 className="text-[#f76d2f]">Premium listings</h6>
+          <h6 className="text-[#f76d2f]">Active listings</h6>
           <h2 className="text-[#114273]">Featured Properties</h2>
           <div className="mx-auto h-1 w-20 rounded-full bg-[#f76d2f]" />
           <p className="body-description text-[#4a5565]">
@@ -84,14 +96,14 @@ function HomeFeaturedProperties() {
                   alt={card.title}
                   className="h-full w-full object-cover"
                 />
-                <button
+                {/* <button
                   type="button"
                   className="absolute right-3 top-3 flex items-center justify-center rounded-full bg-white/85 p-2 shadow-md backdrop-blur"
                   onClick={() => openSavePropertyAlert(card)}
                   aria-label={`Save ${card.title}`}
                 >
                   <HeartGrayIcon className="h-4 w-4" />
-                </button>
+                </button> */}
                 <div
                   className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.09em] text-white shadow-lg"
                   style={{ backgroundColor: card.badgeColor }}
@@ -151,6 +163,9 @@ function HomeFeaturedProperties() {
                 <button
                   type="button"
                   className="mt-3 inline-flex items-center justify-center gap-2 btn-primary"
+                  onClick={() => {
+                    window.location.href = card.propertyUrl;
+                  }}
                 >
                   Explore details
                   <ArrowRightIcon className="h-4 w-4" />
@@ -164,6 +179,7 @@ function HomeFeaturedProperties() {
           <button
             type="button"
             className="inline-flex items-center gap-3 btn-secondary"
+            onClick={handleBrowseAvailablePropertiesClick}
           >
             Browse 200+ Available Properties
             <ArrowRightIcon className="h-4 w-4" />
