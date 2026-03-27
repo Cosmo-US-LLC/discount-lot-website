@@ -14,11 +14,8 @@ function KentuckyWhySection() {
         <>
           <p>
             One of the most affordable places to live in the U.S. cost of living
-            index around{" "}
-            <span className="font-semibold text-[#363636]">
-              75 vs. the national average of 100.
-            </span>{" "}
-            Overall living costs run ~8% below average.
+            index around 75 vs. the national average of 100. Overall living
+            costs run ~8% below average.
           </p>
           <p className="mt-4">
             Housing is roughly 22% more affordable. Groceries and healthcare
@@ -52,13 +49,8 @@ function KentuckyWhySection() {
         <>
           <p>
             We own every property outright before it&apos;s listed. No agents.
-            No banks. No credit checks. Over{" "}
-            <span className="font-semibold text-[#363636]">3,000 families</span>{" "}
-            have bought with us since 2019. Ranked{" "}
-            <span className="font-semibold text-[#363636]">
-              #778 on the 2025 Inc. 5000
-            </span>{" "}
-            with 540% growth.
+            No banks. No credit checks. Over 3,000 families have bought with us
+            since 2019. Ranked #778 on the 2025 Inc. 5000 with 540% growth.
           </p>
           <p className="mt-4">
             A dedicated Land Specialist guides you before you buy. A Portfolio
@@ -73,12 +65,10 @@ function KentuckyWhySection() {
       body: (
         <>
           <p>
-            Our previous subdivision projects have{" "}
-            <span className="font-semibold text-[#363636]">
-              sold out completely in as little as 90 days
-            </span>
-            . Affordable land with utilities, paved access, and zero
-            restrictions doesn&apos;t stay available. There are 43 lots here.
+            Our previous subdivision projects have sold out completely in as
+            little as 90 days . Affordable land with utilities, paved access,
+            and zero restrictions doesn&apos;t stay available. There are 43 lots
+            here.
           </p>
           <p className="mt-4">
             They will not all be available six months from now. The buyers who
