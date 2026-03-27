@@ -3,6 +3,15 @@ import safeAndSecureLandImage from "@/assets/images/home/save_and_secure.webp";
 import checkIcon from "@/assets/images/home/icon_park_twotone_check_one.webp";
 
 function HomeSafeAndSecure() {
+  const handleFindAffordableLandClick = () => {
+    const heroSection = document.getElementById("home");
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    window.location.hash = "home";
+  };
+
   return (
     <section className="bg-white py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
@@ -21,7 +30,11 @@ function HomeSafeAndSecure() {
               </p>
             </div>
 
-            <button type="button" className="btn-secondary text-white">
+            <button
+              type="button"
+              className="btn-secondary text-white"
+              onClick={handleFindAffordableLandClick}
+            >
               Find Affordable Land
             </button>
           </div>

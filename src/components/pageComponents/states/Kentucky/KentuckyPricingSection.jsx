@@ -12,14 +12,14 @@ function KentuckyPricingSection() {
   return (
     <section className="bg-white md:py-18 py-12">
       <div className="mx-auto flex max-w-5xl px-4 md:px-8 flex-col items-center gap-10 text-center">
-        <div className="flex w-full max-w-[800px] flex-col items-center gap-4">
+        <div className="flex w-full max-w-[900px] flex-col items-center gap-4">
           <div className="flex w-full flex-col items-center gap-3">
             <div className="h-[15px] w-full" aria-hidden="true" />
             <h2 className="text-center text-[#114273]">
               Get Started for as Little as&nbsp;$500 Down
             </h2>
           </div>
-          <p className="w-full max-w-[606px] text-[16px] font-normal leading-[26px] text-black">
+          <p className="w-full max-w-[806px] text-[16px] font-normal leading-[26px] text-black">
             No banks. No credit checks. No agents. Just you, your land, and a
             simple owner-financed payment plan — with payments under $200/month.
           </p>

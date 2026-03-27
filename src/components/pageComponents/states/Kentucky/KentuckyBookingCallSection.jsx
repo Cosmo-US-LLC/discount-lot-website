@@ -9,7 +9,7 @@ function KentuckyBookingCallSection() {
         <div className="flex w-full max-w-[590px] flex-col items-center md:gap-4 gap-3">
           <div className="flex flex-col items-center gap-4">
             <h6 className="text-[#f76d2f]">Talk to a Land Specialist</h6>
-            <h2 className="text-[#0a2240]">Book a Free&nbsp;15‑Minute Call</h2>
+            <h2 className="text-[#114273]">Book a Free&nbsp;15‑Minute Call</h2>
           </div>
           <p className="description text-[#5a6a82]">
             Have questions about a specific lot, pricing, or financing? Book a
