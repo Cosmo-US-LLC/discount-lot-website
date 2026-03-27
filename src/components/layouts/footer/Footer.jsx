@@ -12,7 +12,7 @@ function Footer() {
         <p className="mb-6 text-center text-[18px] leading-7 text-[#161009]">
           Please read our policies regarding{" "}
           <a
-            href="#payment-plans"
+            href="https://discountlots.com/policies/"
             className="font-semibold text-[#114273] underline decoration-[#114273] decoration-solid"
           >
             payment plans
@@ -52,16 +52,28 @@ function Footer() {
           <span>Copyright Discount Lots © 2026. All rights reserved.</span>
           <span className="text-[#d1d5db]">|</span>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href="#privacy" className="hover:text-slate-700">
+            <a
+              href="https://discountlots.com/privacy-policy/"
+              className="hover:text-slate-700"
+            >
               Privacy Policy
             </a>
-            <a href="#terms" className="hover:text-slate-700">
+            <a
+              href="https://discountlots.com/terms-and-conditions/"
+              className="hover:text-slate-700"
+            >
               Terms &amp; Conditions
             </a>
-            <a href="#pci" className="hover:text-slate-700">
+            <a
+              href="https://discountlots.com/pci-dss/"
+              className="hover:text-slate-700"
+            >
               PCI Security Policy
             </a>
-            <a href="#llm-info" className="hover:text-slate-700">
+            <a
+              href="https://discountlots.com/llm-info/"
+              className="hover:text-slate-700"
+            >
               LLM Info Page
             </a>
           </div>
