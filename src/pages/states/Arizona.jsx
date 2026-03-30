@@ -13,19 +13,30 @@ import ArizonaExploreByLocationSection from "@/components/pageComponents/states/
 import ArizonaTrustBarSection from "@/components/pageComponents/states/Arizona/ArizonaTrustBarSection";
 import useMeta from "@/lib/useMeta";
 import HomeFeaturedProperties from "@/components/pageComponents/home/HomeFeaturedProperties";
+import { arizonaFeaturedPropertyCards } from "@/data/featuredProperties";
+import HomeTestimonials from "@/components/pageComponents/home/HomeTestimonials";
 
 function Arizona() {
   return (
     <>
       <ArizonaHero />
       <ArizonaTrustBarSection />
-      <HomeFeaturedProperties />
+      <HomeFeaturedProperties
+        sectionId="featured-properties"
+        eyebrow="Verified & Available Now"
+        title="Arizona Land for Sale"
+        description="Every lot is title-verified and lien-free, for a secure purchase. We offer residential, agricultural, off-grid, and investment land, for you to explore lots in arizona"
+        cards={arizonaFeaturedPropertyCards}
+        browseCtaLabel="Browse Arizona Properties"
+        browseScrollTargetId="featured-properties"
+      />
       <ArizonaBrowseByCountySection />
       <ArizonaLandForEveryPlanSection />
       <ArizonaHowItWorksSection />
       <ArizonaWhyBuyLandSection />
       <ArizonaBuyWithConfidenceSection />
       <ArizonaExploreByLocationSection />
+      <HomeTestimonials />
       <ArizonaRecentlySoldPropertiesSection />
       <HomeFaq
         sectionId="faq"
