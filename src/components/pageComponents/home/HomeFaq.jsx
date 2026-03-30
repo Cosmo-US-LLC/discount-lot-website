@@ -134,13 +134,14 @@ function HomeFaq({
   faqs = defaultFaqs,
   sectionId = "faq",
   description = "",
+  singleAccordion = false,
 }) {
   const half = Math.ceil((faqs?.length ?? 0) / 2);
   const leftFaqs = faqs.slice(0, half);
   const rightFaqs = faqs.slice(half);
 
   return (
-    <section id={sectionId} className="bg-white md:py-18 py-12">
+    <section id={sectionId} className="bg-[#f0f4f8] md:py-18 py-12">
       <div className="mx-auto max-w-[1280px] px-4 md:px-8 text-center">
         <div className="space-y-4">
           <h6 className="text-[#f76d2f] text-[12px] font-bold tracking-[3px] uppercase">
@@ -158,10 +159,12 @@ function HomeFaq({
         </div>
       </div>
 
-      <div className="mx-auto mt-10 w-full max-w-[1280px] px-4 md:px-8">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div
+        className={`mx-auto mt-10 w-full px-4 md:px-8 ${singleAccordion ? "max-w-[960px]" : "max-w-[1280px]"}`}
+      >
+        {singleAccordion ? (
           <Accordion type="single" collapsible className="flex flex-col gap-4">
-            {leftFaqs.map((item) => (
+            {faqs.map((item) => (
               <AccordionItem
                 key={item.id}
                 value={item.id}
@@ -180,28 +183,59 @@ function HomeFaq({
               </AccordionItem>
             ))}
           </Accordion>
+        ) : (
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <Accordion
+              type="single"
+              collapsible
+              className="flex flex-col gap-4"
+            >
+              {leftFaqs.map((item) => (
+                <AccordionItem
+                  key={item.id}
+                  value={item.id}
+                  className="overflow-hidden rounded-[6px] bg-[#f9fafb]"
+                >
+                  <AccordionTrigger value={item.id}>
+                    <span className="text-[18px] leading-[28px] font-bold text-[#114273] font-['Frank_Ruhl_Libre',serif]">
+                      {item.question}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent value={item.id}>
+                    <p className="whitespace-pre-line description [&_a]:break-all">
+                      {formatFaqAnswer(item.answer)}
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
 
-          <Accordion type="single" collapsible className="flex flex-col gap-4">
-            {rightFaqs.map((item) => (
-              <AccordionItem
-                key={item.id}
-                value={item.id}
-                className="overflow-hidden rounded-[6px] bg-[#f9fafb]"
-              >
-                <AccordionTrigger value={item.id}>
-                  <span className="text-[18px] leading-[28px] font-bold text-[#114273] font-['Frank_Ruhl_Libre',serif]">
-                    {item.question}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent value={item.id}>
-                  <p className="whitespace-pre-line description [&_a]:break-all">
-                    {formatFaqAnswer(item.answer)}
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+            <Accordion
+              type="single"
+              collapsible
+              className="flex flex-col gap-4"
+            >
+              {rightFaqs.map((item) => (
+                <AccordionItem
+                  key={item.id}
+                  value={item.id}
+                  className="overflow-hidden rounded-[6px] bg-[#f9fafb]"
+                >
+                  <AccordionTrigger value={item.id}>
+                    <span className="text-[18px] leading-[28px] font-bold text-[#114273] font-['Frank_Ruhl_Libre',serif]">
+                      {item.question}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent value={item.id}>
+                    <p className="whitespace-pre-line description [&_a]:break-all">
+                      {formatFaqAnswer(item.answer)}
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        )}
       </div>
     </section>
   );
