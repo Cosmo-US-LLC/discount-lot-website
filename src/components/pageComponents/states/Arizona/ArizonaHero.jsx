@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import arizonaHeroDesktop from "@/assets/images/arizona/arizona_hero_desktop.webp";
 import arizonaHeroMobile from "@/assets/images/arizona/arizona_hero_mobile.webp";
 import BlurImage from "@/components/common/BlurImage";
 
 function ArizonaHero() {
+  const heroRef = useRef(null);
+  const [showStickyCta, setShowStickyCta] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroEl = heroRef.current;
+      if (!heroEl) return;
+
+      const rect = heroEl.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      // When bottom of hero enters the viewport, start showing CTA
+      setShowStickyCta(rect.bottom <= viewportHeight);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section
-      className="relative w-full h-dvh flex items-center pt-[100px] pb-[40px] -mt-(--header-height)"
+      ref={heroRef}
+      className="relative w-full h-full md:h-dvh flex items-center pt-[100px] pb-[96px] md:pb-[40px] -mt-(--header-height)"
       aria-label="Arizona Hero"
     >
       <div className="absolute inset-0">
@@ -36,8 +59,9 @@ function ArizonaHero() {
             </div>
 
             <div className="flex flex-col items-center gap-4 text-center">
-              <h1 className="text-white max-w-[759px]">
-                Buy Exclusive Off-Market Arizona Properties
+              <h1 className="text-white w-full md:max-w-[759px]">
+                Buy Exclusive <br className="hidden max-md:block" /> Off-Market
+                Arizona Properties
               </h1>
 
               <p className="text-[20px] leading-[1.4] text-white/80 max-w-[759px]">
@@ -47,24 +71,24 @@ function ArizonaHero() {
             </div>
           </div>
 
-          <div className="flex gap-[16px] items-center">
+          <div className="flex flex-col md:flex-row gap-[16px] items-center">
             <button
               type="button"
-              className="btn-secondary hover:!bg-[#fff] !hover:text-[#ffffff] hover:!border-white"
+              className="btn-secondary w-full md:w-auto"
             >
               View Hot Properties
             </button>
 
             <button
               type="button"
-              className="btn-secondary !bg-transparent !border-[#ffffff] hover:!bg-[#fff] !hover:text-[#ffffff] hover:!border-white"
+              className="btn-secondary w-full md:w-auto !bg-transparent !border-[#ffffff]"
             >
               How Owner Financing Works
             </button>
           </div>
         </div>
 
-        <div className="mt-12 w-full flex gap-12 items-center justify-center">
+        <div className="mt-12 w-full grid grid-cols-2 gap-8 sm:flex sm:flex-wrap sm:gap-12 items-center justify-center">
           {[
             { big: "30+", small: "Available lots" },
             { big: "$200", small: "Below $200/mo" },
@@ -73,7 +97,7 @@ function ArizonaHero() {
           ].map((s) => (
             <div
               key={s.small}
-              className="flex flex-col gap-2 items-center min-w-[120px] whitespace-nowrap"
+              className="flex flex-col md:gap-2 gap-1 items-center min-w-[120px] whitespace-nowrap"
             >
               <div
                 className="font-black text-[42px] text-white leading-[46px]"
@@ -87,7 +111,26 @@ function ArizonaHero() {
             </div>
           ))}
         </div>
+
       </div>
+
+      {/* Mobile sticky CTA for Arizona (shows after hero is scrolled) */}
+      {showStickyCta && (
+        <div className="fixed bottom-4 inset-x-4 z-20 md:hidden px-4">
+          <button
+            type="button"
+            className="btn-secondary w-full"
+            onClick={() => {
+              const section = document.getElementById("featured-properties");
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }}
+          >
+            View Hot Properties
+          </button>
+        </div>
+      )}
     </section>
   );
 }

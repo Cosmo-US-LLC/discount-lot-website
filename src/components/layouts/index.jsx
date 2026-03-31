@@ -13,11 +13,19 @@ function Layout() {
       links: [
         { label: "How it works", href: "#how-it-works" },
         { label: "About Us", href: "#about-us" },
-        { label: "Reviews", href: "#reviews" },
+        { label: "Reviews", href: "#testimonials" },
         { label: "FAQ", href: "#faq" },
       ],
       ctaLabel: "Get started",
       ctaHref: "#properties",
+    },
+    "/states/arizona": {
+      links: [
+        { label: "Browse by county", href: "#browse-by-county" },
+        { label: "How it works", href: "#schedule-a-call" },
+        { label: "Reviews", href: "#testimonials" },
+        { label: "FAQ", href: "#faq" },
+      ],
     },
     "/states/kentucky": {
       links: [
