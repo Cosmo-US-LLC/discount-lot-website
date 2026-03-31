@@ -20,7 +20,7 @@ function HomeWhoAreWe() {
         </div>
 
         {/* Right: copy */}
-        <div className="w-full space-y-6 md:flex-1">
+        <div className="w-full space-y-4 md:flex-1">
           <h6 className="text-[#f76d2f]">Who are we</h6>
           <h2 className="text-[#114273]">Making Land Ownership Accessible</h2>
 
