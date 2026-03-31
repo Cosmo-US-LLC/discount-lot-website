@@ -22,6 +22,8 @@ const ROTATING_HERO_STATES = [
 
 function HomeHero() {
   const [rotatingHeroStateIndex, setRotatingHeroStateIndex] = React.useState(0);
+  const heroRef = React.useRef(null);
+  const [showStickyCta, setShowStickyCta] = React.useState(false);
 
   React.useEffect(() => {
     if (ROTATING_HERO_STATES.length <= 1) return;
@@ -32,12 +34,32 @@ function HomeHero() {
 
     return () => window.clearInterval(intervalId);
   }, []);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const heroEl = heroRef.current;
+      if (!heroEl) return;
+
+      const rect = heroEl.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      // Show CTA after hero bottom enters viewport
+      setShowStickyCta(rect.bottom <= viewportHeight);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const rotatingStateLabel =
     ROTATING_HERO_STATES[rotatingHeroStateIndex] ?? "North Carolina";
 
   return (
     <section
       id="home"
+      ref={heroRef}
       className="relative h-full w-full flex items-center min-h-dvh -mt-(--header-height) pt-(--header-height) text-white"
     >
       <div className="absolute inset-0">
@@ -59,7 +81,7 @@ function HomeHero() {
         </div>
       </div>
 
-      <div className="relative h-full w-full mx-auto flex max-w-[1280px] flex-col gap-10 px-4 py-6 md:px-8 md:py-10 md:flex-row md:items-center md:justify-between items-center">
+      <div className="relative h-full w-full mx-auto flex max-w-[1280px] flex-col gap-10 px-4 pb-20 pt-6 md:px-8 md:py-10 md:flex-row md:items-center md:justify-between items-center">
         <div className="max-w-[640px] space-y-6">
           <div className="inline-flex items-center gap-2 rounded-[6px] border border-[#ffffff] bg-white/10 px-3 py-4 uppercase tracking-[0.18em] text-[#ffffff]">
             <TickBadgeIcon className="h-5 w-5" />
@@ -106,6 +128,26 @@ function HomeHero() {
 
         <PropertiesSearchCard rotatingStateLabel={rotatingStateLabel} />
       </div>
+
+      {/* Mobile sticky CTA for Home (shows after hero is scrolled) */}
+      {showStickyCta && (
+        <div className="fixed bottom-4 inset-x-4 z-20 md:hidden">
+          <button
+            type="button"
+            className="btn-secondary w-full"
+            onClick={() => {
+              const section = document.getElementById("properties");
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth", block: "start" });
+              } else {
+                window.location.hash = "properties";
+              }
+            }}
+          >
+            Browse Featured Properties
+          </button>
+        </div>
+      )}
     </section>
   );
 }
