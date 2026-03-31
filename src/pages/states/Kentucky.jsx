@@ -46,8 +46,8 @@ function Kentucky() {
         sectionId="resources"
         eyebrow="Got Questions?"
         title="Frequently Asked Questions"
-        description=" Everything you need to know about Kentucky Rollin' Hills and how
-          Discount Lots works."
+        description="Everything you need to know about Kentucky Wolf Creek and how Discount Lots works.
+"
         faqs={kentuckyFaqs}
       />
       <KentuckyFinalCta />
