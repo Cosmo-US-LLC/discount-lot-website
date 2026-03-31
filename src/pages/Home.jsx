@@ -16,9 +16,9 @@ import useMeta from "@/lib/useMeta";
 
 function Home() {
   useMeta({
-    title: "Own Land for Less Than Rent | Discount Lots",
+    title: "Buy Land in USA | Starting at $200/Mo | No Credit Check",
     description:
-      "Own premium land with easy monthly payments. No credit checks, fast digital closing, and flexible terms. Starting at $200/month.",
+      "Looking to buy land in the USA? Payment plans start at just $200/mo with no credit check & easy owner financing. New lots listed weekly, search now!",
   });
 
   return (
