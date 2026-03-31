@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import heroImageDesktop from "@/assets/images/kentucky/kentucky_hero_desktop.webp";
 import heroImageMobile from "@/assets/images/kentucky/kentucky_hero_mobile.webp";
 import BlurImage from "@/components/common/BlurImage";
 import { ArrowRightIcon } from "lucide-react";
 
 function KentuckyHero() {
+  const heroRef = useRef(null);
+  const [showStickyCta, setShowStickyCta] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroEl = heroRef.current;
+      if (!heroEl) return;
+
+      const rect = heroEl.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      // When bottom of hero enters the viewport, start showing CTA
+      setShowStickyCta(rect.bottom <= viewportHeight);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative h-[100dvh] w-full flex items-center pt-[120px] pb-[40px] -mt-(--header-height) text-white">
+    <section
+      ref={heroRef}
+      className="relative h-[100dvh] w-full flex items-center pt-[120px] pb-[96px] md:pb-[40px] -mt-(--header-height) text-white"
+    >
       <div className="absolute inset-0">
         <div className="hidden h-full w-full md:block">
           <BlurImage
@@ -46,15 +71,7 @@ function KentuckyHero() {
           </div>
         </div>
 
-        <div className="hidden max-md:block ">
-          <a
-            href="https://discountlots.com/property-map?states=Kentucky&counties=Clinton&usage=&acreage.min=0.07&acreage.max=40&price.min=5943&price.max=128999&monthly_payment.min=141&monthly_payment.max=1875"
-            className="mt-2 inline-flex items-center gap-2 bg-[#f76d2f] hover:bg-transparent! btn-secondary"
-          >
-            View Available Lots &amp; Pricing
-            <ArrowRightIcon className="h-5 w-5" />
-          </a>
-        </div>
+        <div className="hidden max-md:block " />
 
         <div className="flex md:max-w-[626px] max-w-full flex-wrap items-center justify-center md:gap-3 gap-2">
           {[
@@ -83,6 +100,19 @@ function KentuckyHero() {
           </a>
         </div>
       </div>
+
+      {/* Mobile sticky CTA for Kentucky (shows after hero is scrolled) */}
+      {showStickyCta && (
+        <div className="fixed bottom-4 inset-x-4 z-20 md:hidden px-4">
+          <a
+            href="https://discountlots.com/property-map?states=Kentucky&counties=Clinton&usage=&acreage.min=0.07&acreage.max=40&price.min=5943&price.max=128999&monthly_payment.min=141&monthly_payment.max=1875"
+            className="inline-flex w-full items-center justify-center gap-2 bg-[#f76d2f] btn-secondary"
+          >
+            View Available Lots &amp; Pricing
+            <ArrowRightIcon className="h-5 w-5" />
+          </a>
+        </div>
+      )}
     </section>
   );
 }
