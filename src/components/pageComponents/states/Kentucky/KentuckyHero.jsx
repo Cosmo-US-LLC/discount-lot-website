@@ -58,7 +58,7 @@ function KentuckyHero() {
 
           <div>
             <h1 className="font-black">
-              <span>Kentucky </span>
+              <span>Kentucky </span> <br className="md:hidden block" />
               <span className="text-[#f76d2f]">Wolf Creek Reserve</span>
               <p className="font-black">Clinton County, KY</p>
             </h1>
@@ -71,7 +71,16 @@ function KentuckyHero() {
           </div>
         </div>
 
-        <div className="hidden max-md:block " />
+        {/* <div className="hidden max-md:block " /> */}
+        <div className="hidden max-md:block">
+          <a
+            href="https://discountlots.com/property-map?states=Kentucky&counties=Clinton&usage=&acreage.min=0.07&acreage.max=40&price.min=5943&price.max=128999&monthly_payment.min=141&monthly_payment.max=1875"
+            className=" inline-flex items-center gap-2 bg-[#f76d2f] hover:bg-transparent! btn-secondary"
+          >
+            View Available Lots &amp; Pricing
+            <ArrowRightIcon className="h-5 w-5" />
+          </a>
+        </div>
 
         <div className="flex md:max-w-[626px] max-w-full flex-wrap items-center justify-center md:gap-3 gap-2">
           {[
