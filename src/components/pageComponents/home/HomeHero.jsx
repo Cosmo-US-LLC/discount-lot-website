@@ -97,7 +97,7 @@ function HomeHero() {
               <span className="flex h-5 w-5 items-center justify-center rounded-[4px] text-[#FFFFFF] bg-[#f97316]">
                 ✓
               </span>
-              <span className="text-[18px uppercase font-bold leading-[28px] text-[#FFFFFF]">
+              <span className="text-[18px] uppercase font-bold leading-[28px] text-[#FFFFFF]">
                 Flexible Terms
               </span>
             </li>

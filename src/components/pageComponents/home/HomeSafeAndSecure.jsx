@@ -24,7 +24,7 @@ function HomeSafeAndSecure() {
                 <h2 className="text-[#114273]">The Land-Vetting Guarantee</h2>
                 <div className="h-1 w-20 rounded-full bg-[#f76d2f] mx-auto md:mx-0" />
               </div>
-              <p className="body-description text-[#111827]">
+              <p className="description text-[#000000]">
                 We personally own every land we sell, and each one has been
                 evaluated for access, utilities, and permitted uses.
               </p>

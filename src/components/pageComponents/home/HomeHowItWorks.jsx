@@ -59,11 +59,11 @@ function HomeHowItWorks() {
     <section id="how-it-works" className="bg-white py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
         {/* Heading block */}
-        <div className="mx-auto max-w-[552px] text-center space-y-4">
+        <div className="mx-auto max-w-[602px] text-center space-y-4">
           <h6 className="text-[#f76d2f]">How it works</h6>
           <h2 className="text-[#114273]">A Simple &amp; Secure Process</h2>
           <div className="mx-auto h-1 w-20 rounded-full bg-[#f76d2f]" />
-          <p className="body-description text-[#4a5565]">
+          <p className="description text-[#4a5565]">
             No banks, no realtors, no paperwork stacks.
           </p>
         </div>

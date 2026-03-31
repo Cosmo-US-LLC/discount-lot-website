@@ -39,11 +39,11 @@ function HomeFeaturedProperties({
   return (
     <section id={sectionId} className="bg-[#f2f5f9] py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
-        <div className="mx-auto mb-10 max-w-[752px] text-center space-y-4">
+        <div className="mx-auto mb-10 max-w-[602px] text-center space-y-4">
           <h6 className="text-[#f76d2f]">{eyebrow}</h6>
           <h2 className="text-[#114273]">{title}</h2>
           <div className="mx-auto h-1 w-20 rounded-full bg-[#f76d2f]" />
-          <p className="body-description text-[#4a5565]">{description}</p>
+          <p className="description text-[#000000]">{description}</p>
         </div>
 
         {cards?.length ? (
@@ -81,7 +81,7 @@ function HomeFeaturedProperties({
                     {card.title}
                   </h3>
 
-                  <div className="border-b border-[#edf2f7] pb-3 text-[13px] text-[#5a6a82]">
+                  <div className="border-b border-[#edf2f7] pb-3 text-[14px] text-[#5a6a82]">
                     <div className="mb-1.5 flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <LocationBlueIcon className="h-4 w-4" />
@@ -105,7 +105,7 @@ function HomeFeaturedProperties({
                   </div>
 
                   <div className="mt-3 flex items-center justify-between rounded-[10px] bg-[#f0f4f8] px-4 py-3 text-[13px]">
-                    <div>
+                    <div className="text-left flex flex-col gap-2">
                       <p className="text-[10px] uppercase tracking-[0.12em] text-[#0a3056]">
                         Monthly payment
                       </p>
@@ -113,7 +113,7 @@ function HomeFeaturedProperties({
                         {card.monthly}
                       </p>
                     </div>
-                    <div className="text-right">
+                    <div className="text-right flex flex-col gap-2">
                       <p className="text-[10px] uppercase tracking-[0.12em] text-[#0a3056]">
                         Pay in full
                       </p>

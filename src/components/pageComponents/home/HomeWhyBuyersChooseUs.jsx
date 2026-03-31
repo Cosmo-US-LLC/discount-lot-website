@@ -46,11 +46,11 @@ function HomeWhyBuyersChooseUs() {
     <section className="bg-[#eaf4fb] py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
         {/* Heading */}
-        <div className="mx-auto mb-12 max-w-[800px] text-center space-y-4">
+        <div className="mx-auto mb-12 max-w-[520px] text-center space-y-4">
           <h6 className="text-[#f76d2f]">Premium listings</h6>
           <h2 className="text-[#114273]">Why Buyers Choose Us</h2>
           <div className="mx-auto h-1 w-20 rounded-full bg-[#f76d2f]" />
-          <p className="body-description text-[#4a5565]">
+          <p className="description text-[#000000]">
             We remove the barriers to land ownership, providing a trustworthy
             path to your investment.
           </p>
