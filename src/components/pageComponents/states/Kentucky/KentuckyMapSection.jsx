@@ -9,7 +9,7 @@ function KentuckyMapSection() {
           <h2 className="text-[#114273]">
             Explore the <span className="text-[#f47b20]">Subdivision</span>
           </h2>
-          <p className="description text-[#5a6a82]">
+          <p className="description text-[#000000]">
             43 numbered lots across a wooded, rolling landscape with paved road
             frontage. Click any lot to explore boundaries and details.
           </p>
@@ -28,7 +28,7 @@ function KentuckyMapSection() {
         </div>
 
         <p className="text-[14px] font-semibold text-[#7a8fa8]">
-          Can&apos;t see the map above?{" "}
+          Can&apos;t see the map above? <br className="md:hidden block" />
           <a
             href="https://id.land/maps/2b6e8065457f7545420bcaf2d0c51d36/share"
             className="text-[#114273] underline"

@@ -74,19 +74,19 @@ function KentuckyUtilitiesSection() {
   return (
     <section className="bg-white md:py-18 py-12">
       <div className="mx-auto flex w-full max-w-[1322px] px-4 md:px-8 flex-col items-center md:gap-10 gap-8 text-center">
-        <div className="flex w-full max-w-[800px] flex-col items-center gap-4">
+        <div className="flex w-full max-w-[800px] flex-col items-center md:gap-4 gap-2">
           <div className="flex w-full flex-col items-center gap-3">
             <h6 className="w-full text-[14px] font-bold uppercase tracking-[3px] text-[#f76d2f]">
               Infrastructure
             </h6>
             <div className="flex flex-col items-center gap-2">
               <h2 className="text-[34px] font-bold leading-none tracking-[-1.2px] text-[#114273] md:text-[48px] md:leading-[48px]">
-                Utilities Within Reach Line
+                Utilities Within Reach
               </h2>
-              <div
+              {/* <div
                 className="h-1 w-20 rounded-full bg-[#f76d2f]"
                 aria-hidden="true"
-              />
+              /> */}
             </div>
           </div>
           <p className="w-full max-w-[456px] text-[16px] font-normal leading-[26px] text-black">
@@ -104,7 +104,7 @@ function KentuckyUtilitiesSection() {
                 "hover:bg-[rgba(17,66,115,0.06)] hover:shadow-[0px_6px_12px_rgba(0,0,0,0.08),0px_2px_4px_rgba(0,0,0,0.06)]",
                 // Use ring instead of border-2 to avoid layout shift on hover
                 "max-md:ring-2 max-md:ring-inset max-md:ring-[#114273]",
-                "hover:ring-2 hover:ring-inset hover:ring-[#114273]",
+                "hover:ring-2 hover:ring-inset hover:ring-[#114273] ",
               ].join(" ")}
             >
               <div className="flex w-full flex-col items-center gap-5">
