@@ -27,7 +27,7 @@ function KentuckyIncBanner() {
             <div className="space-y-2 text-center md:text-left">
               <p className="text-[18px] font-bold uppercase tracking-tight sm:text-[20px] md:text-[24px]">
                 Ranked <span className="text-[#f76d2f]">#778</span> in the
-                United States — 2025
+                United <br className="md:hidden block" /> States — 2025
               </p>
               <p className="text-[12px] font-semibold uppercase tracking-wide text-white/80 md:text-[16px]">
                 America&apos;s Fastest‑Growing Private Companies
