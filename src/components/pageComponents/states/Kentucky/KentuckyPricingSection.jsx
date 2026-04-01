@@ -15,7 +15,7 @@ function KentuckyPricingSection() {
         <div className="flex w-full max-w-[900px] flex-col items-center gap-4">
           <div className="flex w-full flex-col items-center gap-3">
             <div className="h-[15px] w-full" aria-hidden="true" />
-            <h2 className="text-center text-[#114273]">
+            <h2 className="text-center capitalize text-[#114273]">
               Get Started for as Little as&nbsp;$500 Down
             </h2>
           </div>

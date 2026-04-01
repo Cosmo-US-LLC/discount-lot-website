@@ -66,8 +66,8 @@ function KentuckyWhySection() {
         <>
           <p>
             Our previous subdivision projects have sold out completely in as
-            little as 90 days . Affordable land with utilities, paved access,
-            and zero restrictions doesn&apos;t stay available. There are 43 lots
+            little as 90 days. Affordable land with utilities, paved access, and
+            zero restrictions doesn&apos;t stay available. There are 43 lots
             here.
           </p>
           <p className="mt-4">
@@ -98,7 +98,7 @@ function KentuckyWhySection() {
                 </div>
 
                 <div className="w-full max-w-[268px] text-center">
-                  <p className="description !font-[700] text-[#114273]">
+                  <p className="description !text-[16px] !font-[700] text-[#114273]">
                     {card.title}
                   </p>
                   <div className="mt-2 description text-[#4a5565]">

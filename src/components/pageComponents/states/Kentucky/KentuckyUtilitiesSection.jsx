@@ -13,7 +13,7 @@ const utilityCards = [
     body: (
       <>
         <p>
-          Albany City Water Department servicesWillis Creek Rd up to the hill.
+          Albany City Water Department services Willis Creek Rd up to the hill.
           Connection available at street level for all lots.
         </p>
         <p>
@@ -83,15 +83,15 @@ function KentuckyUtilitiesSection() {
               <h2 className="text-[34px] font-bold leading-none tracking-[-1.2px] text-[#114273] md:text-[48px] md:leading-[48px]">
                 Utilities Within Reach
               </h2>
-              {/* <div
+              <div
                 className="h-1 w-20 rounded-full bg-[#f76d2f]"
                 aria-hidden="true"
-              /> */}
+              />
             </div>
           </div>
           <p className="w-full max-w-[456px] text-[16px] font-normal leading-[26px] text-black">
-            Essential utilities are nearby and available at street level. Check
-            each property’s details for available utilities.
+            Essential utilities are nearby and available at street level. Owners
+            connect them to their individual lot.
           </p>
         </div>
 
