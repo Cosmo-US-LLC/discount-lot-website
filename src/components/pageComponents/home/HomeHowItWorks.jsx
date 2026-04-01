@@ -4,6 +4,7 @@ import {
   DollarIcon,
   ContractIcon,
   OwnershipIcon,
+  VerifiedTickIcon,
 } from "@/components/common/IconsSvgs";
 
 const steps = [
@@ -24,7 +25,7 @@ const steps = [
   {
     number: 3,
     title: "Secure Your Lot with as Little as $500 Down",
-    icon: <ContractIcon />,
+    icon: <VerifiedTickIcon />,
     description:
       "If you choose the flexible monthly plan, pay $197 to secure your lot, plus a one-time $300 documentation fee for your welcome packet, paperwork & escrow processing. From Month 2, monthly payments begin at $200/mo.",
     badge: "Monthly plan only",
@@ -78,7 +79,10 @@ function HomeHowItWorks() {
                 {index !== steps.length - 1 && (
                   <div className="absolute top-16 bottom-[-30px] w-[2px] bg-[#114273]" />
                 )}
-                <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-[#114273] text-[24px] font-bold leading-[32px] text-white shadow-[0px_10px_15px_rgba(0,0,0,0.1),0px_4px_6px_rgba(0,0,0,0.1)]">
+                <div
+                  className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-[#114273] text-[24px] font-bold leading-[32px] text-white shadow-[0px_10px_15px_rgba(0,0,0,0.1),0px_4px_6px_rgba(0,0,0,0.1)]"
+                  style={{ fontFamily: "Frank Ruhl Libre" }}
+                >
                   {step.number}
                 </div>
               </div>

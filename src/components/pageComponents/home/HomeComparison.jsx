@@ -58,7 +58,12 @@ function HomeComparison() {
           <table className="w-full border-collapse">
             <thead>
               <tr className="md:text-[20px] text-[16px] font-bold leading-[28px] uppercase tracking-[-0.5px] text-[#114273]">
-                <th className="px-6 py-6 text-left font-semibold">Features</th>
+                <th
+                  className="px-6 py-6 text-left font-semibold"
+                  style={{ fontFamily: "Frank Ruhl Libre" }}
+                >
+                  Features
+                </th>
                 <th className="px-6 py-6 text-center font-semibold bg-[#FEF4F1] rounded-t-[8px]">
                   <div className="md:inline-flex flex-col items-center gap-3 max-md:hidden">
                     <img
@@ -75,7 +80,10 @@ function HomeComparison() {
                     />
                   </div>
                 </th>
-                <th className="px-6 py-6 text-center font-semibold text-[#114273]">
+                <th
+                  className="px-6 py-6 text-center font-semibold text-[#114273]"
+                  style={{ fontFamily: "Frank Ruhl Libre" }}
+                >
                   Traditional banks
                 </th>
               </tr>

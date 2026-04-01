@@ -1438,3 +1438,29 @@ export const CameraIcon = (props) => (
     </defs>
   </svg>
 );
+
+export const VerifiedTickIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    {...props}
+  >
+    <path
+      d="M21.8026 10.0005C22.2593 12.2418 21.9338 14.5719 20.8804 16.6023C19.827 18.6326 18.1095 20.2405 16.0141 21.1578C13.9187 22.0751 11.5722 22.2463 9.36586 21.6428C7.15954 21.0394 5.22676 19.6979 3.88984 17.8419C2.55293 15.9859 1.89269 13.7277 2.01923 11.4439C2.14577 9.16001 3.05144 6.98857 4.58522 5.29165C6.11899 3.59473 8.18815 2.47491 10.4476 2.11893C12.7071 1.76295 15.0203 2.19234 17.0016 3.33548"
+      stroke="#F76D2F"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M9 11L12 14L22 4"
+      stroke="#F76D2F"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
