@@ -86,9 +86,9 @@ function KentuckyHero() {
           {[
             "43 Available Lots",
             "No Zoning Restrictions",
+            "Owner Financing Available",
             "Water & Power at Road",
             "Paved Road Access",
-            "Owner Financing Available",
           ].map((label) => (
             <div
               key={label}

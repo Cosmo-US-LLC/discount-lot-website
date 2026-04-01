@@ -67,7 +67,8 @@ function KentuckyFullPictureSection() {
               <div className="flex flex-col gap-4">
                 <h6 className=" text-[#f76d2f]">The Full Picture</h6>
                 <h2 className="text-[#114273]">
-                  Why Kentucky. Why Wolf Creek Reserve. Why Now.
+                  Why Kentucky. Why <br className="md:hidden block" /> Wolf
+                  Creek Reserve. <br className="md:hidden block" /> Why Now.
                 </h2>
               </div>
 
@@ -138,7 +139,7 @@ function KentuckyFullPictureSection() {
               <CarouselContent>
                 {slides.map((src, idx) => (
                   <CarouselItem key={src}>
-                    <div className="relative h-[360px] w-full overflow-hidden rounded-[8px] md:h-[498px]">
+                    <div className="relative h-[250px] w-full overflow-hidden rounded-[8px] md:h-[498px]">
                       <img
                         alt=""
                         src={src}

@@ -83,7 +83,7 @@ function KentuckyNearbySection() {
           {nearbySpots.map((spot) => (
             <article
               key={spot.name}
-              className="flex relative md:min-h-[270px] min-h-[232px] w-full max-w-[424px] flex-col items-center rounded-[14px] overflow-hidden  px-4 py-4 text-center text-[#1a1208] shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)]"
+              className="flex relative md:min-h-[270px] min-h-[200px] w-full max-w-[424px] flex-col items-center rounded-[14px] overflow-hidden  px-4 py-4 text-center text-[#1a1208] shadow-[0px_4px_6px_rgba(0,0,0,0.06),0px_2px_4px_rgba(0,0,0,0.06)]"
             >
               <img
                 src={spot.backgroundSrc}

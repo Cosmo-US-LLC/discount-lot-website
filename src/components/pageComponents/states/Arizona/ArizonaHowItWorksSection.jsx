@@ -8,9 +8,9 @@ function StepCard({ number, title, description }) {
           {number}
         </div>
       </div>
-      <div className="flex flex-col gap-1 ">
+      <div className="flex flex-col gap-2 ">
         <h3 className="text-[#1a1208]">{title}</h3>
-        <div className="font-normal text-[14px] leading-[1.4] text-[rgba(26,18,8,0.6)]">
+        <div className="font-normal text-[14px] leading-[1.4] pr-4 text-[rgba(26,18,8,0.6)]">
           {description}
         </div>
       </div>
@@ -23,9 +23,9 @@ function ArizonaHowItWorksSection() {
     <section id="how-it-works" className="bg-[#eaf4fb] py-12 md:py-18">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8 flex flex-col items-start">
         <div className="flex flex-col gap-8 items-start">
-          <div className="flex flex-col gap-2 items-start w-full">
+          <div className="flex flex-col gap-1 items-start w-full">
             <h2 className="text-[#114273]">How it Works</h2>
-            <div className="text-[18px] leading-[28px] text-[#4a5565]">
+            <div className="description !text-[18px] text-[#4a5565]">
               No banks, no realtors, no paperwork stacks.
             </div>
           </div>
