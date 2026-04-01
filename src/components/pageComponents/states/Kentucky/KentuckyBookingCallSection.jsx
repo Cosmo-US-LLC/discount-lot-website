@@ -45,7 +45,7 @@ function KentuckyBookingCallSection() {
       </div>
       <a
         href="https://api.leadconnectorhq.com/widget/bookings/sales-reps-rr"
-        className="inline-flex gap-2 mt-6 w-fit mx-auto items-center justify-center !text-[16px] btn-primary"
+        className="inline-flex gap-2 mt-6 w-fit mx-auto items-center !capitalize justify-center !text-[16px] btn-primary"
       >
         <PhoneIcon className="w-4 h-4" />
         Book a Free Call

@@ -76,11 +76,11 @@ function KentuckyFullPictureSection() {
                 <p>
                   Picture this: your land, minutes from Wolf Creek Dam and the
                   largest man-made lake east of the Mississippi. Wolf Creek
-                  Reserve , 43 prime lots nestled in te heart of Clinton County,
-                  Kentucky. The kind of location people search years for. No
-                  HOA. No restrictions. No deadline to build. Park an RV, build
-                  your dream home, or hold it as an investment. Whatever fits
-                  your plans.
+                  Reserve , 43 prime lots nestled in the heart of Clinton
+                  County, Kentucky. The kind of location people search years
+                  for. No HOA. No restrictions. No deadline to build. Park an
+                  RV, build your dream home, or hold it as an investment.
+                  Whatever fits your plans.
                 </p>
                 {/* <p className="mt-6">
                   Accessible,{" "}

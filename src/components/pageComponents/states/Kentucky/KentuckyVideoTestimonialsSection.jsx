@@ -149,7 +149,7 @@ function KentuckyVideoTestimonialsSection() {
                         <p className="text-[16px] font-bold tracking-[0.4px] text-white">
                           {t.name}
                         </p>
-                        <p className="max-w-[301px] h-[120px] text-[16px] leading-[23.2px] text-white">
+                        <p className="max-w-[301px] h-[120px] md:text-[16px] text-[14px] leading-[23.2px] text-white">
                           {t.quote}
                         </p>
                       </div>
