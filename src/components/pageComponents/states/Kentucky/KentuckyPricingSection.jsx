@@ -29,7 +29,7 @@ function KentuckyPricingSection() {
           {stats.map((item) => (
             <div
               key={item.label}
-              className="flex w-[170px] h-[100px] backdrop-blur-[2px] border border-[#11427366] bg-[#1142731A] rounded-[8px] flex-col items-center justify-center"
+              className="flex w-[162px] h-[100px] backdrop-blur-[2px] border border-[#11427366] bg-[#1142731A] rounded-[8px] flex-col items-center justify-center"
             >
               <p
                 className="w-full text-[36px] font-black leading-[57.2px] text-[#114273]"
