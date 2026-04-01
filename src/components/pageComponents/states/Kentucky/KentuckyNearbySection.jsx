@@ -64,7 +64,7 @@ const nearbySpots = [
     backgroundSrc: nearbyCard6,
     overlayOpacity: 0.3,
     description: [
-      '~55 miles · "Niagara of the South"one of the only places on Earth with a natural moonbow',
+      '~55 miles · "Niagara of the South" one of the only places on Earth with a natural moonbow',
       ,
     ],
   },

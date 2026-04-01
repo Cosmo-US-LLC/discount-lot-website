@@ -58,17 +58,17 @@ function KentuckyLandInfoSection() {
           </h2>
         </div>
 
-        <div className="w-full max-w-[1280px] overflow-hidden rounded-[6px] bg-[rgba(84,84,84,0.15)] shadow-[0px_4px_30px_rgba(10,34,64,0.1)]">
+        {/* <div className="w-full max-w-[1280px] overflow-hidden rounded-[6px] bg-[rgba(84,84,84,0.15)] shadow-[0px_4px_30px_rgba(10,34,64,0.1)]">
           <div className="relative h-[240px] w-full md:h-[408px]">
-            {/* <button
+            <button
               type="button"
               className="absolute inset-0 grid place-items-center"
               aria-label="Play video"
             >
               <img alt="" src={ASSETS.play} className="size-[88px]" />
-            </button> */}
+            </button>
           </div>
-        </div>
+        </div> */}
 
         <div className="flex w-full flex-wrap items-stretch justify-center gap-3 md:flex-nowrap md:gap-3">
           {infoCards.map((card) => (
