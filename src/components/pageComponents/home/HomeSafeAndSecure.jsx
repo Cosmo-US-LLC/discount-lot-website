@@ -67,7 +67,7 @@ function HomeSafeAndSecure() {
               ].map((label) => (
                 <div
                   key={label}
-                  className="flex md:flex-col flex-row gap-2 rounded-[6px] border border-[rgba(255,255,255,0.1)] bg-[rgba(0,0,0,0.05)] md:px-2 px-2 py-4"
+                  className="flex md:flex-col flex-row gap-2 rounded-[6px] border border-[rgba(255,255,255,0.1)] bg-[rgba(0,0,0,0.05)] md:px-3 px-2 py-4"
                 >
                   <div className="h-6 w-6">
                     <img
@@ -76,7 +76,10 @@ function HomeSafeAndSecure() {
                       className="h-full w-full object-contain"
                     />
                   </div>
-                  <p className="text-[16px] font-bold leading-[24px] text-[#114273]">
+                  <p
+                    className="text-[16px] font-bold leading-[24px] text-[#114273]"
+                    style={{ fontFamily: "Frank Ruhl Libre" }}
+                  >
                     {label}
                   </p>
                 </div>
