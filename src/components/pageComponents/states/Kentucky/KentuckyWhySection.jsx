@@ -91,7 +91,7 @@ function KentuckyWhySection() {
             {cards.map((card) => (
               <article
                 key={card.title}
-                className="flex w-full max-w-[314px] flex-col items-center gap-6 rounded-[8px] bg-white px-3 py-4"
+                className="flex w-full md:max-w-[314px] flex-col items-center gap-6 rounded-[8px] bg-white px-3 py-4"
               >
                 <div className="flex items-center h-12 w-12 justify-center rounded-[6px] bg-[#fef4f1]">
                   <img alt="" src={card.iconSrc} className=" " />

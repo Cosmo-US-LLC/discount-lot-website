@@ -1,6 +1,7 @@
 import React from "react";
 import BookingCallImageDesktop from "@/assets/images/kentucky/book_a_call_desktop.webp";
 import BookingCallImageMobile from "@/assets/images/kentucky/book_a_call_mobile.webp";
+import { PhoneIcon } from "lucide-react";
 
 function KentuckyBookingCallSection() {
   return (
@@ -16,13 +17,6 @@ function KentuckyBookingCallSection() {
             no-pressure call with one of our Land Specialists and get answers
             fast.
           </p>
-          <a
-            href="https://api.leadconnectorhq.com/widget/bookings/sales-reps-rr"
-            className="inline-flex gap-2 mt-3 items-center justify-center !text-[16px] btn-primary"
-          >
-            Schedule a Call
-            {/* <ArrowRightIcon className="w-4 h-4" /> */}
-          </a>
         </div>
 
         <div className="max-md:hidden h-[350px] w-full max-w-[885px] overflow-hidden rounded-[6px] bg-white shadow-[0px_8px_25px_rgba(0,0,0,0.1)] ">
@@ -49,6 +43,13 @@ function KentuckyBookingCallSection() {
           <span>{` · Mon–Fri 9AM–8PM EST, Sat–Sun 9AM–5PM EST`}</span>
         </p>
       </div>
+      <a
+        href="https://api.leadconnectorhq.com/widget/bookings/sales-reps-rr"
+        className="inline-flex gap-2 mt-6 w-fit mx-auto items-center justify-center !text-[16px] btn-primary"
+      >
+        <PhoneIcon className="w-4 h-4" />
+        Book a Free Call
+      </a>
     </section>
   );
 }

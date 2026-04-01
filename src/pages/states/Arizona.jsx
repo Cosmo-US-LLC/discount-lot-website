@@ -31,9 +31,9 @@ function Arizona() {
         browseScrollTargetId="featured-properties"
       />
       <ArizonaBrowseByCountySection />
-      <ArizonaLandForEveryPlanSection />
       <ArizonaHowItWorksSection />
       <ArizonaWhyBuyLandSection />
+      <ArizonaLandForEveryPlanSection />
       <ArizonaBuyWithConfidenceSection />
       <ArizonaExploreByLocationSection />
       <HomeTestimonials />
