@@ -26,9 +26,13 @@ function HomeWhoAreWe() {
 
           <div className="space-y-4 description text-[#4a4f54]">
             <p>
-              Founded in 2019 in Chicago, Illinois by Paul, an experienced real
-              estate broker, Discount Lots was created to make land ownership
-              easy, affordable, and accessible for everyone.
+              Founded in 2019 in Chicago, Illinois by Paul,{" "}
+              <span className="font-bold">
+                {" "}
+                an experienced real estate broker,
+              </span>{" "}
+              Discount Lots was created to make land ownership easy, affordable,
+              and accessible for everyone.
             </p>
             <p className="font-bold">
               We purchase at a lower price and pass the savings directly to you,
@@ -45,13 +49,19 @@ function HomeWhoAreWe() {
 
           <div className="flex gap-10 pt-4 text-[10px] font-semibold uppercase tracking-[1px] text-[#6b7280]">
             <div className="flex gap-2 flex-col">
-              <div className="text-[30px] font-bold leading-[36px] text-[#114273]">
+              <div
+                className="text-[30px] font-bold leading-[36px] text-[#114273]"
+                style={{ fontFamily: "Frank Ruhl Libre" }}
+              >
                 6+
               </div>
               <div>Years active</div>
             </div>
             <div className="flex gap-2 flex-col">
-              <div className="text-[30px] font-bold leading-[36px] text-[#114273]">
+              <div
+                className="text-[30px] font-bold leading-[36px] text-[#114273]"
+                style={{ fontFamily: "Frank Ruhl Libre" }}
+              >
                 3K+
               </div>
               <div>Sold parcels</div>
