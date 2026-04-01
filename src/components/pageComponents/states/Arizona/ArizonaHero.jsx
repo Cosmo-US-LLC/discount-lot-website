@@ -16,8 +16,8 @@ function ArizonaHero() {
       const viewportHeight =
         window.innerHeight || document.documentElement.clientHeight;
 
-      // When bottom of hero enters the viewport, start showing CTA
-      setShowStickyCta(rect.bottom <= viewportHeight);
+      // Show CTA after hero is scrolled + 100px more
+      setShowStickyCta(rect.bottom <= viewportHeight - 200);
     };
 
     handleScroll();
@@ -72,10 +72,7 @@ function ArizonaHero() {
           </div>
 
           <div className="flex flex-col md:flex-row gap-[16px] items-center">
-            <button
-              type="button"
-              className="btn-secondary w-full md:w-auto"
-            >
+            <button type="button" className="btn-secondary w-full md:w-auto">
               View Hot Properties
             </button>
 
@@ -111,7 +108,6 @@ function ArizonaHero() {
             </div>
           ))}
         </div>
-
       </div>
 
       {/* Mobile sticky CTA for Arizona (shows after hero is scrolled) */}
