@@ -71,8 +71,12 @@ function HomeFeaturedProperties({
                     className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.09em] text-white shadow-lg"
                     style={{ backgroundColor: card.badgeColor }}
                   >
-                    <StarYellowIcon className="h-4 w-4" />
-                    <span>{card.badgeText}</span>
+                    {card.badgeText ? (
+                      <>
+                        <StarYellowIcon className="h-4 w-4" />
+                        <span>{card.badgeText}</span>
+                      </>
+                    ) : null}
                   </div>
                 </div>
 
@@ -81,7 +85,7 @@ function HomeFeaturedProperties({
                     {card.title}
                   </h3>
 
-                  <div className="border-b border-[#edf2f7] pb-3 text-[14px] text-[#5a6a82]">
+                  <div className="border-b border-[#edf2f7] pb-3 text-[14px] text-[#4A4F54]">
                     <div className="mb-1.5 flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <LocationBlueIcon className="h-4 w-4" />
@@ -105,19 +109,25 @@ function HomeFeaturedProperties({
                   </div>
 
                   <div className="mt-3 flex items-center justify-between rounded-[10px] bg-[#f0f4f8] px-4 py-3 text-[13px]">
-                    <div className="text-left flex flex-col gap-2">
+                    <div className="text-left flex flex-col gap-1">
                       <p className="text-[10px] uppercase tracking-[0.12em] text-[#0a3056]">
                         Monthly payment
                       </p>
-                      <p className="text-[24px] font-semibold leading-none tracking-tight text-[#f76d2f]">
+                      <p
+                        className="text-[22px] font-[700] leading-[28px] tracking-tight text-[#f76d2f]"
+                        style={{ fontFamily: "Frank Ruhl Libre" }}
+                      >
                         {card.monthly}
                       </p>
                     </div>
-                    <div className="text-right flex flex-col gap-2">
+                    <div className="text-right flex flex-col gap-1">
                       <p className="text-[10px] uppercase tracking-[0.12em] text-[#0a3056]">
                         Pay in full
                       </p>
-                      <p className="text-[16px] font-semibold text-[#114273]">
+                      <p
+                        className="text-[18px] leading-[28px] font-[700] text-[#114273]"
+                        style={{ fontFamily: "Frank Ruhl Libre" }}
+                      >
                         {card.cash}
                       </p>
                     </div>
@@ -146,7 +156,7 @@ function HomeFeaturedProperties({
         <div className="mt-10 flex justify-center">
           <button
             type="button"
-            className="inline-flex items-center gap-3 btn-secondary"
+            className="inline-flex items-center gap-3 btn-secondary !bg-transparent !text-[#f76d2f]"
             onClick={handleBrowseAvailablePropertiesClick}
           >
             {browseCtaLabel}

@@ -16,7 +16,7 @@ function Layout() {
         { label: "Reviews", href: "#testimonials" },
         { label: "FAQ", href: "#faq" },
       ],
-      ctaLabel: "Get started",
+      ctaLabel: "View Properties",
       ctaHref: "#properties",
     },
     "/states/arizona": {

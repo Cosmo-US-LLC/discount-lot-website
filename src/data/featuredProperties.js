@@ -20,8 +20,8 @@ export const homeFeaturedPropertyCards = [
   },
   {
     id: "home-2",
-    badgeText: "High demand",
-    badgeColor: "#489cd8",
+    badgeText: "",
+    badgeColor: "",
     image: card2Image,
     title:
       "Own 0.19 Acres in Onalaska, Polk, TX Level Terrain, Residential Zoning, and HOA Access to Lake Livingston!",
@@ -35,7 +35,7 @@ export const homeFeaturedPropertyCards = [
   },
   {
     id: "home-3",
-    badgeText: "High demand",
+    badgeText: "Exclusive Offer",
     badgeColor: "#489cd8",
     image: card3Image,
     title:
@@ -96,4 +96,3 @@ export const arizonaFeaturedPropertyCards = [
     propertyUrl: "https://discountlots.com/",
   },
 ];
-
