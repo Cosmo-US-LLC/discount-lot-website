@@ -81,7 +81,10 @@ function Header({
                 href={link.href}
                 className="dl-nav__link"
                 onClick={(e) => {
-                  if (link.href?.startsWith("#") && scrollToSection(link.href)) {
+                  if (
+                    link.href?.startsWith("#") &&
+                    scrollToSection(link.href)
+                  ) {
                     e.preventDefault();
                   }
                 }}
@@ -120,16 +123,13 @@ function Header({
                   <Menu className="h-5 w-5" />
                 </button>
               </SheetTrigger>
-              <SheetContent
-                side="left"
-                className="bg-[#0b1b30]! text-white!"
-              >
+              <SheetContent side="left" className="bg-[#0b1b30]! text-white!">
                 <nav className="mt-4 space-y-3 text-left">
                   {links.map((link) => (
                     <SheetClose asChild key={link.href}>
                       <button
                         type="button"
-                        className="block w-full rounded-md px-2 py-2 text-[15px] text-left"
+                        className="block w-full rounded-md px-2 py-2 text-[14px] text-left"
                         onClick={() => navigateOrScroll(link.href)}
                       >
                         {link.label}
