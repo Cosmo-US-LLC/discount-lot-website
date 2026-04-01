@@ -62,7 +62,7 @@ function HomeSafeAndSecure() {
             <div className="grid md:gap-2 gap-2 grid-cols-2 md:grid-cols-3">
               {[
                 "Legal Access Verified",
-                "Build ability Confirmed",
+                "Buildability Confirmed",
                 "Zoning Authenticated",
               ].map((label) => (
                 <div

@@ -8,7 +8,8 @@ const CarouselContext = React.createContext(null);
 
 function useCarousel() {
   const context = React.useContext(CarouselContext);
-  if (!context) throw new Error("useCarousel must be used within a <Carousel />");
+  if (!context)
+    throw new Error("useCarousel must be used within a <Carousel />");
   return context;
 }
 
@@ -83,7 +84,7 @@ function CarouselContent({ className, ...props }) {
         className={cn(
           "flex",
           orientation === "horizontal" ? "ml-0" : "mt-0 flex-col",
-          className
+          className,
         )}
         {...props}
       />
@@ -100,14 +101,19 @@ function CarouselItem({ className, ...props }) {
       className={cn(
         "min-w-0 shrink-0 grow-0 basis-full",
         orientation === "horizontal" ? "pl-0" : "pt-0",
-        className
+        className,
       )}
       {...props}
     />
   );
 }
 
-function CarouselPrevious({ className, variant = "ghost", size = "icon", ...props }) {
+function CarouselPrevious({
+  className,
+  variant = "ghost",
+  size = "icon",
+  ...props
+}) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
   return (
     <button
@@ -119,7 +125,7 @@ function CarouselPrevious({ className, variant = "ghost", size = "icon", ...prop
         orientation === "horizontal"
           ? "-left-3 top-1/2 -translate-y-1/2"
           : "-top-3 left-1/2 -translate-x-1/2 rotate-90",
-        className
+        className,
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
@@ -131,7 +137,12 @@ function CarouselPrevious({ className, variant = "ghost", size = "icon", ...prop
   );
 }
 
-function CarouselNext({ className, variant = "ghost", size = "icon", ...props }) {
+function CarouselNext({
+  className,
+  variant = "ghost",
+  size = "icon",
+  ...props
+}) {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
   return (
     <button
@@ -143,7 +154,7 @@ function CarouselNext({ className, variant = "ghost", size = "icon", ...props })
         orientation === "horizontal"
           ? "-right-3 top-1/2 -translate-y-1/2"
           : "-bottom-3 left-1/2 -translate-x-1/2 rotate-90",
-        className
+        className,
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
@@ -162,4 +173,3 @@ export {
   CarouselPrevious,
   CarouselNext,
 };
-

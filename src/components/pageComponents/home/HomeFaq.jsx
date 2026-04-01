@@ -135,13 +135,14 @@ function HomeFaq({
   sectionId = "faq",
   description = "",
   singleAccordion = false,
+  bgClassName = "bg-[#f0f4f8]",
 }) {
   const half = Math.ceil((faqs?.length ?? 0) / 2);
   const leftFaqs = faqs.slice(0, half);
   const rightFaqs = faqs.slice(half);
 
   return (
-    <section id={sectionId} className="bg-[#f0f4f8] md:py-18 py-12">
+    <section id={sectionId} className={`${bgClassName} md:py-18 py-12`}>
       <div className="mx-auto max-w-[1280px] px-4 md:px-8 text-center">
         <div className="space-y-4">
           <h6 className="text-[#f76d2f] text-[12px] font-bold tracking-[3px] uppercase">

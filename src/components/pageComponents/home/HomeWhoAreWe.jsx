@@ -28,11 +28,10 @@ function HomeWhoAreWe() {
             <p>
               Founded in 2019 in Chicago, Illinois by Paul,{" "}
               <span className="font-bold">
-                {" "}
                 an experienced real estate broker,
               </span>{" "}
-              Discount Lots was created to make land ownership easy, affordable,
-              and accessible for everyone.
+              estate broker, Discount Lots was created to make land ownership
+              simple, affordable, and accessible.
             </p>
             <p className="font-bold">
               We purchase at a lower price and pass the savings directly to you,

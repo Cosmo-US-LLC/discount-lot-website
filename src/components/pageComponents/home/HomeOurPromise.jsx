@@ -185,13 +185,14 @@ function HomeOurPromise() {
         <div className="relative mt-3">
           <button
             type="button"
-            className="flex w-full items-center justify-between rounded-[10px] border border-[#d9dfea] bg-white px-4 py-3 text-left text-[#334155]"
+            className="flex w-full items-center justify-between rounded-[8px] border border-[#d9dfea] bg-white px-4 py-3 text-left text-[#334155]"
             onClick={() => setStatePickerOpen((v) => !v)}
           >
             <span
-              className={`text-[20px] md:text-[30px] leading-[1.2] tracking-[-0.6px] ${
+              className={`text-[20px] md:text-[24px] leading-[1.2] tracking-[-0.6px] ${
                 selectedLabel ? "text-[#334155]" : "text-[#5a6a82]"
-              } font-['Frank_Ruhl_Libre',serif]`}
+              }`}
+              style={{ fontFamily: "Frank Ruhl Libre" }}
             >
               {selectedLabel ? selectedLabel : `- ${currentStep.placeholder} -`}
             </span>
@@ -199,7 +200,7 @@ function HomeOurPromise() {
           </button>
 
           {statePickerOpen && (
-            <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-10 max-h-[320px] overflow-y-auto rounded-[14px] border border-[#d9dfea] bg-white p-2 shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
+            <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-10 max-h-[200px] overflow-y-auto rounded-[8px] border border-[#d9dfea] bg-white p-2 shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
               {stateOptions.map((opt) => {
                 const isActive = opt.value === (currentValue ?? "");
                 return (
@@ -210,11 +211,12 @@ function HomeOurPromise() {
                       setStatePickerOpen(false);
                       handlePick(opt.value);
                     }}
-                    className={`flex w-full items-center justify-between rounded-[10px] px-4 py-3 text-left text-[16px] md:text-[20px] ${
+                    className={`flex w-full items-center justify-between rounded-[8px] px-4 py-2 text-left text-[16px] md:text-[18px] ${
                       isActive
                         ? "bg-[#f3f4f6] font-semibold text-[#114273]"
                         : "text-[#111827] hover:bg-[#f9fafb]"
-                    } font-['Frank_Ruhl_Libre',serif]`}
+                    }`}
+                    style={{ fontFamily: "Frank Ruhl Libre" }}
                   >
                     <span>{opt.label}</span>
                     {isActive ? (
@@ -290,7 +292,7 @@ function HomeOurPromise() {
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-5">
             <button
               type="button"
-              className="w-full md:w-fit btn-secondary hover:bg-[#e47c28]! text-white!"
+              className="w-full md:w-fit btn-secondary hover:!bg-transparent hover:!text-[#f76d2f] text-white"
               onClick={() => startFlow("building")}
             >
               Building my home
@@ -314,17 +316,17 @@ function HomeOurPromise() {
           onClick={resetFlow}
         >
           <div
-            className="w-full max-w-[880px] rounded-[28px] bg-white text-left text-[#114273] shadow-[0px_35px_80px_rgba(0,0,0,0.35)]"
+            className="w-full max-w-[880px] rounded-[18px] bg-white text-left text-[#114273] shadow-[0px_35px_80px_rgba(0,0,0,0.35)]"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="px-6 pt-6 md:px-12 md:pt-10">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <span className="inline-flex rounded-full bg-[#fff4ec] px-4 py-1.5 text-[14px] md:text-[18px] font-bold uppercase tracking-[1px] text-[#f76d2f]">
+                  <span className="inline-flex rounded-full bg-[#fff4ec] px-4 py-1.5 text-[14px] md:text-[16px] font-bold uppercase tracking-[0.5px] text-[#f76d2f]">
                     {flows[activeFlow].badgeEmoji} {flows[activeFlow].label}
                   </span>
                   <h3 className="mt-4 text-[#1b2d50]">Find your perfect lot</h3>
-                  <p className="mt-2 text-[18px] md:text-[22px] leading-[1.2] tracking-[-0.6px] text-[#7a8fa8]">
+                  <p className="mt-1 body-description  text-[#7a8fa8]">
                     3 quick answers — we&apos;ll show matching properties
                     instantly
                   </p>
@@ -339,7 +341,7 @@ function HomeOurPromise() {
               </div>
             </div>
 
-            <div className="mt-6 border-t border-[#e7edf5] px-6 py-6 md:px-12 md:py-10">
+            <div className="mt-6 border-t border-[#e7edf5] px-6 py-6 md:px-12 md:pt-6 md:pb-10">
               {isComplete ? (
                 <div className="space-y-6">
                   <p className="text-[20px] md:text-[24px] text-[#4a5565]">
@@ -387,13 +389,11 @@ function HomeOurPromise() {
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 ">
                     <span className="inline-flex h-6 w-6 md:h-7 md:w-7 items-center justify-center rounded-full bg-[#f07a25] text-[16px] md:text-[18px] font-bold text-white">
                       {stepIndex + 1}
                     </span>
-                    <p className="text-[18px] md:text-[24px] font-semibold leading-[1.2] tracking-[-0.7px] text-[#1f2f50] font-['Frank_Ruhl_Libre',serif]">
-                      {currentStep.question}
-                    </p>
+                    <h3 className="text-[#1f2f50] ">{currentStep.question}</h3>
                   </div>
 
                   {renderStepInput()}
