@@ -17,8 +17,8 @@ function KentuckyHero() {
       const viewportHeight =
         window.innerHeight || document.documentElement.clientHeight;
 
-      // When bottom of hero enters the viewport, start showing CTA
-      setShowStickyCta(rect.bottom <= viewportHeight);
+      // Show CTA after hero is scrolled + 100px more
+      setShowStickyCta(rect.bottom <= viewportHeight - 200);
     };
 
     handleScroll();

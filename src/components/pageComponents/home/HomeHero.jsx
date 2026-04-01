@@ -44,8 +44,8 @@ function HomeHero() {
       const viewportHeight =
         window.innerHeight || document.documentElement.clientHeight;
 
-      // Show CTA after hero bottom enters viewport
-      setShowStickyCta(rect.bottom <= viewportHeight);
+      // Show CTA after hero is scrolled + 100px more
+      setShowStickyCta(rect.bottom <= viewportHeight - 100);
     };
 
     handleScroll();
