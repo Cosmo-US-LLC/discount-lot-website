@@ -12,7 +12,7 @@ function KentuckyBookingCallSection() {
             <h6 className="text-[#f76d2f]">Talk to a Land Specialist</h6>
             <h2 className="text-[#114273]">Book a Free&nbsp;15‑Minute Call</h2>
           </div>
-          <p className="description text-[#5a6a82]">
+          <p className="description !text-[16px] text-[#000000]">
             Have questions about a specific lot, pricing, or financing? Book a
             no-pressure call with one of our Land Specialists and get answers
             fast.

@@ -19,26 +19,26 @@ import {
 
 const testimonials = [
   {
-    name: "Marcus R.",
+    name: "Lajeanna B.",
     quote:
       '"I was skeptical at first  buying land online felt risky. But DiscountLots made it so easy. My 5-acre parcel in Mohave County was exactly what was described. Papers signed in 2 days."',
     videoSrc: TestimonialsVideo1,
     videoPoster: null,
   },
   {
-    name: "Teresa L.",
+    name: "Charles R.",
     quote: `"The financing is what got me. I couldn't get a bank loan but $199 down and $149/month? That I could do. Now I own land in Yavapai County. Still feels unreal."`,
     videoSrc: TestimonialsVideo2,
     videoPoster: null,
   },
   {
-    name: "James K.",
+    name: "Broch C.",
     quote: `"Third parcel I've bought from these guys. They're consistent, the titles are clean, and the customer service team actually answers the phone. Rare."`,
     videoSrc: TestimonialsVideo3,
     videoPoster: null,
   },
   {
-    name: "Sal Villacorta",
+    name: "Sal V.",
     quote: `"Discount lot gave me a opportunity, and I came across a website, and the prices are ridiculously low. That’s the best opportunity there is."`,
     videoSrc: TestimonialsVideo4,
     videoPoster: null,
