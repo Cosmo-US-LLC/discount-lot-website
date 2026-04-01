@@ -48,6 +48,7 @@ function Kentucky() {
         title="Frequently Asked Questions"
         description="Everything you need to know about Kentucky Wolf Creek and how Discount Lots works.
 "
+        bgClassName=""
         faqs={kentuckyFaqs}
       />
       <KentuckyFinalCta />

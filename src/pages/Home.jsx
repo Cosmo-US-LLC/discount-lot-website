@@ -32,7 +32,12 @@ function Home() {
       <HomeWhoAreWe />
       <HomeOurPromise />
       <HomeComparison />
-      <HomeFaq eyebrow="Resources" title="Got Questions?" faqs={defaultFaqs} />
+      <HomeFaq
+        eyebrow="Resources"
+        title="Got Questions?"
+        faqs={defaultFaqs}
+        bgClassName="bg-white"
+      />
       <HomeTestimonials />
       <HomeContactCta />
     </div>
