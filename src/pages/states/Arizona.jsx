@@ -43,7 +43,7 @@ function Arizona() {
         eyebrow="Resources"
         title="Got Questions?"
         faqs={arizonaFaqs}
-        singleAccordion
+        // singleAccordion
       />
       <ArizonaFinalCta />
     </>

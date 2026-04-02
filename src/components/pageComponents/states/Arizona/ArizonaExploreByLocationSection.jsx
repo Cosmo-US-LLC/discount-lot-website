@@ -43,10 +43,7 @@ function buildPropertyMapUrl({ county }) {
 function ArizonaExploreByLocationSection() {
   const [county, setCounty] = useState("");
 
-  const browseUrl = useMemo(
-    () => buildPropertyMapUrl({ county }),
-    [county],
-  );
+  const browseUrl = useMemo(() => buildPropertyMapUrl({ county }), [county]);
 
   return (
     <section className="bg-white px-4 py-[80px] md:px-[68px]">
@@ -183,4 +180,3 @@ function ArizonaExploreByLocationSection() {
 }
 
 export default ArizonaExploreByLocationSection;
-
