@@ -14,8 +14,11 @@ function KentuckyWhySection() {
         <>
           <p>
             One of the most affordable places to live in the U.S. cost of living
-            index around 75 vs. the national average of 100. Overall living
-            costs run ~8% below average.
+            index around{" "}
+            <span className="font-[600] text-[#000]">
+              75 vs. the national average of 100
+            </span>
+            . Overall living costs run ~8% below average.
           </p>
           <p className="mt-4">
             Housing is roughly 22% more affordable. Groceries and healthcare
@@ -31,9 +34,12 @@ function KentuckyWhySection() {
       body: (
         <>
           <p>
-            Wolf Creek Reserve sits minutes from Lake Cumberland, 1,255 miles of
-            shoreline. Fishing, boating, and outdoor living year-round. This
-            isn't just a lot in a field.
+            Wolf Creek Reserve sits minutes from Lake Cumberland,{" "}
+            <span className="font-[600] text-[#000]">
+              1,255 miles of shoreline.{" "}
+            </span>{" "}
+            Fishing, boating, and outdoor living year-round. This isn't just a
+            lot in a field.
           </p>
           <p className="mt-4">
             It's a address inside one of Kentucky's most sought-after recreation
@@ -49,8 +55,13 @@ function KentuckyWhySection() {
         <>
           <p>
             We own every property outright before it&apos;s listed. No agents.
-            No banks. No credit checks. Over 3,000 families have bought with us
-            since 2019. Ranked #778 on the 2025 Inc. 5000 with 540% growth.
+            No banks. No credit checks. Over{" "}
+            <span className="font-[600] text-[#000]">3,000 families </span> have
+            bought with us since 2019. Ranked{" "}
+            <span className="font-[600] text-[#000]">
+              #778 on the 2025 Inc. 5000{" "}
+            </span>{" "}
+            with 540% growth.
           </p>
           <p className="mt-4">
             A dedicated Land Specialist guides you before you buy. A Portfolio
@@ -65,10 +76,12 @@ function KentuckyWhySection() {
       body: (
         <>
           <p>
-            Our previous subdivision projects have sold out completely in as
-            little as 90 days. Affordable land with utilities, paved access, and
-            zero restrictions doesn&apos;t stay available. There are 43 lots
-            here.
+            Our previous subdivision projects have{" "}
+            <span className="font-[600] text-[#000]">
+              sold out completely in as little as 90 days.{" "}
+            </span>{" "}
+            Affordable land with utilities, paved access, and zero restrictions
+            doesn&apos;t stay available. There are 43 lots here.
           </p>
           <p className="mt-4">
             They will not all be available six months from now. The buyers who
