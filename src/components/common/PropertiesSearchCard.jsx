@@ -245,7 +245,7 @@ function PropertiesSearchCard({ rotatingStateLabel = "North Carolina" }) {
 
   return (
     <div className="w-full flex flex-col gap-6 max-w-[490px] rounded-[14px] bg-white px-8 py-8 text-slate-900 shadow-[0_18px_45px_rgba(15,23,42,0.25)] backdrop-blur-md">
-      <div className="flex flex-col gap-2 items-center text-center">
+      <div className="flex flex-col gap-2 items-center text-center h-[100px] md:h-full">
         <h2 className="font-bold text-[30px]! leading-[36px]! tracking-[-0.75px]! text-[#1f5c94]">
           Find Your Land
         </h2>

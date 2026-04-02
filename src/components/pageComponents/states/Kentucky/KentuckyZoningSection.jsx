@@ -22,7 +22,7 @@ function KentuckyZoningSection() {
   return (
     <section className="bg-[#eaf4fb] md:py-18 py-12">
       <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col items-center gap-8">
-        <div className="w-full md:space-y-3 space-y-2 text-center">
+        <div className="w-full md:space-y-3 space-y-2 text-center md:text-left">
           <h6 className="text-[#114273]">What You Can Do Here</h6>
           <h2 className="text-[#114273]">Your Land,&nbsp;Your Rules</h2>
           <p className="text-[16px] leading-[26px] text-black">
