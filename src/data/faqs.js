@@ -137,7 +137,7 @@ export const kentuckyFaqs = [
     id: "ky-roads-access",
     question: "Are the roads paved? Will I have year-round access?",
     answer:
-      "Yes. All lots in Kentucky Rollin' Hills are accessible via paved public roads: Willis Creek Road connects to KY-90 and KY-127, Clinton County's main highways. Front lots and the main entrance have direct paved road frontage on Willis Creek Road. Interior lots are accessed via a private dirt road through the subdivision. For details on which specific lots have paved vs. dirt access, ask your Land Specialist — they can walk you through the lot map.",
+      "Yes. All lots in Kentucky Wolf creek are accessible via paved public roads: Willis Creek Road connects to KY-90 and KY-127, Clinton County's main highways. Front lots and the main entrance have direct paved road frontage on Willis Creek Road. Interior lots are accessed via a private dirt road through the subdivision. For details on which specific lots have paved vs. dirt access, ask your Land Specialist — they can walk you through the lot map.",
   },
   {
     id: "ky-sell-later",
@@ -149,7 +149,7 @@ export const kentuckyFaqs = [
     id: "ky-trust-discount-lots",
     question: "Who is Discount Lots? Can I trust them?",
     answer:
-      "Discount Lots was founded in 2019 and has served 3,000+ customers across multiple states. We're ranked #778 on the 2025 Inc. 5000 (540% revenue growth). We hold a BBB A rating (4.13★), a 4.9★ Google rating across 530+ reviews, and a 4.8★ Trustpilot rating across 200+ reviews. Our team of 70+ includes dedicated Land Specialists and Portfolio Managers whose only job is to make your land purchase as smooth as possible.",
+      "Discount Lots was founded in 2019 and has served 3,000+ customers across multiple states. We're ranked #778 on the 2025 Inc. 5000 (540% revenue growth). We hold a BBB A - rating, a 4.9★ Google rating across 530+ reviews, and a 4.8★ Trustpilot rating across 200+ reviews., and a 4.8★ Trustpilot rating across 200+ reviews. Our team of 70+ includes dedicated Land Specialists and Portfolio Managers whose only job is to make your land purchase as smooth as possible.",
   },
 ];
 
