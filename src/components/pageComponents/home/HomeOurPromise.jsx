@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight, ChevronDown, X } from "lucide-react";
+import HeroStyleDualThumbRange from "@/components/common/HeroStyleDualThumbRange";
 
 const stateOptions = [
   { label: "All States", value: "" },
@@ -43,7 +44,7 @@ function toAcreageRange(choice) {
   }
 }
 
-function buildPropertyMapUrl({ state, acreageChoice, budgetMax }) {
+function buildPropertyMapUrl({ state, acreageChoice, budget }) {
   const url = new URL("https://discountlots.com/property-map");
   url.searchParams.set("states", state ?? "");
   url.searchParams.set("counties", "");
@@ -53,11 +54,13 @@ function buildPropertyMapUrl({ state, acreageChoice, budgetMax }) {
   url.searchParams.set("acreage.min", acres.min.toFixed(2));
   url.searchParams.set("acreage.max", acres.max.toFixed(2));
 
-  url.searchParams.set("price.min", String(PRICE_BOUND_MIN));
-  const safeMax = Math.max(
-    PRICE_BOUND_MIN,
-    Math.min(PRICE_BOUND_MAX, budgetMax),
-  );
+  const rawMin = budget?.min ?? PRICE_BOUND_MIN;
+  const rawMax = budget?.max ?? PRICE_BOUND_MAX;
+  const lo = Math.min(rawMin, rawMax);
+  const hi = Math.max(rawMin, rawMax);
+  const safeMin = Math.max(PRICE_BOUND_MIN, Math.min(PRICE_BOUND_MAX, lo));
+  const safeMax = Math.max(safeMin, Math.min(PRICE_BOUND_MAX, hi));
+  url.searchParams.set("price.min", String(safeMin));
   url.searchParams.set("price.max", String(safeMax));
 
   url.searchParams.set(
@@ -88,8 +91,9 @@ const flows = {
         type: "range",
         min: 5000,
         max: 100000,
-        initial: 25000,
-        suffix: "max budget",
+        initialMin: 5000,
+        initialMax: 50000,
+        suffix: "budget range",
       },
       {
         id: "acres",
@@ -115,7 +119,8 @@ const flows = {
         type: "range",
         min: 5000,
         max: 100000,
-        initial: 30000,
+        initialMin: 8000,
+        initialMax: 65000,
         suffix: "investment budget",
       },
       {
@@ -132,7 +137,10 @@ function HomeOurPromise() {
   const [activeFlow, setActiveFlow] = React.useState(null);
   const [stepIndex, setStepIndex] = React.useState(0);
   const [answers, setAnswers] = React.useState({});
-  const [sliderValue, setSliderValue] = React.useState(25000);
+  const [budgetRange, setBudgetRange] = React.useState({
+    min: 5000,
+    max: 50000,
+  });
   const [statePickerOpen, setStatePickerOpen] = React.useState(false);
 
   const activeSteps = activeFlow ? flows[activeFlow].steps : [];
@@ -141,7 +149,12 @@ function HomeOurPromise() {
 
   React.useEffect(() => {
     if (!currentStep || currentStep.type !== "range") return;
-    setSliderValue(currentStep.initial || 25000);
+    setBudgetRange({
+      min: currentStep.initialMin ?? currentStep.min,
+      max:
+        currentStep.initialMax ??
+        Math.round((currentStep.min + currentStep.max) / 2),
+    });
   }, [currentStep]);
 
   const startFlow = (flowKey) => {
@@ -154,7 +167,7 @@ function HomeOurPromise() {
     setActiveFlow(null);
     setStepIndex(0);
     setAnswers({});
-    setSliderValue(25000);
+    setBudgetRange({ min: 5000, max: 50000 });
     setStatePickerOpen(false);
   };
 
@@ -169,7 +182,8 @@ function HomeOurPromise() {
 
   const handleNext = () => {
     if (!currentStep) return;
-    if (currentStep.type === "range") return handlePick(sliderValue);
+    if (currentStep.type === "range")
+      return handlePick({ min: budgetRange.min, max: budgetRange.max });
     return handlePick("selected");
   };
 
@@ -234,23 +248,24 @@ function HomeOurPromise() {
     }
 
     if (currentStep.type === "range") {
+      const lo = Math.min(budgetRange.min, budgetRange.max);
+      const hi = Math.max(budgetRange.min, budgetRange.max);
       return (
         <>
-          <p className="mt-2 text-[34px] md:text-[42px] font-bold leading-[1.1] tracking-[-1px] text-[#114273] font-['Frank_Ruhl_Libre',serif]">
-            ${sliderValue.toLocaleString()}{" "}
-            <span className="text-[20px] md:text-[30px] font-medium text-[#7a8fa8]">
+          <p className="mt-2 text-[28px] md:text-[38px] font-bold leading-[1.15] tracking-[-1px] text-[#114273] font-['Frank_Ruhl_Libre',serif]">
+            ${lo.toLocaleString()} – ${hi.toLocaleString()}{" "}
+            <span className="block text-[20px] md:text-[30px] font-medium text-[#7a8fa8] md:inline md:ml-1">
               {currentStep.suffix}
             </span>
           </p>
-          <input
-            type="range"
+          <HeroStyleDualThumbRange
             min={currentStep.min}
             max={currentStep.max}
-            value={sliderValue}
-            onChange={(e) => setSliderValue(Number(e.target.value))}
-            className="mt-4 h-2 w-full cursor-pointer appearance-none rounded-full bg-[#dbe4ee]"
+            value={{ min: budgetRange.min, max: budgetRange.max }}
+            onChange={setBudgetRange}
+            aria-label="Budget range"
           />
-          <div className="mt-2 flex justify-between text-[14px] md:text-[22px] font-medium text-[#a3b3c9] font-['Frank_Ruhl_Libre',serif]">
+          <div className="mt-2 flex justify-between text-[14px] md:text-[22px] font-medium text-[#a3b3c9] ">
             <span>${currentStep.min.toLocaleString()}</span>
             <span>${currentStep.max.toLocaleString()}+</span>
           </div>
@@ -264,7 +279,7 @@ function HomeOurPromise() {
           <button
             key={option}
             type="button"
-            className="rounded-full border border-[#d9dfea] bg-white px-4 md:px-5 py-2.5 md:py-3 text-[16px] md:text-[30px] leading-[1.2] tracking-[-0.6px] text-[#334155] transition hover:border-[#f76d2f] hover:text-[#f76d2f] font-['Frank_Ruhl_Libre',serif]"
+            className="rounded-full border border-[#d9dfea] bg-white px-4 md:px-5 py-2.5 md:py-2.5 text-[16px] md:text-[20px] leading-[1.2] tracking-[-0.6px] text-[#334155] transition hover:border-[#f76d2f] hover:text-[#f76d2f]"
             onClick={() => handlePick(option)}
           >
             {option}
@@ -359,7 +374,7 @@ function HomeOurPromise() {
                         const url = buildPropertyMapUrl({
                           state: answers.state ?? "",
                           acreageChoice: answers.acres,
-                          budgetMax: Number(answers.budget ?? sliderValue),
+                          budget: answers.budget ?? budgetRange,
                         });
                         window.location.href = url;
                       }}
@@ -419,7 +434,7 @@ function HomeOurPromise() {
                     ) : (
                       <button
                         type="button"
-                        className="flex-1 rounded-[10px] bg-[#e47c28] px-6 py-3 md:px-8 md:py-4 text-[18px] md:text-[30px] font-bold text-white"
+                        className="flex-1 rounded-[10px] bg-[#e47c28] btn-secondary"
                         onClick={() => handlePick("Show Properties")}
                       >
                         Show Me Properties{" "}
