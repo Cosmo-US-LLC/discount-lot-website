@@ -1,7 +1,10 @@
 import React from "react";
-import BookingCallImageDesktop from "@/assets/images/kentucky/book_a_call_desktop.webp";
-import BookingCallImageMobile from "@/assets/images/kentucky/book_a_call_mobile.webp";
+// import BookingCallImageDesktop from "@/assets/images/kentucky/book_a_call_desktop.webp";
+// import BookingCallImageMobile from "@/assets/images/kentucky/book_a_call_mobile.webp";
 import { PhoneIcon } from "lucide-react";
+
+const BOOKING_WIDGET_URL =
+  "https://api.leadconnectorhq.com/widget/bookings/sales-reps-rr";
 
 function KentuckyBookingCallSection() {
   return (
@@ -19,6 +22,16 @@ function KentuckyBookingCallSection() {
           </p>
         </div>
 
+        <div className="w-full max-w-[1120px] p-4 overflow-hidden rounded-[6px] bg-white shadow-[0px_8px_25px_rgba(0,0,0,0.1)]">
+          <iframe
+            src={BOOKING_WIDGET_URL}
+            title="Schedule a call with a Land Specialist"
+            className="block h-[min(900px,85vh)] w-full min-h-[520px] border-0 md:min-h-[600px]"
+            loading="lazy"
+          />
+        </div>
+
+        {/*
         <div className="max-md:hidden h-[350px] w-full max-w-[885px] overflow-hidden rounded-[6px] bg-white shadow-[0px_8px_25px_rgba(0,0,0,0.1)] ">
           <img
             src={BookingCallImageDesktop}
@@ -34,6 +47,7 @@ function KentuckyBookingCallSection() {
             className="w-full h-full object-cover"
           />
         </div>
+        */}
 
         <p className="text-[14px] font-semibold leading-[1.4] text-[#7a8fa8]">
           Prefer to call us? <span className="text-[#070707]">Toll-free:</span>{" "}
@@ -44,7 +58,7 @@ function KentuckyBookingCallSection() {
         </p>
       </div>
       <a
-        href="https://api.leadconnectorhq.com/widget/bookings/sales-reps-rr"
+        href={BOOKING_WIDGET_URL}
         className="inline-flex gap-2 mt-6 w-fit mx-auto items-center !capitalize justify-center !text-[16px] btn-primary"
       >
         <PhoneIcon className="w-4 h-4" />
