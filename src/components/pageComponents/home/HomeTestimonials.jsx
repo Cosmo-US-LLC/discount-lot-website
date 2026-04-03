@@ -114,7 +114,7 @@ function HomeTestimonials() {
         <div className="w-full relative">
           <Carousel
             setApi={setApi}
-            opts={{ loop: true, align: "start", slidesToScroll: 1 }}
+            opts={{ loop: false, align: "start", slidesToScroll: 1 }}
             className="w-full"
           >
             {/* Desktop arrows (top-right) */}

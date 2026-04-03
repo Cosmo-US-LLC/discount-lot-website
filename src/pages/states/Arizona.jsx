@@ -35,7 +35,7 @@ function Arizona() {
       <ArizonaWhyBuyLandSection />
       <ArizonaLandForEveryPlanSection />
       <ArizonaBuyWithConfidenceSection />
-      <ArizonaExploreByLocationSection />
+      {/* <ArizonaExploreByLocationSection /> */}
       <HomeTestimonials />
       <ArizonaRecentlySoldPropertiesSection />
       <HomeFaq
