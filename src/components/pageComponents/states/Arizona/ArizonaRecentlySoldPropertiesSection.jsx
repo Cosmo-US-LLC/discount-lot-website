@@ -1,14 +1,17 @@
 import React from "react";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowRightIcon } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
 
-const propertyMapUrl = new URL(
-  "https://discountlots.com/property-map",
-);
+const ARROW_BTN_DESKTOP =
+  "inline-flex size-12 cursor-pointer items-center justify-center rounded-full border border-[#114273]/20  text-[#114273] hover:bg-[#114273] hover:text-white backdrop-blur-sm transition disabled:opacity-40";
+const ARROW_BTN_MOBILE =
+  "inline-flex size-9 items-center justify-center rounded-full border border-[#114273]/20 bg-[#114273]/[0.08] text-[#114273] backdrop-blur-sm transition hover:bg-[#114273]/15 disabled:opacity-40";
+
+const propertyMapUrl = new URL("https://discountlots.com/property-map");
 propertyMapUrl.searchParams.set("states", "Arizona");
 propertyMapUrl.searchParams.set("counties", "");
 propertyMapUrl.searchParams.set("usage", "");
@@ -70,25 +73,64 @@ const handleBrowse = () => {
 };
 
 function ArizonaRecentlySoldPropertiesSection() {
-  return (
-    <section id="properties" className="bg-white px-4 py-12 md:px-[120px] md:py-[80px]">
-      <div className="mx-auto max-w-[1200px]">
-        <div className="flex flex-col items-start gap-[30px]">
-          <h2 className="font-['Frank_Ruhl_Libre',serif] font-black text-[#114273] text-[50px] leading-[1.1] tracking-[-1.2px]">
-            Recently Sold Arizona Properties
-          </h2>
+  const [api, setApi] = React.useState(null);
+  const [canPrev, setCanPrev] = React.useState(false);
+  const [canNext, setCanNext] = React.useState(false);
 
-          <div className="w-full">
-            <div className="h-[140px] w-full overflow-hidden">
+  React.useEffect(() => {
+    if (!api) return;
+    const update = () => {
+      setCanPrev(api.canScrollPrev());
+      setCanNext(api.canScrollNext());
+    };
+    update();
+    api.on("select", update);
+    api.on("reInit", update);
+    return () => {
+      api.off("select", update);
+      api.off("reInit", update);
+    };
+  }, [api]);
+
+  return (
+    <section id="properties" className="bg-white py-12 md:py-18">
+      <div className="mx-auto max-w-[1280px] px-4 md:px-8">
+        <div className="flex flex-col items-start gap-10">
+          <h2 className="text-[#114273]">Recently Sold Arizona Properties</h2>
+          <div className="w-full flex flex-col gap-10">
+            <div className="relative w-full">
               <Carousel
-                opts={{ loop: true, align: "start", slidesToScroll: 1 }}
+                setApi={setApi}
+                opts={{ loop: false, align: "start", slidesToScroll: 1 }}
                 className="w-full"
               >
-                <CarouselContent>
-                  {recentlySoldCards.map((c) => (
+                {/* Desktop arrows (top-right) — matches HomeTestimonials */}
+                <div className="absolute right-0 top-[-10%] z-10 hidden w-[112px] items-center gap-4 md:flex">
+                  <button
+                    type="button"
+                    onClick={() => api?.scrollPrev()}
+                    disabled={!canPrev}
+                    aria-label="Previous properties"
+                    className={ARROW_BTN_DESKTOP}
+                  >
+                    <ArrowLeft className="size-6" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => api?.scrollNext()}
+                    disabled={!canNext}
+                    aria-label="Next properties"
+                    className={ARROW_BTN_DESKTOP}
+                  >
+                    <ArrowRight className="size-6" />
+                  </button>
+                </div>
+
+                <CarouselContent className="ml-0 md:-ml-2 md:pt-14">
+                  {recentlySoldCards.map((c, index) => (
                     <CarouselItem
-                      key={c.href}
-                      className="basis-full sm:basis-1/2 lg:basis-[20%] pl-2"
+                      key={`${c.title}-${c.meta}-${index}`}
+                      className="basis-full sm:basis-1/2 md:basis-[29%] pl-0 md:pl-2"
                     >
                       <a
                         href={c.href}
@@ -96,8 +138,8 @@ function ArizonaRecentlySoldPropertiesSection() {
                         aria-label={`Open property ${c.title}`}
                       >
                         <div className="relative h-[140px] w-full rounded-[8px] border border-[rgba(0,0,0,0.06)] bg-white px-[20px] pt-[27px]">
-                          <div className="absolute right-[12px] top-[12px] flex h-[20px] w-[52.92px] items-center justify-center rounded-[3px] bg-[#114273]">
-                            <span className="text-[11px] font-bold tracking-[1px] text-white">
+                          <div className="absolute right-[12px] top-[12px] flex px-2 py-1 items-center justify-center rounded-[4px] bg-[#114273]">
+                            <span className="text-[14px] font-bold tracking-[1px] text-white">
                               SOLD
                             </span>
                           </div>
@@ -121,34 +163,60 @@ function ArizonaRecentlySoldPropertiesSection() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
+
+                {/* Mobile arrows (below) — matches HomeTestimonials */}
+                <div
+                  className="mt-6 flex items-center justify-center gap-3 md:hidden"
+                  role="group"
+                  aria-label="Carousel controls"
+                >
+                  <button
+                    type="button"
+                    onClick={() => api?.scrollPrev()}
+                    disabled={!canPrev}
+                    aria-label="Previous properties"
+                    className={ARROW_BTN_MOBILE}
+                  >
+                    <ArrowLeft className="size-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => api?.scrollNext()}
+                    disabled={!canNext}
+                    aria-label="Next properties"
+                    className={ARROW_BTN_MOBILE}
+                  >
+                    <ArrowRight className="size-4" />
+                  </button>
+                </div>
               </Carousel>
             </div>
 
-            <div className="mt-[18px] flex items-center justify-center">
+            <div className="flex items-center justify-center">
               <button
                 type="button"
                 onClick={handleBrowse}
-                className="flex h-[53px] items-center justify-center rounded-[4px] bg-[#f76d2f] px-[38px] text-white font-bold text-[16px]"
+                className="flex btn-secondary"
               >
                 Browse Available Properties
               </button>
             </div>
           </div>
 
-          <div className="mt-[53px] flex h-[97px] items-center justify-between rounded-[8px] bg-[#fef4f1] px-[32px]">
+          <div className="flex w-full px-8 py-8 items-center justify-between rounded-[8px] bg-[#fef4f1]">
             <div className="flex flex-col gap-2">
               <div className="text-[#114273] text-[18px] font-bold leading-[1.4]">
                 Inventory moves fast in Arizona.
               </div>
               <div className="text-[#114273] text-[14px] opacity-80 leading-[1.4] max-w-[523px]">
-                Most closed within 3 days of listing. New inventory arrives every
-                week. Want to get notified and be the first in line?
+                Most closed within 3 days of listing. New inventory arrives
+                every week. Want to get notified and be the first in line?
               </div>
             </div>
 
             <a
               href="https://api.leadconnectorhq.com/widget/bookings/sales-reps-rr"
-              className="inline-flex h-[53px] w-[261px] items-center justify-center rounded-[4px] border-2 border-[#f76d2f] text-[#f76d2f] font-bold text-[16px] leading-[1.4]"
+              className="inline-flex w-fit btn-secondary items-center justify-center"
             >
               Get Notified Instantly <ArrowRightIcon className="ml-2 h-4 w-4" />
             </a>
@@ -160,4 +228,3 @@ function ArizonaRecentlySoldPropertiesSection() {
 }
 
 export default ArizonaRecentlySoldPropertiesSection;
-

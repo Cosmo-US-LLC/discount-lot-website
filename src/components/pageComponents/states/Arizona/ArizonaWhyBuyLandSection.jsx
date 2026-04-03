@@ -69,7 +69,9 @@ function ArizonaWhyBuyLandSection() {
               <h6 className=" text-[#114273] uppercase w-full">
                 Investors’ First Choice
               </h6>
-              <h1 className=" text-[#114273]">Why Buy Land in Arizona?</h1>
+              <h2 className=" text-[#114273] max-w-[400px]">
+                Why Buy Land in Arizona?
+              </h2>
             </div>
 
             <div className="description text-[#4a5565]">
