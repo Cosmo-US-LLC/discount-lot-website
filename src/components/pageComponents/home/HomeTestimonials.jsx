@@ -15,7 +15,7 @@ import TestimonialsVideo4 from "@/assets/images/kentucky/testimonials_video_4.we
 
 const testimonials = [
   {
-    name: "Lajeanna B.",
+    name: "Leteisha A.",
     quote:
       '"I was skeptical at first  buying land online felt risky. But DiscountLots made it so easy. My 5-acre parcel in Mohave County was exactly what was described. Papers signed in 2 days."',
     videoSrc: TestimonialsVideo1,
@@ -28,7 +28,7 @@ const testimonials = [
     videoPoster: null,
   },
   {
-    name: "Broch C.",
+    name: "Demetrius K.",
     quote: `"Third parcel I've bought from these guys. They're consistent, the titles are clean, and the customer service team actually answers the phone. Rare."`,
     videoSrc: TestimonialsVideo3,
     videoPoster: null,
