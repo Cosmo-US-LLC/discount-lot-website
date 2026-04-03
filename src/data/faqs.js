@@ -137,7 +137,7 @@ export const kentuckyFaqs = [
     id: "ky-roads-access",
     question: "Are the roads paved? Will I have year-round access?",
     answer:
-      "Yes. All lots in Kentucky clinton county are accessible via paved public roads: Willis Creek Road connects to KY-90 and KY-127, Clinton County's main highways. Front lots and the main entrance have direct paved road frontage on Willis Creek Road. Interior lots are accessed via a private dirt road through the subdivision. For details on which specific lots have paved vs. dirt access, ask your Land Specialist — they can walk you through the lot map.",
+      "Yes. All lots in Kentucky Clinton County are accessible via paved public roads: Willis Creek Road connects to KY-90 and KY-127, Clinton County's main highways. Front lots and the main entrance have direct paved road frontage on Willis Creek Road. Interior lots are accessed via a private dirt road through the subdivision. For details on which specific lots have paved vs. dirt access, ask your Land Specialist — they can walk you through the lot map.",
   },
   {
     id: "ky-sell-later",
