@@ -1,4 +1,5 @@
 import React from "react";
+import { ArizonaLandAlertModal } from "@/components/common/ArizonaLandAlertModal";
 import { cn } from "@/lib/utils";
 
 function CountyCard({
@@ -11,6 +12,7 @@ function CountyCard({
   statusBadge,
   actionType,
   href,
+  onNotifyClick,
 }) {
   const isSoldOut = actionType === "notify";
 
@@ -103,9 +105,13 @@ function CountyCard({
 
           <div className="w-full flex items-start">
             {isSoldOut ? (
-              <div className="btn-secondary w-full !text-[12px]">
+              <button
+                type="button"
+                className="btn-secondary w-full !shadow-none !text-[12px] !bg-[#DEDEDE4D] !text-[#252525] !border-[#DEDEDE4D] hover:!bg-transparent hover:!text-[#252525] hover:!border-[#252525]"
+                onClick={onNotifyClick}
+              >
                 Notify Me!
-              </div>
+              </button>
             ) : href ? (
               <a
                 href={href}
@@ -131,6 +137,14 @@ function CountyCard({
 }
 
 function ArizonaBrowseByCountySection() {
+  const [landAlertOpen, setLandAlertOpen] = React.useState(false);
+  const [landAlertCounty, setLandAlertCounty] = React.useState("");
+
+  const openLandAlert = (countyName) => {
+    setLandAlertCounty(countyName);
+    setLandAlertOpen(true);
+  };
+
   const cards = [
     {
       countyName: "Mohave",
@@ -200,6 +214,11 @@ function ArizonaBrowseByCountySection() {
 
   return (
     <section id="hot-properties" className="bg-[#114273] py-12 md:py-18">
+      <ArizonaLandAlertModal
+        open={landAlertOpen}
+        initialCounty={landAlertCounty}
+        onClose={() => setLandAlertOpen(false)}
+      />
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8 flex flex-col items-center">
         <div className="flex flex-col items-center gap-4 text-white w-full">
           <h6 className="text-center">Find the best land</h6>
@@ -216,7 +235,15 @@ function ArizonaBrowseByCountySection() {
         <div className="mt-10 flex flex-col items-center w-full">
           <div className="flex flex-wrap items-start justify-center gap-4 w-full">
             {cards.map((c) => (
-              <CountyCard key={c.countyName} {...c} />
+              <CountyCard
+                key={c.countyName}
+                {...c}
+                onNotifyClick={
+                  c.actionType === "notify"
+                    ? () => openLandAlert(c.countyName)
+                    : undefined
+                }
+              />
             ))}
           </div>
         </div>
