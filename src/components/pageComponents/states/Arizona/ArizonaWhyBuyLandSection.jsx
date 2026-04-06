@@ -1,43 +1,80 @@
 import React from "react";
+import texesIcon from "@/assets/images/arizona/texes.svg";
+import natureIcon from "@/assets/images/arizona/natural-surrounding.svg";
+import flexibleZoningIcon from "@/assets/images/arizona/zoning.svg";
+import sunshineIcon from "@/assets/images/arizona/sunshine.svg";
 
-const imgGradient =
-  "https://www.figma.com/api/mcp/asset/d7eb4419-bbdb-47b6-b4cf-8688cc2105b6";
-const imgImage26 =
-  "https://www.figma.com/api/mcp/asset/0820ec61-d7a8-4f40-878f-2e5175190bab";
+import imgImage26 from "@/assets/images/arizona/land-of-arizona.webp";
 
-const imgTaxIcon =
-  "https://www.figma.com/api/mcp/asset/a77c0ed5-987e-466b-b09d-3ec7a3b5f511";
-const imgNaturalIcon =
-  "https://www.figma.com/api/mcp/asset/54281290-d128-43f2-8e4d-636083d6b4b3";
-const imgFlexibleZoningIcon =
-  "https://www.figma.com/api/mcp/asset/bb95f923-8210-4de1-8680-b1935c1c0410";
+const WHY_BUY_ITEMS = [
+  {
+    key: "taxes",
+    iconSrc: texesIcon,
+    title: "Low Property Taxes",
+    description:
+      "Many parcels cost very little annually, keeping ownership affordable and low-risk.",
+  },
+  {
+    key: "nature",
+    iconSrc: natureIcon,
+    title: "Iconic Natural Surroundings",
+    description:
+      "Grand Canyon, Sedona, Saguaro National Park, Petrified Forest your backyard is world-famous.",
+  },
+  {
+    key: "zoning",
+    iconSrc: flexibleZoningIcon,
+    title: "Flexible Zoning",
+    description:
+      "Most Arizona counties permit RVs, construction of homes, solar, and agriculture use with minimal permitting, more freedom than most coastal states allow. Arizona zoning allows multiple possibilities.",
+  },
+  {
+    key: "sunshine",
+    iconSrc: sunshineIcon,
+    title: "300+ Days of Sunshine Annually",
+    description:
+      "Perfect for solar, outdoor living, and year-round access to your land without seasonal closures.",
+  },
+];
+
+function WhyBuyFeatureCard({ iconSrc, title, description }) {
+  return (
+    <div className="flex gap-[16px] items-start w-full">
+      <div className="bg-[#fef4f1] rounded-[8px] h-[44px] w-[44px] flex items-center justify-center shrink-0">
+        <img
+          alt=""
+          src={iconSrc}
+          className="h-[28px] w-[28px] object-contain"
+        />
+      </div>
+      <div className="flex flex-col gap-[6px] w-full">
+        <div className="font-bold text-[#114273] text-[16px] leading-[normal]">
+          {title}
+        </div>
+        <div className="font-semibold text-[14px] leading-[20px] text-[#4a5565] opacity-60">
+          {description}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function ArizonaWhyBuyLandSection() {
-  const scrollToHotProperties = () => {
-    const el = document.getElementById("hot-properties");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-      return;
-    }
-    window.location.hash = "hot-properties";
-  };
-
   return (
-    <section className="bg-white px-4 py-[80px] md:px-[68px]">
-      <div className="mx-auto w-full max-w-[1182px] flex items-start justify-between gap-[40px] flex-col lg:flex-row">
-        <div className="flex flex-col gap-[24px] items-start w-full lg:w-[622px]">
-          <div className="flex flex-col gap-[30px] items-start w-full">
-            <div className="flex flex-col gap-[24px] items-start w-full">
-              <div className="flex flex-col font-bold h-[16px] justify-center text-[#114273] text-[12px] tracking-[3px] uppercase w-full">
+    <section className="bg-white md:py-18 scroll-py-12">
+      <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8 flex items-start justify-between gap-[40px] flex-col lg:flex-row">
+        <div className="flex flex-col gap-[24px] items-start w-full md:w-[602px]">
+          <div className="flex flex-col gap-4 items-start w-full">
+            <div className="flex flex-col gap-3 items-start w-full">
+              <h6 className=" text-[#114273] uppercase w-full">
                 Investors’ First Choice
-              </div>
-              <div className="flex flex-col font-['Frank_Ruhl_Libre',serif] font-black text-[#114273] text-[50px] w-full leading-[1.1]">
-                <p className="leading-[1.1]">Why Buy Land in</p>
-                <p className="leading-[1.1] mb-0">Arizona?</p>
-              </div>
+              </h6>
+              <h2 className=" text-[#114273] max-w-[400px]">
+                Why Buy Land in Arizona?
+              </h2>
             </div>
 
-            <div className="flex flex-col font-normal text-[#4a5565] text-[16px] w-full leading-[1.4]">
+            <div className="description text-[#4a5565]">
               Arizona is one of the fastest-growing states in the country, and
               land prices are still very affordable compared to similar
               properties in neighboring states.
@@ -45,112 +82,34 @@ function ArizonaWhyBuyLandSection() {
           </div>
 
           <div className="flex flex-col gap-[26px] items-start w-full">
-            <div className="flex gap-[16px] items-start w-full">
-              <div className="bg-[#fef4f1] rounded-[8px] h-[44px] w-[44px] flex items-center justify-center shrink-0">
-                <img
-                  alt=""
-                  src={imgTaxIcon}
-                  className="h-[28px] w-[28px] object-contain"
-                />
-              </div>
-              <div className="flex flex-col gap-[6px] w-full">
-                <div className="font-bold h-[21px] text-[#114273] text-[16px] leading-[normal]">
-                  Low Property Taxes
-                </div>
-                <div className="font-semibold text-[14px] leading-[1.4] text-[#4a5565] opacity-60">
-                  Many parcels cost very little annually, keeping ownership
-                  affordable and low-risk.
-                </div>
-              </div>
-            </div>
-
-            <div className="flex gap-[16px] items-start w-full">
-              <div className="bg-[#fef4f1] rounded-[8px] h-[44px] w-[44px] flex items-center justify-center shrink-0">
-                <img
-                  alt=""
-                  src={imgNaturalIcon}
-                  className="h-[28px] w-[28px] object-contain"
-                />
-              </div>
-              <div className="flex flex-col gap-[6px] w-full">
-                <div className="font-bold h-[21px] text-[#114273] text-[16px] leading-[normal]">
-                  Iconic Natural Surroundings
-                </div>
-                <div className="font-semibold text-[14px] leading-[1.4] text-[#4a5565] opacity-60">
-                  Grand Canyon, Sedona, Saguaro National Park, Petrified
-                  Forest your backyard is world-famous.
-                </div>
-              </div>
-            </div>
-
-            <div className="flex gap-[16px] items-start w-full">
-              <div className="bg-[#fef4f1] rounded-[8px] h-[44px] w-[44px] flex items-center justify-center shrink-0">
-                <img
-                  alt=""
-                  src={imgFlexibleZoningIcon}
-                  className="h-[28px] w-[28px] object-contain"
-                />
-              </div>
-              <div className="flex flex-col gap-[6px] w-full">
-                <div className="font-bold h-[21px] text-[#114273] text-[16px] leading-[normal]">
-                  Flexible Zoning
-                </div>
-                <div className="font-semibold text-[14px] leading-[1.4] text-[#4a5565] opacity-60">
-                  Most Arizona counties permit RVs, construction of homes,
-                  solar, and agriculture use with minimal permitting, more
-                  freedom than most coastal states allow. Arizona zoning
-                  allows multiple possibilities.
-                </div>
-              </div>
-            </div>
-
-            <div className="flex gap-[16px] items-start w-full">
-              <div className="bg-[#fef4f1] rounded-[8px] h-[44px] w-[44px] flex items-center justify-center shrink-0">
-                <span className="text-[#f76d2f] text-[20px] leading-none">
-                  ☀️
-                </span>
-              </div>
-              <div className="flex flex-col gap-[6px] w-full">
-                <div className="font-bold h-[21px] text-[#114273] text-[16px] leading-[normal]">
-                  300+ Days of Sunshine Annually
-                </div>
-                <div className="font-semibold text-[14px] leading-[1.4] text-[#4a5565] opacity-60">
-                  Perfect for solar, outdoor living, and year-round access to
-                  your land without seasonal closures.
-                </div>
-              </div>
-            </div>
+            {WHY_BUY_ITEMS.map((item) => (
+              <WhyBuyFeatureCard
+                key={item.key}
+                iconSrc={item.iconSrc}
+                title={item.title}
+                description={item.description}
+              />
+            ))}
           </div>
 
-          <button
-            type="button"
-            onClick={scrollToHotProperties}
-            className="bg-[#f76d2f] flex items-center justify-center px-[34px] py-[16px] relative rounded-[4px] shrink-0"
-          >
-            <div className="flex flex-col font-bold justify-center leading-0 text-[16px] text-center text-white whitespace-nowrap">
-              View Hot Properties
-            </div>
+          <button type="button" className="bg-[#f76d2f] btn-secondary mt-4">
+            View Hot Properties
           </button>
         </div>
 
-        <div className="w-full lg:w-[568px] h-[480px] relative rounded-[8px] overflow-hidden shadow-[0px_8px_32px_0px_rgba(0,0,0,0.25)]">
-          <img
-            alt=""
-            src={imgGradient}
-            className="absolute inset-0 w-full h-full object-cover pointer-events-none rounded-[8px]"
-          />
+        <div className="w-full md:w-[548px] h-[500px] relative rounded-[8px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.25)]">
           <img
             alt=""
             src={imgImage26}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[660px] max-w-none h-auto pointer-events-none"
+            className="w-full h-full object-cover rounded-[8px]"
           />
 
-          <div className="absolute right-[30px] bottom-[28px] bg-white px-[28px] py-[22px] rounded-[8px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.3)] w-[190px]">
+          <div className="absolute -right-[30px] -bottom-[40px] bg-white px-6 py-4 rounded-[8px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.3)] w-[200px]">
             <div className="flex flex-col gap-[7px] items-start text-[#f76d2f]">
               <div className="flex flex-col font-['Bebas_Neue',sans-serif] not-italic justify-center text-[48px] leading-[48px] w-full">
                 44%
               </div>
-              <div className="flex flex-col font-normal justify-center text-[13px] leading-[normal] w-full text-[#f76d2f]">
+              <div className="flex flex-col font-normal justify-center text-[14px] leading-[normal] w-full text-[#f76d2f]">
                 Up to 44% Growth in Prominent Counties
               </div>
             </div>
@@ -162,4 +121,3 @@ function ArizonaWhyBuyLandSection() {
 }
 
 export default ArizonaWhyBuyLandSection;
-

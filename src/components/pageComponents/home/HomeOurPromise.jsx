@@ -314,7 +314,7 @@ function HomeOurPromise() {
             </button>
             <button
               type="button"
-              className="min-w-[200px] w-full md:w-fit cursor-pointer rounded-[6px] border border-white/20 bg-white/10 px-4 py-3 text-center text-[14px] font-bold uppercase tracking-[1.4px] text-white hover:bg-white/20"
+              className="min-w-[200px] w-full md:w-fit cursor-pointer rounded-[6px] border border-white/20 capitalize bg-white/10 px-4 py-3 text-center text-[16px] font-bold tracking-[1.4px] text-white hover:bg-white/20"
               onClick={() => startFlow("investment")}
             >
               Investment

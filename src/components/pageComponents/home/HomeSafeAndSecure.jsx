@@ -42,7 +42,7 @@ function HomeSafeAndSecure() {
           {/* Right: image + highlights */}
           <div className="space-y-6">
             <div className="space-y-2 text-center md:text-left">
-              <h3 className="text-[24px] font-bold leading-[32px] tracking-[-0.6px] text-[#114273]">
+              <h3 className="md:!text-[24px] text-[20px] font-bold leading-[32px] tracking-[-0.6px] text-[#114273]">
                 Utility Proximity Checks
               </h3>
               <p className="description text-[#6b7280]">
