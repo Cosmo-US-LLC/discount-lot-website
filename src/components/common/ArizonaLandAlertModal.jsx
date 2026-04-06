@@ -1,6 +1,7 @@
 import React from "react";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { submitLandAlertToGHL } from "@/lib/ghl";
 
 const inputClass =
   "w-full rounded border border-black/10 bg-[rgba(222,222,222,0.08)] px-5 py-3 text-[14px] text-[#1a1208] placeholder:text-black/50 outline-none focus:border-[#114273] focus:ring-1 focus:ring-[#114273]";
@@ -27,6 +28,8 @@ export function ArizonaLandAlertForm({
   const [preferredCounty, setPreferredCounty] = React.useState("");
   const [minAcreage, setMinAcreage] = React.useState("");
   const [monthlyBudget, setMonthlyBudget] = React.useState("");
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitError, setSubmitError] = React.useState("");
 
   React.useEffect(() => {
     if (!isActive) return;
@@ -36,11 +39,31 @@ export function ArizonaLandAlertForm({
     setMinAcreage("");
     setMonthlyBudget("");
     setPreferredCounty(initialCounty ? `${initialCounty} County` : "");
+    setSubmitError("");
   }, [isActive, initialCounty]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitSuccess(true);
+    setSubmitError("");
+    setIsSubmitting(true);
+    try {
+      await submitLandAlertToGHL({
+        firstName: firstName.trim(),
+        email: email.trim(),
+        preferredCounty: preferredCounty.trim(),
+        minAcreage: minAcreage.trim(),
+        monthlyBudget: monthlyBudget.trim(),
+      });
+      setSubmitSuccess(true);
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again in a moment.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleDone = () => {
@@ -101,6 +124,15 @@ export function ArizonaLandAlertForm({
             a matching parcel hits our inventory.
           </p>
 
+          {submitError ? (
+            <p
+              className="mt-6 w-full max-w-[556px] rounded border border-red-200 bg-red-50 px-4 py-3 text-left text-[14px] text-red-800"
+              role="alert"
+            >
+              {submitError}
+            </p>
+          ) : null}
+
           <div className="mt-8 w-full max-w-[556px] space-y-4 text-left">
             <div className="grid gap-4 md:grid-cols-2">
               <input
@@ -153,9 +185,10 @@ export function ArizonaLandAlertForm({
 
           <button
             type="submit"
-            className="mt-8 w-full max-w-[556px] rounded bg-[#114273] py-3.5 font-['Open_Sans',sans-serif] text-[16px] font-bold text-white transition hover:bg-[#0d3558]"
+            disabled={isSubmitting}
+            className="mt-8 w-full max-w-[556px] rounded bg-[#114273] py-3.5 font-['Open_Sans',sans-serif] text-[16px] font-bold text-white transition hover:bg-[#0d3558] disabled:cursor-not-allowed disabled:opacity-60"
           >
-            Set Land Alert
+            {isSubmitting ? "Sending…" : "Set Land Alert"}
           </button>
         </form>
       )}
