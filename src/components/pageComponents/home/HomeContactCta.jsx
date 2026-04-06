@@ -14,7 +14,7 @@ function HomeContactCta() {
 
         <div className="mt-6 flex flex-wrap gap-4 md:mt-0 h-full md:h-[54px] md:flex-nowrap">
           <a
-            href="tel:8668087809"
+            href="tel:+18668087809"
             className="inline-flex btn-primary items-center w-full justify-center gap-3 "
           >
             <Phone aria-hidden="true" className="h-[18px] w-[18px]" />
