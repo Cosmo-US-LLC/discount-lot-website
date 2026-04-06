@@ -4,30 +4,29 @@ import HeroStyleDualThumbRange from "@/components/common/HeroStyleDualThumbRange
 
 const stateOptions = [
   { label: "All States", value: "" },
-  { label: "Arizona (26)", value: "Arizona" },
-  { label: "California (61)", value: "California" },
-  { label: "Colorado (5)", value: "Colorado" },
-  { label: "Florida (23)", value: "Florida" },
-  { label: "Georgia (3)", value: "Georgia" },
-  { label: "Indiana (1)", value: "Indiana" },
-  { label: "Kentucky (43)", value: "Kentucky" },
-  { label: "Michigan (1)", value: "Michigan" },
-  { label: "Minnesota (1)", value: "Minnesota" },
-  { label: "Mississippi (1)", value: "Mississippi" },
-  { label: "Missouri (1)", value: "Missouri" },
-  { label: "Nevada (3)", value: "Nevada" },
-  { label: "New Mexico (1)", value: "New Mexico" },
-  { label: "South Carolina (2)", value: "South Carolina" },
-  { label: "Tennessee (4)", value: "Tennessee" },
-  { label: "Texas (8)", value: "Texas" },
-  { label: "Utah (1)", value: "Utah" },
-  { label: "Wyoming (1)", value: "Wyoming" },
+  { label: "North Carolina", value: "North Carolina" },
+  { label: "Arizona", value: "Arizona" },
+  { label: "California", value: "California" },
+  { label: "Colorado", value: "Colorado" },
+  { label: "Florida", value: "Florida" },
+  { label: "Georgia", value: "Georgia" },
+  { label: "Kentucky", value: "Kentucky" },
+  { label: "Minnesota", value: "Minnesota" },
+  { label: "Missouri", value: "Missouri" },
+  { label: "Nevada", value: "Nevada" },
+  { label: "Tennessee", value: "Tennessee" },
+  { label: "Texas", value: "Texas" },
+  { label: "Utah", value: "Utah" },
 ];
 
 const PRICE_BOUND_MIN = 5943;
 const PRICE_BOUND_MAX = 128999;
 const MONTHLY_PAYMENT_BOUND_MIN = 141;
 const MONTHLY_PAYMENT_BOUND_MAX = 1875;
+
+/** Matches Figma (node 2092:3145): Open Sans for UI; Frank Ruhl for modal title only */
+const os = "font-['Open_Sans',sans-serif]";
+const frlBlack = "font-['Frank_Ruhl_Libre',serif] font-black";
 
 function toAcreageRange(choice) {
   switch (choice) {
@@ -145,7 +144,16 @@ function HomeOurPromise() {
 
   const activeSteps = activeFlow ? flows[activeFlow].steps : [];
   const currentStep = activeSteps[stepIndex] || null;
-  const isComplete = Boolean(activeFlow) && stepIndex >= activeSteps.length;
+
+  const goToPropertyMap = (answerPatch = {}) => {
+    const merged = { ...answers, ...answerPatch };
+    const url = buildPropertyMapUrl({
+      state: merged.state ?? "",
+      acreageChoice: merged.acres,
+      budget: merged.budget ?? budgetRange,
+    });
+    window.location.href = url;
+  };
 
   React.useEffect(() => {
     if (!currentStep || currentStep.type !== "range") return;
@@ -199,14 +207,15 @@ function HomeOurPromise() {
         <div className="relative mt-3">
           <button
             type="button"
-            className="flex w-full items-center justify-between rounded-[8px] border border-[#d9dfea] bg-white px-4 py-3 text-left text-[#334155]"
+            className="flex w-full items-center justify-between rounded-[6px] border border-[#e5e7eb] bg-white px-4 py-3 text-left text-[#334155]"
             onClick={() => setStatePickerOpen((v) => !v)}
           >
             <span
-              className={`text-[20px] md:text-[24px] leading-[1.2] tracking-[-0.6px] ${
-                selectedLabel ? "text-[#334155]" : "text-[#5a6a82]"
+              className={`${os} text-[15px] leading-[22px] ${
+                selectedLabel
+                  ? "text-[#4a4a4a] opacity-100"
+                  : "text-[#4a4a4a]/75"
               }`}
-              style={{ fontFamily: "Frank Ruhl Libre" }}
             >
               {selectedLabel ? selectedLabel : `- ${currentStep.placeholder} -`}
             </span>
@@ -214,7 +223,7 @@ function HomeOurPromise() {
           </button>
 
           {statePickerOpen && (
-            <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-10 max-h-[200px] overflow-y-auto rounded-[8px] border border-[#d9dfea] bg-white p-2 shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
+            <div className="absolute left-0 right-0 top-[calc(100%+3px)] z-10 max-h-[216px] overflow-y-auto rounded-[8px] border border-[#d9dfea] bg-white p-2 shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
               {stateOptions.map((opt) => {
                 const isActive = opt.value === (currentValue ?? "");
                 return (
@@ -225,12 +234,11 @@ function HomeOurPromise() {
                       setStatePickerOpen(false);
                       handlePick(opt.value);
                     }}
-                    className={`flex w-full items-center justify-between rounded-[8px] px-4 py-2 text-left text-[16px] md:text-[18px] ${
+                    className={`flex w-full items-center justify-between rounded-[8px] px-4 py-2 text-left ${os} text-[16px] md:text-[18px] ${
                       isActive
                         ? "bg-[#f3f4f6] font-semibold text-[#114273]"
-                        : "text-[#111827] hover:bg-[#f9fafb]"
+                        : "font-normal text-[#111827] hover:bg-[#f9fafb]"
                     }`}
-                    style={{ fontFamily: "Frank Ruhl Libre" }}
                   >
                     <span>{opt.label}</span>
                     {isActive ? (
@@ -252,9 +260,11 @@ function HomeOurPromise() {
       const hi = Math.max(budgetRange.min, budgetRange.max);
       return (
         <>
-          <p className="mt-2 text-[28px] md:text-[38px] font-bold leading-[1.15] tracking-[-1px] text-[#114273] font-['Frank_Ruhl_Libre',serif]">
-            ${lo.toLocaleString()} – ${hi.toLocaleString()}{" "}
-            <span className="block text-[20px] md:text-[30px] font-medium text-[#7a8fa8] md:inline md:ml-1">
+          <p className={`mt-2 ${os} font-bold text-[#252525]`}>
+            <span className="text-[28px] leading-[40px] md:text-[35px]">
+              ${lo.toLocaleString()} – ${hi.toLocaleString()}{" "}
+            </span>
+            <span className="text-[18px] font-bold leading-[40px] text-[rgba(43,43,43,0.4)] md:text-[20px]">
               {currentStep.suffix}
             </span>
           </p>
@@ -265,7 +275,9 @@ function HomeOurPromise() {
             onChange={setBudgetRange}
             aria-label="Budget range"
           />
-          <div className="mt-2 flex justify-between text-[14px] md:text-[22px] font-medium text-[#a3b3c9] ">
+          <div
+            className={`mt-2 flex justify-between ${os} text-[14px] font-normal uppercase leading-5 text-[#8c8c8c]`}
+          >
             <span>${currentStep.min.toLocaleString()}</span>
             <span>${currentStep.max.toLocaleString()}+</span>
           </div>
@@ -273,18 +285,29 @@ function HomeOurPromise() {
       );
     }
 
+    const selectedChoice = answers[currentStep.id] ?? null;
+
     return (
       <div className="mt-4 flex flex-wrap gap-3 md:gap-4">
-        {currentStep.options.map((option) => (
-          <button
-            key={option}
-            type="button"
-            className="rounded-full border border-[#d9dfea] bg-white px-4 md:px-5 py-2.5 md:py-2.5 text-[16px] md:text-[20px] leading-[1.2] tracking-[-0.6px] text-[#334155] transition hover:border-[#f76d2f] hover:text-[#f76d2f]"
-            onClick={() => handlePick(option)}
-          >
-            {option}
-          </button>
-        ))}
+        {currentStep.options.map((option) => {
+          const isSelected = selectedChoice === option;
+          return (
+            <button
+              key={option}
+              type="button"
+              className={`rounded-[36px] border px-5 py-4 ${os} text-[13px] font-semibold leading-[14px] transition ${
+                isSelected
+                  ? "border-[#f76d2f] bg-[#f76d2f] text-white"
+                  : "border-[#d9dfea]   text-[#252525] bg-[#DEDEDE4D] hover:border-[#f76d2f] hover:text-[#f76d2f]"
+              }`}
+              onClick={() =>
+                setAnswers((prev) => ({ ...prev, [currentStep.id]: option }))
+              }
+            >
+              {option}
+            </button>
+          );
+        })}
       </div>
     );
   };
@@ -293,28 +316,32 @@ function HomeOurPromise() {
     <section className="bg-[#114273] px-4 py-16 text-white shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] md:px-16 md:py-16">
       <div className="mx-auto w-full max-w-5xl text-center">
         <h2>Not seeing what you need?</h2>
-        <p className="mx-auto mt-5 max-w-3xl body-description">
+        <p
+          className={`mx-auto mt-5 max-w-3xl ${os} text-[16px] font-normal leading-[1.4] text-white`}
+        >
           Answer 3 simple questions and we&apos;ll show you matching properties
           right now.
         </p>
 
         <div className="mx-auto mt-10 flex w-full max-w-[896px] flex-col items-stretch gap-6 rounded-[16px] border border-white/10 bg-white/5 p-6 backdrop-blur-[2px] md:flex-row md:items-center md:justify-between md:p-[41px]">
           <div className="flex-1 border-l-4 border-[#489cd8] pl-6 text-left md:pl-9">
-            <p className="max-w-[260px] text-[20px] font-medium leading-[30px] tracking-[-0.6px] text-white md:text-[30px] md:leading-[36px] md:tracking-[-0.75px]">
+            <p
+              className={`max-w-[260px] ${os} text-[24px] font-medium leading-[30px] tracking-[-0.6px] text-white md:text-[30px] md:leading-[36px] md:tracking-[-0.75px]`}
+            >
               What is your primary goal?
             </p>
           </div>
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-5">
             <button
               type="button"
-              className="w-full md:w-fit btn-secondary hover:!bg-transparent hover:!text-[#f76d2f] text-white"
+              className={`w-full md:w-fit btn-secondary ${os} !font-bold !uppercase !text-[14px] !leading-5 !tracking-[1.4px] text-white hover:!bg-transparent hover:!text-[#f76d2f]`}
               onClick={() => startFlow("building")}
             >
               Building my home
             </button>
             <button
               type="button"
-              className="min-w-[200px] w-full md:w-fit cursor-pointer rounded-[6px] border border-white/20 capitalize bg-white/10 px-4 py-3 text-center text-[16px] font-bold tracking-[1.4px] text-white hover:bg-white/20"
+              className={`min-w-[200px] w-full md:w-fit cursor-pointer rounded-[6px] border border-white/20 bg-white/10 px-4 py-3 text-center ${os} font-bold uppercase text-[14px] leading-5 tracking-[1.4px] text-white hover:bg-white/20`}
               onClick={() => startFlow("investment")}
             >
               Investment
@@ -331,17 +358,29 @@ function HomeOurPromise() {
           onClick={resetFlow}
         >
           <div
-            className="w-full max-w-[880px] rounded-[18px] bg-white text-left text-[#114273] shadow-[0px_35px_80px_rgba(0,0,0,0.35)]"
+            className="w-full max-w-[710px] rounded-[14px] bg-white text-left text-[#114273] shadow-[0px_35px_80px_rgba(0,0,0,0.35)]"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="px-6 pt-6 md:px-12 md:pt-10">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <span className="inline-flex rounded-full bg-[#fff4ec] px-4 py-1.5 text-[14px] md:text-[16px] font-bold uppercase tracking-[0.5px] text-[#f76d2f]">
+                  <span
+                    className={`inline-flex rounded-full px-4 py-2.5 ${os} text-[12px] font-semibold uppercase leading-[14px] tracking-[0.5px] ${
+                      activeFlow === "investment"
+                        ? "bg-[rgba(17,66,115,0.1)] text-[#114273]"
+                        : "bg-[rgba(247,109,47,0.1)] text-[#f76d2f]"
+                    }`}
+                  >
                     {flows[activeFlow].badgeEmoji} {flows[activeFlow].label}
                   </span>
-                  <h3 className="mt-4 text-[#1b2d50]">Find your perfect lot</h3>
-                  <p className="mt-1 body-description  text-[#7a8fa8]">
+                  <h3
+                    className={`mt-4 ${frlBlack} text-[28px] leading-[1.1] text-[#101828] md:text-[36px] md:leading-[57.2px]`}
+                  >
+                    Find your perfect lot
+                  </h3>
+                  <p
+                    className={`mt-1 ${os} text-[16px] font-normal leading-[1.4] text-[#364153]`}
+                  >
                     3 quick answers — we&apos;ll show matching properties
                     instantly
                   </p>
@@ -357,93 +396,67 @@ function HomeOurPromise() {
             </div>
 
             <div className="mt-6 border-t border-[#e7edf5] px-6 py-6 md:px-12 md:pt-6 md:pb-10">
-              {isComplete ? (
-                <div className="space-y-6">
-                  <p className="text-[20px] md:text-[24px] text-[#4a5565]">
-                    Great! We&apos;ll tailor listings for{" "}
-                    <span className="font-semibold text-[#114273]">
-                      {flows[activeFlow].label}
-                    </span>
-                    .
-                  </p>
-                  <div className="flex flex-col gap-4 sm:flex-row">
-                    <button
-                      type="button"
-                      className="btn-secondary"
-                      onClick={() => {
-                        const url = buildPropertyMapUrl({
-                          state: answers.state ?? "",
-                          acreageChoice: answers.acres,
-                          budget: answers.budget ?? budgetRange,
-                        });
-                        window.location.href = url;
-                      }}
-                    >
-                      Show Matching Properties
-                    </button>
-                    <button
-                      type="button"
-                      className="rounded-[6px] border border-[#cbd5e1] bg-white px-6 py-3 text-[14px] font-bold uppercase tracking-[1.4px] text-[#114273]"
-                      onClick={resetFlow}
-                    >
-                      Start Over
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <>
-                  <div className="mb-4 flex items-center gap-3">
-                    {activeSteps.map((_, i) => (
-                      <span
-                        key={i}
-                        className={`h-2.5 w-2.5 md:h-3 md:w-3 rounded-full ${i <= stepIndex ? "bg-[#f07a25]" : "bg-[#d7dde7]"}`}
-                      />
-                    ))}
-                    <span className="ml-2 md:ml-3 text-[14px] md:text-[18px] text-[#9aa9bf]">
-                      Step {stepIndex + 1} of {activeSteps.length}
-                    </span>
-                  </div>
+              <div className="mb-4 flex items-center gap-3">
+                {activeSteps.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`h-2.5 w-2.5 md:h-3 md:w-3 rounded-full ${i <= stepIndex ? "bg-[#f07a25]" : "bg-[#d7dde7]"}`}
+                  />
+                ))}
+                <span
+                  className={`ml-2 md:ml-3 ${os} text-[12px] font-normal uppercase leading-5 text-[#2b2b2b]`}
+                >
+                  Step {stepIndex + 1} of {activeSteps.length}
+                </span>
+              </div>
 
-                  <div className="flex items-center gap-3 ">
-                    <span className="inline-flex h-6 w-6 md:h-7 md:w-7 items-center justify-center rounded-full bg-[#f07a25] text-[16px] md:text-[18px] font-bold text-white">
-                      {stepIndex + 1}
-                    </span>
-                    <h3 className="text-[#1f2f50] ">{currentStep.question}</h3>
-                  </div>
+              <div className="flex items-center gap-3 ">
+                <span
+                  className={`inline-flex h-6 w-6 md:h-7 md:w-7 items-center justify-center rounded-full bg-[#f07a25] ${os} text-[16px] font-bold leading-5 text-white`}
+                >
+                  {stepIndex + 1}
+                </span>
+                <p
+                  className={`${os} text-[18px] font-bold leading-5 text-[#252525]`}
+                  role="heading"
+                  aria-level={3}
+                >
+                  {currentStep.question}
+                </p>
+              </div>
 
-                  {renderStepInput()}
+              {renderStepInput()}
 
-                  <div className="mt-8 flex gap-3 md:gap-4">
-                    <button
-                      type="button"
-                      className="btn-primary bg-[#eef2f7] text-[#9aa9bf] disabled:opacity-60"
-                      onClick={goBack}
-                      disabled={stepIndex === 0}
-                    >
-                      ← Back
-                    </button>
-                    {currentStep?.type !== "choice" ? (
-                      <button
-                        type="button"
-                        className="flex-1 btn-secondary"
-                        onClick={handleNext}
-                      >
-                        Next{" "}
-                        <ArrowRight className="ml-2 inline h-5 w-4 md:h-4 md:w-5" />
-                      </button>
-                    ) : (
-                      <button
-                        type="button"
-                        className="flex-1 rounded-[10px] bg-[#e47c28] btn-secondary"
-                        onClick={() => handlePick("Show Properties")}
-                      >
-                        Show Me Properties{" "}
-                        <ArrowRight className="ml-2 inline h-5 w-5 md:h-6 md:w-6" />
-                      </button>
-                    )}
-                  </div>
-                </>
-              )}
+              <div className="mt-8 flex gap-3 md:gap-4">
+                {stepIndex > 0 ? (
+                  <button
+                    type="button"
+                    className={`btn-primary !border !border-[#e5e7eb] !bg-[#eef2f7] !text-[#9aa9bf] hover:!bg-transparent hover:!text-[#364153] hover:!border-[#364153] ${os} !font-semibold !uppercase !text-[18px] !leading-6`}
+                    onClick={goBack}
+                  >
+                    ← Back
+                  </button>
+                ) : null}
+                {currentStep?.type !== "choice" ? (
+                  <button
+                    type="button"
+                    className={`flex-1 btn-secondary ${os} !font-semibold !uppercase !text-[18px] !leading-6 !tracking-normal`}
+                    onClick={handleNext}
+                  >
+                    Next{" "}
+                    <ArrowRight className="ml-2 inline h-5 w-4 md:h-4 md:w-5" />
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className={`flex-1 rounded-[10px] bg-[#e47c28] btn-secondary ${os} !font-semibold !uppercase !text-[18px] !leading-6 !tracking-normal`}
+                    onClick={() => goToPropertyMap()}
+                  >
+                    Show Me Properties{" "}
+                    <ArrowRight className="ml-2 inline h-5 w-5 md:h-6 md:w-6" />
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
