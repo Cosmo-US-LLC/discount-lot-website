@@ -92,7 +92,7 @@ function HomeHero() {
             <h1 className="md:!text-[72px] !text-[36px] leading-[45px] md:!leading-[72px] !font-[700]">
               Own Premium Land for Less Than Your Monthly Rent
             </h1>
-            <p className="text-[24px] font-bold leading-[32px] text-[#FFFFFFE5]">
+            <p className="text-[18px] md:text-[24px] font-bold leading-[32px] text-[#FFFFFFE5]">
               Affordable Land with Easy Monthly Payments, Starting at
               $200/Month.
             </p>
@@ -103,7 +103,7 @@ function HomeHero() {
               <span className="flex h-5 w-5 items-center justify-center rounded-[4px] text-[#FFFFFF] bg-[#f97316]">
                 ✓
               </span>
-              <span className="text-[18px] uppercase font-bold leading-[28px] text-[#FFFFFF]">
+              <span className="text-[14px] md:text-[18px] uppercase font-bold leading-[28px] text-[#FFFFFF]">
                 No Credit Checks
               </span>
             </li>
@@ -111,7 +111,7 @@ function HomeHero() {
               <span className="flex h-5 w-5 items-center justify-center rounded-[4px] text-[#FFFFFF] bg-[#f97316]">
                 ✓
               </span>
-              <span className="text-[18px] uppercase font-bold leading-[28px] text-[#FFFFFF]">
+              <span className="text-[14px] md:text-[18px] uppercase font-bold leading-[28px] text-[#FFFFFF]">
                 Easy Owner Financing
               </span>
             </li>
@@ -119,7 +119,7 @@ function HomeHero() {
               <span className="flex h-5 w-5 items-center justify-center rounded-[4px] text-[#FFFFFF] bg-[#f97316]">
                 ✓
               </span>
-              <span className="text-[18px] uppercase font-bold leading-[28px] text-[#FFFFFF]">
+              <span className="text-[14px] md:text-[18px] uppercase font-bold leading-[28px] text-[#FFFFFF]">
                 Flexible Terms
               </span>
             </li>

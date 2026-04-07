@@ -88,7 +88,7 @@ function HomeHowItWorks() {
               </div>
 
               {/* Step card */}
-              <div className="flex-1 rounded-[14px] border border-[#f3f4f6] bg-white px-4 py-4 shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_2px_4px_rgba(0,0,0,0.1)] md:px-[25px] md:py-[25px]">
+              <div className="flex-1 rounded-[14px] md:border md:border-[#f3f4f6] bg-white md:shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_2px_4px_rgba(0,0,0,0.1)] md:px-[25px] md:py-[25px]">
                 <div className="flex items-start gap-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#fef4f1] text-xl text-[#f76d2f]">
                     {step.icon}

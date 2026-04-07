@@ -11,7 +11,7 @@ export const homeFaqs = [
     id: "fees",
     question: "Are there any agent commissions or hidden fees?",
     answer:
-      "We own every property we sell, so there are no agents involved. The price you see on the listing is the total price. No closing costs. No junk fees. No surprises.\n\nThe only costs you'll have are:\n\n- Your down payment\n- Monthly payments (if financing)\n- Annual property taxes (paid directly to the county)",
+      "Zero hidden and commission fee. We own every property we sell, so there are no agents involved. The price you see on the listing is the total price. No closing costs. No junk fees. No surprises.\n\nThe only costs you'll have are:\n\n- Your down payment\n- Monthly payments (if financing)\n- Annual property taxes (paid directly to the county)",
   },
   {
     id: "process",
@@ -43,7 +43,14 @@ export const homeFaqs = [
     answer:
       "We provide property details, maps, and photos upfront, use clear written agreements, and follow standard recording procedures so your ownership is properly documented and secure. We are not agents or brokers, these are properties we have purchased ourselves, so if you need any information about a lot, we can provide it directly because we fully own and control the land we sell.",
   },
-
+  
+  {
+    id: "title-help",
+    question:
+      "I'm not sure how buying land and transferring the title works. Will you help?",
+    answer:
+      "Yes. Our team guides you through the whole process, including paperwork and title transfer, and we explain what’s happening in plain language before you sign anything.",
+  },
   {
     id: "cant-pay",
     question: "What happens if I can't keep up with payments?",
@@ -78,14 +85,7 @@ export const homeFaqs = [
     id: "deed",
     question: "When do I receive the deed?",
     answer:
-      "For cash purchases, the deed is prepared and sent for recording immediately after closing. For financing (terms), the deed is recorded in your name once the property is paid in full — this protects both parties and keeps payments secure, You will receive a copy of all signed agreements for your records.",
-  },
-  {
-    id: "title-help",
-    question:
-      "I'm not sure how buying land and transferring the title works. Will you help?",
-    answer:
-      "Our team guides you through the whole process, including paperwork and title transfer, and we explain what’s happening in plain language before you sign anything.",
+      "For cash purchases, the deed is prepared and sent for recording immediately after closing.\n\nFor financing (terms), the deed is recorded in your name once the property is paid in full — this protects both parties and keeps payments secure.\n\nYou will receive a copy of all signed agreements for your records.",
   },
 ];
 

@@ -315,9 +315,9 @@ function HomeOurPromise() {
   return (
     <section className="bg-[#114273] px-4 py-16 text-white shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] md:px-16 md:py-16">
       <div className="mx-auto w-full max-w-5xl text-center">
-        <h2>Not seeing what you need?</h2>
+        <h2>Not seeing what you <br className="block md:hidden" /> need?</h2>
         <p
-          className={`mx-auto mt-5 max-w-3xl ${os} text-[16px] font-normal leading-[1.4] text-white`}
+          className={`mx-auto mt-5 max-w-3xl ${os} text-[14px] md:text-[16px] font-normal leading-[1.4] text-white`}
         >
           Answer 3 simple questions and we&apos;ll show you matching properties
           right now.
@@ -326,7 +326,7 @@ function HomeOurPromise() {
         <div className="mx-auto mt-10 flex w-full max-w-[896px] flex-col items-stretch gap-6 rounded-[16px] border border-white/10 bg-white/5 p-6 backdrop-blur-[2px] md:flex-row md:items-center md:justify-between md:p-[41px]">
           <div className="flex-1 border-l-4 border-[#489cd8] pl-6 text-left md:pl-9">
             <p
-              className={`max-w-[260px] ${os} text-[24px] font-medium leading-[30px] tracking-[-0.6px] text-white md:text-[30px] md:leading-[36px] md:tracking-[-0.75px]`}
+              className={`max-w-[260px] ${os} text-[20px] font-medium leading-[30px] tracking-[-0.6px] text-white md:text-[30px] md:leading-[36px] md:tracking-[-0.75px]`}
             >
               What is your primary goal?
             </p>
