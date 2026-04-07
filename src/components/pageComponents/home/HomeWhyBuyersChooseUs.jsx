@@ -66,7 +66,7 @@ function HomeWhyBuyersChooseUs() {
               <div className="mb-6 flex items-center justify-center w-fit rounded-[6px] bg-[#fef4f1] p-3">
                 {feature.icon}
               </div>
-              <h3 className="mb-2 text-[#114273]">{feature.title}</h3>
+              <h3 className="mb-2 !text-[16px] md:!text-[18px] text-[#114273]">{feature.title}</h3>
               <p className="description text-[#6b7280]">{feature.body}</p>
             </article>
           ))}

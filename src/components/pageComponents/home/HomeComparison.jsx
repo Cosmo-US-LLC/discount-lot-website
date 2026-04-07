@@ -57,7 +57,7 @@ function HomeComparison() {
         <div className="overflow-hidden   ">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="md:text-[20px] text-[16px] font-bold leading-[28px] uppercase tracking-[-0.5px] text-[#114273]">
+              <tr className="md:text-[20px] text-[18px] font-bold leading-[28px] uppercase tracking-[-0.5px] text-[#114273]">
                 <th
                   className="px-6 py-6 text-left font-semibold"
                   style={{ fontFamily: "Frank Ruhl Libre" }}
@@ -91,20 +91,20 @@ function HomeComparison() {
             <tbody>
               {rows.map((row) => (
                 <tr key={row.label} className="border-t border-[#e5e7eb]">
-                  <td className="whitespace-nowrap md:px-6 px-3 py-6 text-left font-semibold text-[18px] leading-[28px]">
+                  <td className="whitespace-nowrap md:px-6 px-3 py-6 text-left font-semibold text-[16px] md:text-[18px] leading-[28px]">
                     {row.label}
                   </td>
                   <td className="md:px-6 px-3 py-6 text-center bg-[#FEF4F1] rounded-b-[4px]">
-                    <div className="inline-flex md:w-[280px] w-[60px] items-center gap-4 px-4 py-1 text-[18px] font-semibold leading-[28px] text-[#F76D2F]">
-                      <div className="md:h-6 h-4 md:w-6 w-4 flex items-center justify-center rounded-full bg-[#24B24A]">
+                    <div className="inline-flex md:w-[280px] w-[60px] items-center gap-4 px-5 md:px-4 py-1 text-[16px] md:text-[18px] font-semibold leading-[28px] text-[#F76D2F]">
+                      <div className="md:h-6 h-5 md:w-6 w-5 flex items-center justify-center rounded-full bg-[#24B24A]">
                         <Check className="md:h-4 h-3 md:w-4 w-3 text-white" />
                       </div>
                       <span className="md:flex hidden">{row.discountLots}</span>
                     </div>
                   </td>
                   <td className="md:px-6 px-3 py-6 text-center">
-                    <div className="inline-flex md:w-[280px] w-[60px] items-center gap-4 px-4 py-1 text-[18px] font-normal leading-[28px] text-[#6B7280]">
-                      <div className="md:h-6 h-4 md:w-6 w-4 flex items-center justify-center rounded-full bg-[#EF4444]">
+                    <div className="inline-flex md:w-[280px] w-[60px] items-center gap-4 px-4 py-1 text-[16px] md:text-[18px] font-normal leading-[28px] text-[#6B7280]">
+                      <div className="md:h-6 h-5 md:w-6 w-5 flex items-center justify-center rounded-full bg-[#EF4444]">
                         <X className="md:h-4 h-3 md:w-4 w-3 text-white" />
                       </div>
                       <span className="md:flex hidden">{row.traditional}</span>

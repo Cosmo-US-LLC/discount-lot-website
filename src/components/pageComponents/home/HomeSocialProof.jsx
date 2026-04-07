@@ -157,8 +157,8 @@ function HomeSocialProof() {
             </div>
           </div>
 
-          <div className="bg-white border border-[rgba(72,156,216,0.1)] rounded-full px-6 py-3">
-            <div className="text-[#489cd8] md:text-[14px] text-[6px] font-bold uppercase tracking-[3px] whitespace-nowrap">
+          <div className="bg-white border border-[rgba(72,156,216,0.1)] rounded-full px-4 md:px-6 py-3">
+            <div className="text-[#489cd8] md:text-[14px] text-[12px] font-bold uppercase tracking-[0px] md:tracking-[3px] whitespace-nowrap">
               3,000+ Land OWNERS • 900+ VERIFIED 5-STAR REVIEWS
             </div>
           </div>
