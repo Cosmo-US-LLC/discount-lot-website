@@ -61,7 +61,7 @@ function WhyBuyFeatureCard({ iconSrc, title, description }) {
 
 function ArizonaWhyBuyLandSection() {
   return (
-    <section className="bg-white md:py-18 scroll-py-12">
+    <section className="bg-white md:py-18 py-12">
       <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8 flex items-start justify-between gap-[40px] flex-col lg:flex-row">
         <div className="flex flex-col gap-[24px] items-start w-full md:w-[602px]">
           <div className="flex flex-col gap-4 items-start w-full">
@@ -97,16 +97,16 @@ function ArizonaWhyBuyLandSection() {
           </button>
         </div>
 
-        <div className="w-full md:w-[548px] h-[500px] relative rounded-[8px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.25)]">
+        <div className="w-full md:w-[548px] md:h-[520px] h-[200px] relative rounded-[8px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.25)]">
           <img
             alt=""
             src={imgImage26}
             className="w-full h-full object-cover rounded-[8px]"
           />
 
-          <div className="absolute -right-[30px] -bottom-[40px] bg-white px-6 py-4 rounded-[8px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.3)] w-[200px]">
+          <div className="absolute right-[10px] md:-right-[30px] bottom-[10px] md:-bottom-[40px] bg-white md:px-6 px-3 md:py-4 py-3 rounded-[8px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.3)] md:w-[200px] w-[300px]">
             <div className="flex flex-col gap-[7px] items-start text-[#f76d2f]">
-              <div className="flex flex-col font-['Bebas_Neue',sans-serif] not-italic justify-center text-[48px] leading-[48px] w-full">
+              <div className="flex flex-col not-italic justify-center md:text-[48px] text-[36px] md:leading-[48px] leading-[36px] w-full">
                 44%
               </div>
               <div className="flex flex-col font-normal justify-center text-[14px] leading-[normal] w-full text-[#f76d2f]">
