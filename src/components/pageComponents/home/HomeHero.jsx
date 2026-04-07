@@ -14,7 +14,7 @@ const ROTATING_HERO_STATES = [
   "Georgia",
   "Kentucky",
   "Michigan",
-  "Missori",
+  "Missouri",
   "Nevada",
   "Tennessee",
   "Texas",

@@ -48,44 +48,44 @@ export const homeFaqs = [
     id: "cant-pay",
     question: "What happens if I can't keep up with payments?",
     answer:
-      "Because we approve everyone with no credit check and no bank involvement, our installment agreements are generally non‑refundable once signed. If you hit financial hardship, contact us before missing a payment and we’ll work with you on options. Our goal is to keep you on track as an owner.",
+      "Because we approve everyone with no credit check and no bank involvement, our installment agreements are non-refundable once signed. However, we work with buyers who hit financial hardship — contact us before missing a payment and we'll explore options together. We'd rather keep you as an owner than lose you as a customer.",
   },
   {
     id: "first-time-buyer",
     question: "I'm a first-time land buyer. Can I still buy from you?",
     answer:
-      "Absolutely. We work with many first‑time buyers and guide you through choosing a property, understanding the terms, and completing your purchase step by step.",
+      "Yes Definitely.  We work with many first‑time buyers and walk you through each step, from choosing to selection, so you’re never guessing what comes next.",
   },
   {
     id: "no-full-funds",
     question: "What if I don't have full funds?",
     answer:
-      "You don't need to pay the full price upfront. Most buyers secure their property with a small down payment and affordable monthly terms.",
+      "You don’t need full cash. Most of our buyers secure their property with a small down payment and affordable monthly terms.",
   },
   {
     id: "visit-land",
     question: "Can I visit the land before buying?",
     answer:
-      "Yes, and many buyers do. Each listing includes GPS coordinates and aerial imagery so you can explore the area beforehand. Thousands of our buyers have purchased confidently using our maps, photos, and property data.",
+      "Absolutely, every listing includes GPS coordinates,and aerial drone photos, so you can explore the land from anywhere in the world. Thousands of our buyers have purchased confidently without a physical visit. And with our Land-Vetting Guarantee, you know exactly what you're getting before you commit.",
   },
   {
     id: "utilities",
     question: "Do the lots have utilities?",
     answer:
-      "It depends on the property. We check for proximity to water, electric lines, and road access before listing. Some lots have full utility access; others are ideal for off-grid setups. All utility details are clearly noted on each property page.",
+      "We check every property for proximity to water, electric lines, and road access before listing. Some lots have full utility access; others are ideal for off-grid setups. All details are listed on the property page, no surprises.",
   },
   {
     id: "deed",
     question: "When do I receive the deed?",
     answer:
-      "For cash purchases, the deed is prepared and sent for recording immediately after closing. For financed purchases, the deed is recorded in your name once the property is paid in full. You'll receive copies of all signed agreements for your records.",
+      "For cash purchases, the deed is prepared and sent for recording immediately after closing. For financing (terms), the deed is recorded in your name once the property is paid in full — this protects both parties and keeps payments secure, You will receive a copy of all signed agreements for your records.",
   },
   {
     id: "title-help",
     question:
       "I'm not sure how buying land and transferring the title works. Will you help?",
     answer:
-      "Yes. Our team walks you through each step, including the paperwork and title transfer. We explain everything in plain language before you sign.",
+      "Our team guides you through the whole process, including paperwork and title transfer, and we explain what’s happening in plain language before you sign anything.",
   },
 ];
 
